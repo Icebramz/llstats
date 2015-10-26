@@ -1,0 +1,36 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1> Player Roster for Team: <%= @team.name %> </h1>
+<br>
+<hr>
+
+<table>
+  <thead>
+    <tr>
+       <th> Last_Name </th>
+       <th> First_Name </th>
+       <th> Hits (H) </th>
+       <th> Assists (A) </th>
+       <th colspan="4" > </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |cur_player| %>
+      <tr>
+        <td> <%= cur_player.last %> </td>
+        <td> <%= cur_player.first %> </td>
+        <td> <%= cur_player.hits %> </td>
+        <td> <%= cur_player.assists %> </td>
+        <td> <%= link_to "Edit", edit_player_path(cur_player) %> </td>
+        <td> <%= link_to "Delete", cur_player, method: :delete, data: { confirm: "Are you sure?" } %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Add Player", new_team_player_path %> |
+<%= link_to "Back to #{@team.name}'s Homepage", team_path(@team) %>

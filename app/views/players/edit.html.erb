@@ -1,0 +1,7 @@
+<h1> Edit player from <%= @player.team.name %> </h1>
+<br>
+<hr>
+
+<%= render "player_form" %>
+
+<%= link_to "Back", team_players_path(@player.team) %>
