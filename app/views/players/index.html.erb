@@ -8,11 +8,13 @@
 <table>
   <thead>
     <tr>
-       <th> Last_Name </th>
-       <th> First_Name </th>
+       <th> Last Name </th>
+       <th> First Name </th>
        <th> Hits (H) </th>
        <th> Assists (A) </th>
-       <th colspan="4" > </th>
+       <th> At Bats (AB) </th>
+       <th> Batting Average (AVG) </th>
+       <th colspan="6 " > </th>
     </tr>
   </thead>
 
@@ -23,6 +25,8 @@
         <td> <%= cur_player.first %> </td>
         <td> <%= cur_player.hits %> </td>
         <td> <%= cur_player.assists %> </td>
+        <td> <%= cur_player.atbats %> </td>
+        <td> <%= cur_player.batavg %> </td>
         <td> <%= link_to "Edit", edit_player_path(cur_player) %> </td>
         <td> <%= link_to "Delete", cur_player, method: :delete, data: { confirm: "Are you sure?" } %> </td>
       </tr>

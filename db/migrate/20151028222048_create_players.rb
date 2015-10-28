@@ -6,6 +6,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :hits
       t.integer :assists
       t.references :team, index: true, foreign_key: true
+      t.integer :atbats
+      t.float :batavg
 
       t.timestamps null: false
     end

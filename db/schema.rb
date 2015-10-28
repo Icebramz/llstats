@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020021600) do
+ActiveRecord::Schema.define(version: 20151028222048) do
 
   create_table "players", force: :cascade do |t|
     t.string   "first",      limit: 255
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20151020021600) do
     t.integer  "hits",       limit: 4
     t.integer  "assists",    limit: 4
     t.integer  "team_id",    limit: 4
+    t.integer  "atbats",     limit: 4
+    t.float    "batavg",     limit: 24
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

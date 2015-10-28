@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= player.label :last %><br>
+    <%= player.label :last,"Last Name" %><br>
     <%= player.text_field :last %>
   </div>
   <div class="field">
-    <%= player.label :first %><br>
+    <%= player.label :first,"First Name" %><br>
     <%= player.text_field :first %>
   </div>
   <div class="field">
@@ -26,6 +26,10 @@
   <div class="field">
     <%= player.label :assists %><br>
     <%= player.text_field :assists %>
+  </div>
+    <div class="field">
+    <%= player.label :atbats,"At Bats" %><br>
+    <%= player.text_field :atbats %>
   </div>
   <div class="actions">
     <%= player.submit %>

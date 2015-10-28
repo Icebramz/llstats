@@ -6,6 +6,8 @@ one:
   hits: 1
   assists: 1
   team_id: 
+  atbats: 1
+  batavg: 1.5
 
 two:
   first: MyString
@@ -13,3 +15,5 @@ two:
   hits: 1
   assists: 1
   team_id: 
+  atbats: 1
+  batavg: 1.5

@@ -2,6 +2,7 @@ class PlayersController < ApplicationController
 
 before_action :set_player, only: [:edit, :update, :destroy]
 
+
 def index
  @team = Team.find(params[:team_id])
  
@@ -49,7 +50,7 @@ private
  end
 
  def player_params
-   params.require(:player).permit(:first, :last, :hits, :assists)
+   params.require(:player).permit(:first, :last, :hits, :assists, :atbats, :batavg)
  end
 
 end
