@@ -50,7 +50,7 @@ private
  end
 
  def player_params
-   params.require(:player).permit(:first, :last, :hits, :assists, :atbats, :batavg)
+   params.require(:player).permit(:first, :last, :hits, :assists, :atbats, :batavg, :runs, :singles, :doubles, :triples, :homeRuns, :rbis, :stolenBases, :caughtStealing, :walks, :strikeouts, :hitByPitch, :sacrificeHits, :sacrificeFlies, :plateAppearances, :onBasePercentage, :sluggingPercentage, :caughtStealingPercentage, :putouts, :outfieldAssists, :infieldAssists, :f_errors, :assists, :defensiveChances, :fieldingPercentage, :passedBalls, :f_stolenBases, :f_caughtStealing, :f_caughtStealingPercentage, :wins, :losses, :earnedRuns, :inningsPitched, :gamesStarted, :completeGames, :shutouts, :saves, :p_hits, :p_runs, :p_homeRuns, :p_walks, :p_strikeouts, :p_hitByPitch, :balks, :wildPitches, :earnedRunAverage, :whip, :h9, :hr9, :bb9, :k9)
  end
 
 end

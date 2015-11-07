@@ -1,19 +1,46 @@
-
+<head>
+  <style>
+    table, th, td
+    {    
+      border: 1px solid black;
+    }
+    th, td
+    {
+      padding: 10px;
+    }
+  </style>
+</head>
 <p id="notice"><%= notice %></p>
 
 <h1> Player Roster for Team: <%= @team.name %> </h1>
 <br>
 <hr>
-
+<h2> Batting and Baserunning Statistics </h2>
 <table>
   <thead>
     <tr>
        <th> Last Name </th>
        <th> First Name </th>
-       <th> Hits (H) </th>
-       <th> Assists (A) </th>
-       <th> At Bats (AB) </th>
-       <th> Batting Average (AVG) </th>
+       <th> H </th>
+       <th> AB </th>
+       <th> R </th>
+       <th> 1B </th>
+       <th> 2B </th>
+       <th> 3B </th>
+       <th> HR </th>
+       <th> RBI </th>
+       <th> SB </th>
+       <th> CS </th>
+       <th> BB </th>
+       <th> K </th>
+       <th> HBP </th>
+       <th> SH </th>
+       <th> SF </th>
+       <th> PA </th>
+       <th> AVG </th>
+       <th> OBP </th>
+       <th> SLG </th>
+       <th> CS% </th>
        <th colspan="6 " > </th>
     </tr>
   </thead>
@@ -24,9 +51,26 @@
         <td> <%= cur_player.last %> </td>
         <td> <%= cur_player.first %> </td>
         <td> <%= cur_player.hits %> </td>
-        <td> <%= cur_player.assists %> </td>
         <td> <%= cur_player.atbats %> </td>
-        <td> <%= cur_player.batavg %> </td>
+        <td> <%= cur_player.runs %> </td>
+        <td> <%= cur_player.singles %> </td>
+        <td> <%= cur_player.doubles %> </td>
+        <td> <%= cur_player.triples %> </td>
+        <td> <%= cur_player.homeRuns %> </td>
+        <td> <%= cur_player.rbis %> </td>
+        <td> <%= cur_player.stolenBases %> </td>
+        <td> <%= cur_player.caughtStealing %> </td>
+        <td> <%= cur_player.walks %> </td>
+        <td> <%= cur_player.strikeouts %> </td>
+        <td> <%= cur_player.hitByPitch %> </td>
+        <td> <%= cur_player.sacrificeHits %> </td>
+        <td> <%= cur_player.sacrificeFlies %> </td>
+        <td> <%= cur_player.plateAppearances %> </td>
+        <td> <%= number_with_precision(cur_player.batavg, precision:3) %> </td>
+        <td> <%= number_with_precision(cur_player.onBasePercentage, precision:3) %> </td>
+        <td> <%= number_with_precision(cur_player.sluggingPercentage, precision:3) %> </td>
+        <td> <%= number_to_percentage(cur_player.caughtStealingPercentage * 100, precision:0) %> </td>
+
         <td> <%= link_to "Edit", edit_player_path(cur_player) %> </td>
         <td> <%= link_to "Delete", cur_player, method: :delete, data: { confirm: "Are you sure?" } %> </td>
       </tr>
@@ -34,6 +78,125 @@
   </tbody>
 </table>
 
+<br>
+
+<h2> Fielding Statistics </h2>
+
+<table>
+  <thead>
+    <tr>
+       <th> Last Name </th>
+       <th> First Name </th>
+       <th> PO </th>
+       <th> OF </th>
+       <th> IF </th>
+       <th> E </th>
+       <th> PB </th>
+       <th> SB </th>
+       <th> CS </th>
+       <th> A </th>
+       <th> CH </th>
+       <th> FPCT </th>
+       <th> CS% </th>
+
+       <th colspan="6 " > </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |cur_player| %>
+      <tr>
+        <td> <%= cur_player.last %> </td>
+        <td> <%= cur_player.first %> </td>
+        <td> <%= cur_player.putouts %> </td>
+        <td> <%= cur_player.outfieldAssists %> </td>
+        <td> <%= cur_player.infieldAssists %> </td>
+        <td> <%= cur_player.f_errors %> </td>
+        <td> <%= cur_player.passedBalls %> </td>
+        <td> <%= cur_player.f_stolenBases %> </td>
+        <td> <%= cur_player.f_caughtStealing %> </td>
+        <td> <%= cur_player.assists %> </td>
+        <td> <%= cur_player.defensiveChances %> </td>
+        <td> <%= number_with_precision(cur_player.fieldingPercentage, percision:3) %> </td>
+        <td> <%= number_to_percentage(cur_player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+
+        <td> <%= link_to "Edit", edit_player_path(cur_player) %> </td>
+        <td> <%= link_to "Delete", cur_player, method: :delete, data: { confirm: "Are you sure?" } %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2> Pitching Statistics </h2>
+
+<table>
+  <thead>
+    <tr>
+       <th> Last Name </th>
+       <th> First Name </th>
+       <th> W </th>
+       <th> L </th>
+       <th> ER </th>
+       <th> IP </th>
+       <th> GS </th>
+       <th> CG </th>
+       <th> SHO </th>
+       <th> SV </th>
+       <th> H </th>
+       <th> R </th>
+       <th> HR </th>
+       <th> BB </th>
+       <th> K </th>
+       <th> HBP </th>
+       <th> BK </th>
+       <th> WP </th>
+       <th> ERA </th>
+       <th> WHIP </th>
+       <th> H9 </th>
+       <th> HR9 </th>
+       <th> BB9 </th>
+       <th> K9 </th>
+
+       <th colspan="6 " > </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |cur_player| %>
+      <tr>
+        <td> <%= cur_player.last %> </td>
+        <td> <%= cur_player.first %> </td>
+        <td> <%= cur_player.wins%> </td>
+        <td> <%= cur_player.losses %> </td>
+        <td> <%= cur_player.earnedRuns %> </td>
+        <td> <%= cur_player.inningsPitched %> </td>
+        <td> <%= cur_player.gamesStarted %> </td>
+        <td> <%= cur_player.completeGames %> </td>
+        <td> <%= cur_player.shutouts %> </td>
+        <td> <%= cur_player.saves %> </td>
+        <td> <%= cur_player.p_hits %> </td>
+        <td> <%= cur_player.p_runs %> </td>
+        <td> <%= cur_player.p_homeRuns %> </td>
+        <td> <%= cur_player.p_walks %> </td>
+        <td> <%= cur_player.p_strikeouts %> </td>
+        <td> <%= cur_player.p_hitByPitch %> </td>
+        <td> <%= cur_player.balks %> </td>
+        <td> <%= cur_player.wildPitches %> </td>
+        <td> <%= number_with_precision(cur_player.earnedRunAverage, precision:2) %> </td>
+        <td> <%= number_with_precision(cur_player.whip, precision:3) %> </td>
+        <td> <%= number_with_precision(cur_player.h9, precision:1) %> </td>
+        <td> <%= number_with_precision(cur_player.hr9, precision:1) %> </td>
+        <td> <%= number_with_precision(cur_player.bb9, precision:1) %> </td>
+        <td> <%= number_with_precision(cur_player.k9, precision:1) %> </td>
+
+        <td> <%= link_to "Edit", edit_player_path(cur_player) %> </td>
+        <td> <%= link_to "Delete", cur_player, method: :delete, data: { confirm: "Are you sure?" } %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <br>
 
 <%= link_to "Add Player", new_team_player_path %> |
