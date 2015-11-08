@@ -17,10 +17,10 @@
    <tr>
     <td> <%= cur_team.name  %> </td>
     <td> <%= cur_team.division %> </td>
-    <td> <%= link_to cur_team, class: 'btn btn-success btn-xs' do%> 
+    <td> <%= link_to cur_team, class: 'btn btn-primary btn-xs' do%> 
       Team Details <i class="glyphicon glyphicon-search"></i> 
      <%end %>  </td>
-    <td> <%= link_to edit_team_path(cur_team), class: 'btn btn-info btn-xs' do %>
+    <td> <%= link_to edit_team_path(cur_team), class: 'btn btn-primary btn-xs' do %>
       Edit <i class="glyphicon glyphicon-pencil"></i>
      <% end %> </td>
     <td> <%= link_to cur_team, method: :delete, data: { confirm: "Are you sure you want to delete the team #{cur_team.name}?" }, class: 'btn btn-danger btn-xs' do%>
@@ -32,4 +32,6 @@
 
 </table>
 
-<%= link_to "Add a new Team", controller: "teams", action: "new" %>
+<%= link_to new_team_path, class: 'btn btn-primary btn-md' do%> 
+    New Team <i class="glyphicon glyphicon-plus"></i> 
+     <%end %> 

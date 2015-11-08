@@ -1,4 +1,4 @@
-<%= form_for([@team, @player]) do |player| %>
+<%= bootstrap_form_for([@team, @player]) do |player| %>
  <% if @player.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@player.errors.count, "error") %> prohibited this Player from being saved:</h2>
@@ -12,174 +12,134 @@
   <% end %>
 
   <div class="field">
-    <%= player.label :last,"Last Name" %><br>
-    <%= player.text_field :last %>
+    <%= player.text_field :last, label: "Last Name"%>
   </div>
   <div class="field">
-    <%= player.label :first,"First Name" %><br>
-    <%= player.text_field :first %>
+    <%= player.text_field :first, label: "First Name" %>
   </div>
 
   <h2>Batting and Baserunning Statistics</h2>
 
   <div class="field">
-    <%= player.label :hits %><br>
-    <%= player.text_field :hits %>
+    <%= player.text_field :hits, label: "Hits" %>
   </div>
   <div class="field">
-    <%= player.label :atbats,"At Bats" %><br>
-    <%= player.text_field :atbats %>
+    <%= player.text_field :atbats, label: "At Bats"%>
   </div>
   <div class="field">
-    <%= player.label :runs,"Runs" %><br>
-    <%= player.text_field :runs %>
+    <%= player.text_field :runs, label: "Runs" %>
   </div>
   <div class="field">
-    <%= player.label :singles,"Singles" %><br>
-    <%= player.text_field :singles %>
+    <%= player.text_field :singles, label: "Singles" %>
   </div>
   <div class="field">
-    <%= player.label :doubles,"Doubles" %><br>
-    <%= player.text_field :doubles %>
+    <%= player.text_field :doubles, label: "Doubles" %>
   </div>
   <div class="field">
-    <%= player.label :triples,"Triples" %><br>
-    <%= player.text_field :triples %>
+    <%= player.text_field :triples, label: "Triples" %>
   </div>
   <div class="field">
-    <%= player.label :homeRuns,"Home Runs" %><br>
-    <%= player.text_field :homeRuns %>
+    <%= player.text_field :homeRuns, label: "Home Runs" %>
   </div>
   <div class="field">
-    <%= player.label :rbis,"RBI" %><br>
-    <%= player.text_field :rbis %>
+    <%= player.text_field :rbis, label: "RBI" %>
   </div>
   <div class="field">
-    <%= player.label :stolenBases,"Stolen Bases" %><br>
-    <%= player.text_field :stolenBases %>
+    <%= player.text_field :stolenBases, label: "Stolen Bases" %>
   </div>
   <div class="field">
-    <%= player.label :caughtStealing,"Caught Stealing" %><br>
-    <%= player.text_field :caughtStealing %>
+    <%= player.text_field :caughtStealing, label: "Caught Stealing" %>
   </div>
   <div class="field">
-    <%= player.label :walks,"Walks" %><br>
-    <%= player.text_field :walks %>
+    <%= player.text_field :walks, label: "Walks" %>
   </div>
   <div class="field">
-    <%= player.label :strikeouts,"Strikeouts" %><br>
-    <%= player.text_field :strikeouts %>
+    <%= player.text_field :strikeouts, label: "Strikeouts" %>
   </div>
   <div class="field">
-    <%= player.label :hitByPitch,"Hit By Pitch" %><br>
-    <%= player.text_field :hitByPitch %>
+    <%= player.text_field :hitByPitch, label: "Hit By Pitch" %>
   </div>
   <div class="field">
-    <%= player.label :sacrificeHits,"Sacrifice Hits" %><br>
-    <%= player.text_field :sacrificeHits %>
+    <%= player.text_field :sacrificeHits, label: "Sacrifice Hits" %>
   </div>
   <div class="field">
-    <%= player.label :sacrificeFlies,"Sacrifice Flies" %><br>
-    <%= player.text_field :sacrificeFlies %>
+    <%= player.text_field :sacrificeFlies, label: "Sacrifice Flies" %>
   </div>
 
   <h2>Fielding Statistics</h2>
 
  <!-- </div> % -->
   <div class="field">
-    <%= player.label :putouts,"Putouts" %><br>
-    <%= player.text_field :putouts %>
+    <%= player.text_field :putouts, label: "Putouts" %>
   </div>
   <div class="field">
-    <%= player.label :outfieldAssists,"Outfield Assists" %><br>
-    <%= player.text_field :outfieldAssists %>
+    <%= player.text_field :outfieldAssists, label: "Outfield Assists" %>
   </div>
   <div class="field">
-    <%= player.label :infieldAssists,"Infield Assists" %><br>
-    <%= player.text_field :infieldAssists %>
+    <%= player.text_field :infieldAssists, label: "Infield Assists" %>
   </div>
   <div class="field">
-    <%= player.label :f_errors,"Errors" %><br>
-    <%= player.text_field :f_errors %>
+    <%= player.text_field :f_errors, label: "Errors" %>
   </div>
   <div class="field">
-    <%= player.label :passedBalls,"Passed Balls" %><br>
-    <%= player.text_field :passedBalls %>
+    <%= player.text_field :passedBalls, label: "Passed Balls" %>
   </div>
   <div class="field">
-    <%= player.label :f_stolenBases,"Stolen Bases" %><br>
-    <%= player.text_field :f_stolenBases %>
+    <%= player.text_field :f_stolenBases, label: "Stolen Bases" %>
   </div>
   <div class="field">
-    <%= player.label :f_caughtStealing,"Caught Stealing" %><br>
-    <%= player.text_field :f_caughtStealing %>
+    <%= player.text_field :f_caughtStealing, label: "Caught Stealing" %>
   </div>
 
   <h2>Pitching Statistics</h2>
 
   <div class="field">
-    <%= player.label :wins,"Wins" %><br>
-    <%= player.text_field :wins %>
+    <%= player.text_field :wins, label: "Wins" %>
   </div>
   <div class="field">
-    <%= player.label :losses,"Losses" %><br>
-    <%= player.text_field :losses %>
+    <%= player.text_field :losses, label: "Losses" %>
   </div>
   <div class="field">
-    <%= player.label :earnedRuns,"Earned Runs" %><br>
-    <%= player.text_field :earnedRuns %>
+    <%= player.text_field :earnedRuns, label: "Earned Runs" %>
   </div>
   <div class="field">
-    <%= player.label :inningsPitched,"Innings Pitched" %><br>
-    <%= player.text_field :inningsPitched %>
+    <%= player.text_field :inningsPitched, label: "Innings Pitched" %>
   </div>
   <div class="field">
-    <%= player.label :gamesStarted,"Games Started" %><br>
-    <%= player.text_field :gamesStarted %>
+    <%= player.text_field :gamesStarted, label: "Games Started" %>
   </div>
   <div class="field">
-    <%= player.label :completeGames,"Complete Games" %><br>
-    <%= player.text_field :completeGames %>
+    <%= player.text_field :completeGames, label: "Complete Games" %>
   </div>
   <div class="field">
-    <%= player.label :shutouts,"Shutouts" %><br>
-    <%= player.text_field :shutouts %>
+    <%= player.text_field :shutouts, label: "Shutouts" %>
   </div>
   <div class="field">
-    <%= player.label :saves,"Saves" %><br>
-    <%= player.text_field :saves %>
+    <%= player.text_field :saves, label: "Saves" %>
   </div>
   <div class="field">
-    <%= player.label :p_hits,"Hits" %><br>
-    <%= player.text_field :p_hits %>
+    <%= player.text_field :p_hits, label: "Hits" %>
   </div>
   <div class="field">
-    <%= player.label :p_runs,"Runs" %><br>
-    <%= player.text_field :p_runs %>
+    <%= player.text_field :p_runs, label: "Runs" %>
   </div>
   <div class="field">
-    <%= player.label :p_homeRuns,"Home Runs" %><br>
-    <%= player.text_field :p_homeRuns %>
+    <%= player.text_field :p_homeRuns, label: "Home Runs" %>
   </div>
   <div class="field">
-    <%= player.label :p_walks,"Walks" %><br>
-    <%= player.text_field :p_walks %>
+    <%= player.text_field :p_walks, label: "Walks" %>
   </div>
   <div class="field">
-    <%= player.label :p_strikeouts,"Strikeouts" %><br>
-    <%= player.text_field :p_strikeouts %>
+    <%= player.text_field :p_strikeouts, label: "Strikeouts" %>
   </div>
   <div class="field">
-    <%= player.label :p_hitByPitch,"Hit By Pitch" %><br>
-    <%= player.text_field :p_hitByPitch %>
+    <%= player.text_field :p_hitByPitch, label: "Hit By Pitch" %>
   </div>
   <div class="field">
-    <%= player.label :balks,"Balks" %><br>
-    <%= player.text_field :balks %>
+    <%= player.text_field :balks, label: "Balks" %>
   </div>
   <div class="field">
-    <%= player.label :wildPitches,"Wild Pitches" %><br>
-    <%= player.text_field :wildPitches %>
+    <%= player.text_field :wildPitches, label: "Wild Pitches" %>
   </div>
 
   <div class="actions">
