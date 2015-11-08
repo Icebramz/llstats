@@ -18,7 +18,7 @@ player = Player.create(
   { first: "Baseball", last: "Swaglord", hits: 200, assists: 4, team_id: team[0].id},
   { first: "Isaac", last: "Beadle Ramirez", hits: 500, assists: 10, team_id: team[0].id},
   { first: "Joey", last:"Shelton", hits: 0, assists: 1,  team_id: team[1].id},
-  { first: "Johnny", last:"Not-so-turbo", hits: 1, assists: 3,  team_id: team[1].id},
+  { first: "Johnny", last:"Not-turbo", hits: 1, assists: 3,  team_id: team[1].id},
   { first: "Kendra", last: "Kuivenhoven", hits: 2, assists: 1, team_id: team[1].id}
  ]
 )
