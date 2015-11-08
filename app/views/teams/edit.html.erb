@@ -1,8 +1,7 @@
 <h1> Edit this team </h1>
-<br>
 <hr>
 
 <%= render "team_form" %>
+<br>
 
-<%= link_to "Show", @team %> | 
-<%= link_to "Back", teams_path %>
+<%= link_to teams_path, class: 'btn btn-default' do %>Back<i class="glyphicon glyphicon-none"></i><% end %> 

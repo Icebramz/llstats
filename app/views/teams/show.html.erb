@@ -1,16 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Team Details </h1>
-<br>
-<hr>
 
-<p>
- Team Name: <%= @team.name %>
-</p>
+<div class="center jumbotron">
+  <h1><%= @team.name %></h1>
+  
+  <%= image_tag("LLLogo.png", alt: "Little League logo") %>
+  
 
-<p>
- Current Division: <%= @team.division %>
-</p>
+  <h2>Wins: <%= @team.division %> Losses: <%= @team.division %> <br>Division: <%= @team.division %></h2>
+  <%= link_to teams_path, class: 'btn btn-primary btn-lg' do%> All Teams <i class="glyphicon glyphicon-none"></i> <%end %>
+  <%= link_to team_players_path(@team), class: 'btn btn-primary btn-lg' do%> Show Roster <i class="glyphicon glyphicon-none"></i> <%end %>
+  
+   
+</div>
 
-<%= link_to "Show Player Roster", team_players_path(@team) %> |
-<%= link_to "All Teams", teams_path %>
+
+
+

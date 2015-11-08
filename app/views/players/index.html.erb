@@ -1,7 +1,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1> Player Roster for Team: <%= @team.name %> </h1>
+<h1> <%= @team.name %> Player Roster</h1>
 <br>
 <hr>
 <h2> Batting and Baserunning Statistics </h2>
@@ -30,6 +30,8 @@
        <th> OBP </th>
        <th> SLG </th>
        <th> CS% </th>
+       <th> Edit </th>
+       <th> Delete </th>
        
     </tr>
   </thead>
@@ -98,6 +100,8 @@
        <th> HR9 </th>
        <th> BB9 </th>
        <th> K9 </th>
+       <th> Edit </th>
+       <th> Delete </th>
 
        <th colspan="6 " > </th>
     </tr>
@@ -131,6 +135,7 @@
         <td> <%= number_with_precision(cur_player.bb9, precision:1) %> </td>
         <td> <%= number_with_precision(cur_player.k9, precision:1) %> </td>
 
+
         <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %> Edit <i class="glyphicon glyphicon-pencil"></i><% end %> </td>
         <td> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%>Delete <i class="glyphicon glyphicon-trash"></i><% end %> </td>
       </tr>
@@ -158,6 +163,8 @@
        <th> CH </th>
        <th> FPCT </th>
        <th> CS% </th>
+       <th> Edit </th>
+       <th> Delete </th>
 
        <th colspan="6 " > </th>
     </tr>
