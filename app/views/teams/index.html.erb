@@ -1,7 +1,5 @@
 <h1>Teams</h1>
-<hr>
-<%= link_to new_team_path, class: 'btn btn-primary btn-md' do%> New Team <i class="glyphicon glyphicon-plus"></i> <%end %> 
-<br>
+<%= link_to new_team_path, class: 'btn btn-default btn-md' do%> New Team <i class="glyphicon glyphicon-plus"></i> <%end %> 
 <hr>
 
 <div class = "row">
@@ -15,7 +13,7 @@
       <div class = "caption">
          <h3><%= cur_team.name  %></h3>
          <p>Division: <%= cur_team.division %></p>
-         <p>Wins: <%= cur_team.division %> Losses: <%= cur_team.division %></p>
+         <!--<p>Wins: <%= cur_team.division %> Losses: <%= cur_team.division %></p>-->
          
          <p>
             <%= link_to cur_team, class: 'btn btn-primary' do%> 
@@ -43,7 +41,7 @@
          <p>Create new team.</p>
          
          <p>
-            <%= link_to new_team_path, class: 'btn btn-primary btn-md' do%> New Team <i class="glyphicon glyphicon-plus"></i> <%end %>             
+            <%= link_to new_team_path, class: 'btn btn-default btn-md' do%> New Team <i class="glyphicon glyphicon-plus"></i> <%end %>             
          </p>
          
       </div>
