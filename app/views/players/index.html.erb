@@ -3,7 +3,8 @@
 <% end %>
 
 <h1> <%= @team.name %> Player Roster</h1>
-<br>
+<%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
+
 <hr>
 <h2> Batting and Baserunning Statistics </h2>
 <table class="table table-striped">
@@ -198,5 +199,5 @@
 <br>
 
 <%= link_to new_team_player_path, class: 'btn btn-primary btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
-<%= link_to team_path(@team), class: 'btn btn-primary btn-md' do%> Back <i class="glyphicon glyphicon-chevron-left"></i> <%end %>
+<%= link_to team_path(@team), class: 'btn btn-primary btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 
