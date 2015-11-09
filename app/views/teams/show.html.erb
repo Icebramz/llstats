@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-
+<% if flash[:alert] %>
+	<div class="alert alert-success" role="alert"><%= flash.alert %></div></p>
+<% end %>
 
 <div class="center jumbotron">
   <h1><%= @team.name %></h1>

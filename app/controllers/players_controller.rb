@@ -20,7 +20,8 @@ def create
  @player = @team.players.new(player_params)
 
  if @player.save
-   redirect_to team_players_url(@team), notice: 'Player was succesfully created!'
+   redirect_to team_players_url(@team)
+   flash[:alert] = "Player was succesfully created!"
  else
    render :new
  end
@@ -31,7 +32,8 @@ end
 
 def update
   if @player.update(player_params)
-    redirect_to team_players_url(@player.team), notice: 'Player was succesfully updated!'
+    redirect_to team_players_url(@player.team)
+    flash[:alert] = "Player was succesfully updated!"
   else
     render :edit
   end
