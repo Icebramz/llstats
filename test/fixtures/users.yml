@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+kendra:
+  name: Kendra Example
+  email: kendra@example.com
+  password_digest: <%= User.digest('password') %>
+
+#adopting the convention that all fixture users have the same password ('password')
+#this fixture can be retrieved in a test as follows: users = users(:kendra)
+
+
+# empty

@@ -3,7 +3,7 @@ class Player < ActiveRecord::Base
   before_save :calcstats
 
   def calcstats
-    self.batavg = self.hits.to_f / self.atbats
+#    self.batavg = self.hits.to_f / self.atbats
   end
 
 end

@@ -3,7 +3,9 @@
 
   <h2> This is the home of the Little League Stat Tracker web application!</h2>
 
-  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+  <!-- link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" -->
+<%= link_to new_user_path, class: 'btn btn-primary btn-lg' do%>Sign Up<% end %>
+
 </div>
 
 <%= image_tag("LLLogo.png", alt: "Little League logo") %>
