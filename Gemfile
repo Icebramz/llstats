@@ -3,9 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.3.18'
 
+# Use mysql as the database for Active Record
+#gem 'mysql2', '~> 0.3.18'
+gem 'pg'
+gem 'rails_12factor', group: :production
+########
 # yaml db gem for dumping and reloading database contents
 gem 'yaml_db', '~> 0.3.0'
 
