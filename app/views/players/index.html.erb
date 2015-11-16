@@ -6,12 +6,15 @@
 <%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
 
 <hr>
-<h2> Batting and Baserunning Statistics </h2>
-<table class="table table-striped">
+<div class="panel panel-default">
+ 
+  <div class="panel-heading">Batting and Baserunning Statistics</div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed">
   <thead>
     <tr>
-       <th> Last Name </th>
-       <th> First Name </th>
+       <th>Edit </th>
+       <th> Name </th>
        <th> H </th>
        <th> AB </th>
        <th> R </th>
@@ -32,8 +35,8 @@
        <th> OBP </th>
        <th> SLG </th>
        <th> CS% </th>
-       <th> Edit </th>
-       <th> Delete </th>
+       <!--<th> Edit </th>
+       <th> Delete </th>-->
        
     </tr>
   </thead>
@@ -41,8 +44,10 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <td> <%= cur_player.last %> </td>
-        <td> <%= cur_player.first %> </td>
+        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+		<%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> 
+		</td>
+        <td> <%= cur_player.first %> <%= cur_player.last %> </td>
         <td> <%= cur_player.hits %> </td>
         <td> <%= cur_player.atbats %> </td>
         <td> <%= cur_player.runs %> </td>
@@ -64,22 +69,80 @@
         <td> <%= number_with_precision(cur_player.sluggingPercentage, precision:3) %> </td>
         <td> <%= number_to_percentage(cur_player.caughtStealingPercentage * 100, precision:0) %> </td>
 
-        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %> Edit <i class="glyphicon glyphicon-pencil"></i><% end %> </td>
-        <td> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%>Delete <i class="glyphicon glyphicon-trash"></i><% end %> </td>
+        <td>  
+		</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
 <br>
 
-<h2> Pitching Statistics </h2>
-
-<table class="table table-striped">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Fielding Statistics</div>
+<div class="table-responsive">
+<table class="table table-striped table-condensed">
   <thead>
     <tr>
-       <th> Last Name </th>
-       <th> First Name </th>
+       <th><!-- Last -->Edit </th>
+       <th> Name </th>
+       <th> PO </th>
+       <th> OF </th>
+       <th> IF </th>
+       <th> E </th>
+       <th> PB </th>
+       <th> SB </th>
+       <th> CS </th>
+       <th> A </th>
+       <th> CH </th>
+       <th> FPCT </th>
+       <th> CS% </th>
+       <!--<th> Edit </th>
+       <th> Delete </th>_-->
+
+        </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |cur_player| %>
+      <tr>
+        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> </td>
+        <td> <%= cur_player.first %> <%= cur_player.last %> </td>
+        <td> <%= cur_player.putouts %> </td>
+        <td> <%= cur_player.outfieldAssists %> </td>
+        <td> <%= cur_player.infieldAssists %> </td>
+        <td> <%= cur_player.f_errors %> </td>
+        <td> <%= cur_player.passedBalls %> </td>
+        <td> <%= cur_player.f_stolenBases %> </td>
+        <td> <%= cur_player.f_caughtStealing %> </td>
+        <td> <%= cur_player.assists %> </td>
+        <td> <%= cur_player.defensiveChances %> </td>
+        <td> <%= number_with_precision(cur_player.fieldingPercentage, percision:3) %> </td>
+        <td> <%= number_to_percentage(cur_player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Pitching Statistics</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+       <th> Edit </th>
+       <th> Name </th>
        <th> W </th>
        <th> L </th>
        <th> ER </th>
@@ -102,8 +165,8 @@
        <th> HR9 </th>
        <th> BB9 </th>
        <th> K9 </th>
-       <th> Edit </th>
-       <th> Delete </th>
+       <!--<th> Edit </th>
+       <th> Delete </th>-->
 
        <th colspan="6 " > </th>
     </tr>
@@ -112,8 +175,9 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <td> <%= cur_player.last %> </td>
-        <td> <%= cur_player.first %> </td>
+        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %>  </td>
+        <td> <%= cur_player.first %> <%= cur_player.last %> </td>
         <td> <%= cur_player.wins%> </td>
         <td> <%= cur_player.losses %> </td>
         <td> <%= cur_player.earnedRuns %> </td>
@@ -137,66 +201,15 @@
         <td> <%= number_with_precision(cur_player.bb9, precision:1) %> </td>
         <td> <%= number_with_precision(cur_player.k9, precision:1) %> </td>
 
-
-        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %> Edit <i class="glyphicon glyphicon-pencil"></i><% end %> </td>
-        <td> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%>Delete <i class="glyphicon glyphicon-trash"></i><% end %> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
 <br>
 
-<h2> Fielding Statistics </h2>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-       <th> Last Name </th>
-       <th> First Name </th>
-       <th> PO </th>
-       <th> OF </th>
-       <th> IF </th>
-       <th> E </th>
-       <th> PB </th>
-       <th> SB </th>
-       <th> CS </th>
-       <th> A </th>
-       <th> CH </th>
-       <th> FPCT </th>
-       <th> CS% </th>
-       <th> Edit </th>
-       <th> Delete </th>
-
-       <th colspan="6 " > </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @players.each do |cur_player| %>
-      <tr>
-        <td> <%= cur_player.last %> </td>
-        <td> <%= cur_player.first %> </td>
-        <td> <%= cur_player.putouts %> </td>
-        <td> <%= cur_player.outfieldAssists %> </td>
-        <td> <%= cur_player.infieldAssists %> </td>
-        <td> <%= cur_player.f_errors %> </td>
-        <td> <%= cur_player.passedBalls %> </td>
-        <td> <%= cur_player.f_stolenBases %> </td>
-        <td> <%= cur_player.f_caughtStealing %> </td>
-        <td> <%= cur_player.assists %> </td>
-        <td> <%= cur_player.defensiveChances %> </td>
-        <td> <%= number_with_precision(cur_player.fieldingPercentage, percision:3) %> </td>
-        <td> <%= number_to_percentage(cur_player.f_caughtStealingPercentage * 100, precision:0) %> </td>
-
-        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %> Edit <i class="glyphicon glyphicon-pencil"></i><% end %> </td>
-        <td> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%>Delete <i class="glyphicon glyphicon-trash"></i><% end %> </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to new_team_player_path, class: 'btn btn-primary btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
 <%= link_to team_path(@team), class: 'btn btn-primary btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
