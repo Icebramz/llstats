@@ -1,4 +1,19 @@
+<head>
+  <style>
+    table, th, td
+    {
+      border: 1px solid black;
+    }
+    th, td
+    {
+      padding: 10px;
+    }
+  </style>
+</head>
+
 <p id="notice"><%= notice %></p>
+
+<% @team.calcteamstats %>
 
 <h1> Team Details </h1>
 <br>
@@ -12,5 +27,186 @@
  Current Division: <%= @team.division %>
 </p>
 
+<br>
+<hr>
+<h2> Batting and Baserunning Statistics </h2>
+<table>
+  <thead>
+    <tr>
+      <th> H </th>
+      <th> AB </th>
+      <th> R </th>
+      <th> 1B </th>
+      <th> 2B </th>
+      <th> 3B </th>
+      <th> HR </th>
+      <th> RBI </th>
+      <th> SB </th>
+      <th> CS </th>
+      <th> BB </th>
+      <th> K </th>
+      <th> HBP </th>
+      <th> SH </th>
+      <th> SF </th>
+      <th> PA </th>
+      <th> AVG </th>
+      <th> OBP </th>
+      <th> SLG </th>
+      <th> CS% </th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td> <%= @team.hits %> </td>
+      <td> <%= @team.atbats %> </td>
+      <td> <%= @team.runs %> </td>
+      <td> <%= @team.singles %> </td>
+      <td> <%= @team.doubles %> </td>
+      <td> <%= @team.triples %> </td>
+      <td> <%= @team.homeRuns %> </td>
+      <td> <%= @team.rbis %> </td>
+      <td> <%= @team.stolenBases %> </td>
+      <td> <%= @team.caughtStealing %> </td>
+      <td> <%= @team.walks %> </td>
+      <td> <%= @team.strikeouts %> </td>
+      <td> <%= @team.hitByPitch %> </td>
+      <td> <%= @team.sacrificeHits %> </td>
+      <td> <%= @team.sacrificeFlies %> </td>
+      <td> <%= @team.plateAppearances %> </td>
+      <td> <%= number_with_precision(@team.batavg, precision:3) %> </td>
+      <td> <%= number_with_precision(@team.onBasePercentage, precision:3) %> </td>
+      <td> <%= number_with_precision(@team.sluggingPercentage, precision:3) %> </td>
+      <td> <%= number_to_percentage(@team.caughtStealingPercentage * 100, precision:0) %> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h2> Fielding Statistics </h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> PO </th>
+      <th> OF </th>
+      <th> IF </th>
+      <th> E </th>
+      <th> PB </th>
+      <th> SB </th>
+      <th> CS </th>
+      <th> A </th>
+      <th> CH </th>
+      <th> FPCT </th>
+      <th> CS% </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td> <%= @team.putouts %> </td>
+      <td> <%= @team.outfieldAssists %> </td>
+      <td> <%= @team.infieldAssists %> </td>
+      <td> <%= @team.f_errors %> </td>
+      <td> <%= @team.passedBalls %> </td>
+      <td> <%= @team.f_stolenBases %> </td>
+      <td> <%= @team.f_caughtStealing %> </td>
+      <td> <%= @team.assists %> </td>
+      <td> <%= @team.defensiveChances %> </td>
+      <td> <%= number_with_precision(@team.fieldingPercentage, precision:3) %> </td>
+      <td> <%= number_to_percentage(@team.f_caughtStealingPercentage * 100, precision:0) %> </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h2> Pitching Statistics </h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> W </th>
+      <th> L </th>
+      <th> ER </th>
+      <th> IP </th>
+      <th> GS </th>
+      <th> CG </th>
+      <th> SHO </th>
+      <th> SV </th>
+      <th> H </th>
+      <th> R </th>
+      <th> HR </th>
+      <th> BB </th>
+      <th> K </th>
+      <th> HBP </th>
+      <th> BK </th>
+      <th> WP </th>
+      <th> ERA </th>
+      <th> WHIP </th>
+      <th> H9 </th>
+      <th> HR9 </th>
+      <th> BB9 </th>
+      <th> K9 </th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td> <%= @team.wins %> </td>
+      <td> <%= @team.losses %> </td>
+      <td> <%= @team.earnedRuns %> </td>
+      <td> <%= @team.inningsPitched %> </td>
+      <td> <%= @team.gamesStarted %> </td>
+      <td> <%= @team.completeGames %> </td>
+      <td> <%= @team.shutouts %> </td>
+      <td> <%= @team.saves %> </td>
+      <td> <%= @team.p_hits %> </td>
+      <td> <%= @team.p_runs %> </td>
+      <td> <%= @team.p_homeRuns %> </td>
+      <td> <%= @team.p_walks %> </td>
+      <td> <%= @team.p_strikeouts %> </td>
+      <td> <%= @team.p_hitByPitch %> </td>
+      <td> <%= @team.balks %> </td>
+      <td> <%= @team.wildPitches %> </td>
+      <td> <%= number_with_precision(@team.earnedRunAverage, precision:2) %> </td>
+      <td> <%= number_with_precision(@team.whip, precision:3) %> </td>
+      <td> <%= number_with_precision(@team.h9, precision:1) %> </td>
+      <td> <%= number_with_precision(@team.hr9, precision:1) %> </td>
+      <td> <%= number_with_precision(@team.bb9, precision:1) %> </td>
+      <td> <%= number_with_precision(@team.k9, precision:1) %> </td>
+    </tr>
+  </tbody>
+<table>
+
 <%= link_to "Show Player Roster", team_players_path(@team) %> |
 <%= link_to "All Teams", teams_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

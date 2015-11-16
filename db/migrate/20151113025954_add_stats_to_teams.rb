@@ -1,0 +1,57 @@
+class AddStatsToTeams < ActiveRecord::Migration
+  def change
+    add_column :teams, :hits, :integer
+    add_column :teams, :atbats, :integer
+    add_column :teams, :batavg, :float
+    add_column :teams, :runs, :integer
+    add_column :teams, :singles, :integer
+    add_column :teams, :doubles, :integer
+    add_column :teams, :triples, :integer
+    add_column :teams, :homeRuns, :integer
+    add_column :teams, :rbis, :integer
+    add_column :teams, :stolenBases, :integer
+    add_column :teams, :caughtStealing, :integer
+    add_column :teams, :walks, :integer
+    add_column :teams, :strikeouts, :integer
+    add_column :teams, :hitByPitch, :integer
+    add_column :teams, :sacrificeHits, :integer
+    add_column :teams, :sacrificeFlies, :integer
+    add_column :teams, :plateAppearances, :integer
+    add_column :teams, :onBasePercentage, :float
+    add_column :teams, :sluggingPercentage, :float
+    add_column :teams, :caughtStealingPercentage, :float
+    add_column :teams, :putouts, :integer
+    add_column :teams, :outfieldAssists, :integer
+    add_column :teams, :infieldAssists, :integer
+    add_column :teams, :f_errors, :integer
+    add_column :teams, :assists, :integer
+    add_column :teams, :defensiveChances, :integer
+    add_column :teams, :fieldingPercentage, :float
+    add_column :teams, :passedBalls, :integer
+    add_column :teams, :f_stolenBases, :integer
+    add_column :teams, :f_caughtStealing, :integer
+    add_column :teams, :f_caughtStealingPercentage, :float
+    add_column :teams, :wins, :integer
+    add_column :teams, :losses, :integer
+    add_column :teams, :earnedRuns, :integer
+    add_column :teams, :inningsPitched, :float
+    add_column :teams, :gamesStarted, :integer
+    add_column :teams, :completeGames, :integer
+    add_column :teams, :shutouts, :integer
+    add_column :teams, :saves, :integer
+    add_column :teams, :p_hits, :integer
+    add_column :teams, :p_runs, :integer
+    add_column :teams, :p_homeRuns, :integer
+    add_column :teams, :p_walks, :integer
+    add_column :teams, :p_strikeouts, :integer
+    add_column :teams, :p_hitByPitch, :integer
+    add_column :teams, :balks, :integer
+    add_column :teams, :wildPitches, :integer
+    add_column :teams, :earnedRunAverage, :float
+    add_column :teams, :whip, :float
+    add_column :teams, :h9, :float
+    add_column :teams, :hr9, :float
+    add_column :teams, :bb9, :float
+    add_column :teams, :k9, :float
+  end
+end
