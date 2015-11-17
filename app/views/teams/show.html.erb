@@ -11,7 +11,7 @@
   
 
   <h2>Wins: <%= @team.wins %> Losses: <%= @team.losses %> <br>Division: <%= @team.division %></h2>
-  <%= link_to teams_path, class: 'btn btn-primary btn-md' do%> All Teams <i class="glyphicon glyphicon-none"></i> <%end %>
+  <%= link_to teams_path, class: 'btn btn-primary btn-md' do%> All Teams <i class="glyphicon glyphicon-baseball"></i> <%end %>
   <%= link_to team_players_path(@team), class: 'btn btn-primary btn-md' do%> Player Roster <i class="glyphicon glyphicon-none"></i> <%end %>
   <button class="btn btn-primary btn-md" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span> Team Stats
