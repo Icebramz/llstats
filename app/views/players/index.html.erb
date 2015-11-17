@@ -2,41 +2,45 @@
   <div class="alert alert-success" role="alert"><%= flash.alert %></div></p>
 <% end %>
 
-<h1> <%= @team.name %> Player Roster</h1>
+<h1> 
+<%= @team.name %> Player Roster <br>
+<hr>
+<%= image_tag @team.avatar.url(:thumb) %>
+</h1>
 <%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
+<%= link_to team_path(@team), class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 
 <hr>
 <div class="panel panel-default">
- 
-  <div class="panel-heading">Batting and Baserunning Statistics</div>
+<div class="panel-heading">Batting and Baserunning Statistics</div>
 <div class="table-responsive">
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-bordered table-condensed">
   <thead>
     <tr>
-       <th>Edit </th>
-       <th> Name </th>
-       <th> H </th>
-       <th> AB </th>
-       <th> R </th>
-       <th> 1B </th>
-       <th> 2B </th>
-       <th> 3B </th>
-       <th> HR </th>
-       <th> RBI </th>
-       <th> SB </th>
-       <th> CS </th>
-       <th> BB </th>
-       <th> K </th>
-       <th> HBP </th>
-       <th> SH </th>
-       <th> SF </th>
-       <th> PA </th>
-       <th> AVG </th>
-       <th> OBP </th>
-       <th> SLG </th>
-       <th> CS% </th>
-       <!--<th> Edit </th>
-       <th> Delete </th>-->
+       <th style="text-align:left">Edit </th>
+       <th style="text-align:center"> Name </th>
+       <th style="text-align:center"> H </th>
+       <th style="text-align:center"> AB </th>
+       <th style="text-align:center"> R </th>
+       <th style="text-align:center"> 1B </th>
+       <th style="text-align:center"> 2B </th>
+       <th style="text-align:center"> 3B </th>
+       <th style="text-align:center"> HR </th>
+       <th style="text-align:center"> RBI </th>
+       <th style="text-align:center"> SB </th>
+       <th style="text-align:center"> CS </th>
+       <th style="text-align:center"> BB </th>
+       <th style="text-align:center"> K </th>
+       <th style="text-align:center"> HBP </th>
+       <th style="text-align:center"> SH </th>
+       <th style="text-align:center"> SF </th>
+       <th style="text-align:center"> PA </th>
+       <th style="text-align:center"> AVG </th>
+       <th style="text-align:center"> OBP </th>
+       <th style="text-align:center"> SLG </th>
+       <th style="text-align:center"> CS% </th>
+       <!--<th style="text-align:center"> Edit </th>
+       <th style="text-align:center"> Delete </th>-->
        
     </tr>
   </thead>
@@ -44,87 +48,31 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+        <td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
 		<%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> 
 		</td>
-        <td> <%= cur_player.first %> <%= cur_player.last %> </td>
-        <td> <%= cur_player.hits %> </td>
-        <td> <%= cur_player.atbats %> </td>
-        <td> <%= cur_player.runs %> </td>
-        <td> <%= cur_player.singles %> </td>
-        <td> <%= cur_player.doubles %> </td>
-        <td> <%= cur_player.triples %> </td>
-        <td> <%= cur_player.homeRuns %> </td>
-        <td> <%= cur_player.rbis %> </td>
-        <td> <%= cur_player.stolenBases %> </td>
-        <td> <%= cur_player.caughtStealing %> </td>
-        <td> <%= cur_player.walks %> </td>
-        <td> <%= cur_player.strikeouts %> </td>
-        <td> <%= cur_player.hitByPitch %> </td>
-        <td> <%= cur_player.sacrificeHits %> </td>
-        <td> <%= cur_player.sacrificeFlies %> </td>
-        <td> <%= cur_player.plateAppearances %> </td>
-        <td> <%= number_with_precision(cur_player.batavg, precision:3) %> </td>
-        <td> <%= number_with_precision(cur_player.onBasePercentage, precision:3) %> </td>
-        <td> <%= number_with_precision(cur_player.sluggingPercentage, precision:3) %> </td>
-        <td> <%= number_to_percentage(cur_player.caughtStealingPercentage * 100, precision:0) %> </td>
-
-        <td>  
+        <td style="text-align:center"> <%= cur_player.first %> <%= cur_player.last %> </td>
+        <td style="text-align:center"> <%= cur_player.hits %> </td>
+        <td style="text-align:center"> <%= cur_player.atbats %> </td>
+        <td style="text-align:center"> <%= cur_player.runs %> </td>
+        <td style="text-align:center"> <%= cur_player.singles %> </td>
+        <td style="text-align:center"> <%= cur_player.doubles %> </td>
+        <td style="text-align:center"> <%= cur_player.triples %> </td>
+        <td style="text-align:center"> <%= cur_player.homeRuns %> </td>
+        <td style="text-align:center"> <%= cur_player.rbis %> </td>
+        <td style="text-align:center"> <%= cur_player.stolenBases %> </td>
+        <td style="text-align:center"> <%= cur_player.caughtStealing %> </td>
+        <td style="text-align:center"> <%= cur_player.walks %> </td>
+        <td style="text-align:center"> <%= cur_player.strikeouts %> </td>
+        <td style="text-align:center"> <%= cur_player.hitByPitch %> </td>
+        <td style="text-align:center"> <%= cur_player.sacrificeHits %> </td>
+        <td style="text-align:center"> <%= cur_player.sacrificeFlies %> </td>
+        <td style="text-align:center"> <%= cur_player.plateAppearances %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.batavg, precision:3) %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.onBasePercentage, precision:3) %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.sluggingPercentage, precision:3) %> </td>
+        <td style="text-align:center"> <%= number_to_percentage(cur_player.caughtStealingPercentage * 100, precision:0) %> </td>
 		</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-</div>
-
-<br>
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Fielding Statistics</div>
-<div class="table-responsive">
-<table class="table table-striped table-condensed">
-  <thead>
-    <tr>
-       <th><!-- Last -->Edit </th>
-       <th> Name </th>
-       <th> PO </th>
-       <th> OF </th>
-       <th> IF </th>
-       <th> E </th>
-       <th> PB </th>
-       <th> SB </th>
-       <th> CS </th>
-       <th> A </th>
-       <th> CH </th>
-       <th> FPCT </th>
-       <th> CS% </th>
-       <!--<th> Edit </th>
-       <th> Delete </th>_-->
-
-        </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @players.each do |cur_player| %>
-      <tr>
-        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
-        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> </td>
-        <td> <%= cur_player.first %> <%= cur_player.last %> </td>
-        <td> <%= cur_player.putouts %> </td>
-        <td> <%= cur_player.outfieldAssists %> </td>
-        <td> <%= cur_player.infieldAssists %> </td>
-        <td> <%= cur_player.f_errors %> </td>
-        <td> <%= cur_player.passedBalls %> </td>
-        <td> <%= cur_player.f_stolenBases %> </td>
-        <td> <%= cur_player.f_caughtStealing %> </td>
-        <td> <%= cur_player.assists %> </td>
-        <td> <%= cur_player.defensiveChances %> </td>
-        <td> <%= number_with_precision(cur_player.fieldingPercentage, percision:3) %> </td>
-        <td> <%= number_to_percentage(cur_player.f_caughtStealingPercentage * 100, precision:0) %> </td>
-
       </tr>
     <% end %>
   </tbody>
@@ -138,68 +86,67 @@
   <div class="panel-heading">Pitching Statistics</div>
 
 <div class="table-responsive">
-<table class="table table-striped table-condensed">
+<table class="table table-striped table-condensed table-hover table-bordered">
   <thead>
     <tr>
-       <th> Edit </th>
-       <th> Name </th>
-       <th> W </th>
-       <th> L </th>
-       <th> ER </th>
-       <th> IP </th>
-       <th> GS </th>
-       <th> CG </th>
-       <th> SHO </th>
-       <th> SV </th>
-       <th> H </th>
-       <th> R </th>
-       <th> HR </th>
-       <th> BB </th>
-       <th> K </th>
-       <th> HBP </th>
-       <th> BK </th>
-       <th> WP </th>
-       <th> ERA </th>
-       <th> WHIP </th>
-       <th> H9 </th>
-       <th> HR9 </th>
-       <th> BB9 </th>
-       <th> K9 </th>
-       <!--<th> Edit </th>
-       <th> Delete </th>-->
+       <th style="text-align:left"> Edit </th>
+       <th style="text-align:center"> Name </th>
+       <th style="text-align:center"> W </th>
+       <th style="text-align:center"> L </th>
+       <th style="text-align:center"> ER </th>
+       <th style="text-align:center"> IP </th>
+       <th style="text-align:center"> GS </th>
+       <th style="text-align:center"> CG </th>
+       <th style="text-align:center"> SHO </th>
+       <th style="text-align:center"> SV </th>
+       <th style="text-align:center"> H </th>
+       <th style="text-align:center"> R </th>
+       <th style="text-align:center"> HR </th>
+       <th style="text-align:center"> BB </th>
+       <th style="text-align:center"> K </th>
+       <th style="text-align:center"> HBP </th>
+       <th style="text-align:center"> BK </th>
+       <th style="text-align:center"> WP </th>
+       <th style="text-align:center"> ERA </th>
+       <th style="text-align:center"> WHIP </th>
+       <th style="text-align:center"> H9 </th>
+       <th style="text-align:center"> HR9 </th>
+       <th style="text-align:center"> BB9 </th>
+       <th style="text-align:center"> K9 </th>
+       <!--<th style="text-align:center"> Edit </th>
+       <th style="text-align:center"> Delete </th>-->
 
-       <th colspan="6 " > </th>
     </tr>
   </thead>
 
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <td> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+        <td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
         <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %>  </td>
-        <td> <%= cur_player.first %> <%= cur_player.last %> </td>
-        <td> <%= cur_player.wins%> </td>
-        <td> <%= cur_player.losses %> </td>
-        <td> <%= cur_player.earnedRuns %> </td>
-        <td> <%= cur_player.inningsPitched %> </td>
-        <td> <%= cur_player.gamesStarted %> </td>
-        <td> <%= cur_player.completeGames %> </td>
-        <td> <%= cur_player.shutouts %> </td>
-        <td> <%= cur_player.saves %> </td>
-        <td> <%= cur_player.p_hits %> </td>
-        <td> <%= cur_player.p_runs %> </td>
-        <td> <%= cur_player.p_homeRuns %> </td>
-        <td> <%= cur_player.p_walks %> </td>
-        <td> <%= cur_player.p_strikeouts %> </td>
-        <td> <%= cur_player.p_hitByPitch %> </td>
-        <td> <%= cur_player.balks %> </td>
-        <td> <%= cur_player.wildPitches %> </td>
-        <td> <%= number_with_precision(cur_player.earnedRunAverage, precision:2) %> </td>
-        <td> <%= number_with_precision(cur_player.whip, precision:3) %> </td>
-        <td> <%= number_with_precision(cur_player.h9, precision:1) %> </td>
-        <td> <%= number_with_precision(cur_player.hr9, precision:1) %> </td>
-        <td> <%= number_with_precision(cur_player.bb9, precision:1) %> </td>
-        <td> <%= number_with_precision(cur_player.k9, precision:1) %> </td>
+        <td style="text-align:center"> <%= cur_player.first %> <%= cur_player.last %> </td>
+        <td style="text-align:center"> <%= cur_player.wins%> </td>
+        <td style="text-align:center"> <%= cur_player.losses %> </td>
+        <td style="text-align:center"> <%= cur_player.earnedRuns %> </td>
+        <td style="text-align:center"> <%= cur_player.inningsPitched %> </td>
+        <td style="text-align:center"> <%= cur_player.gamesStarted %> </td>
+        <td style="text-align:center"> <%= cur_player.completeGames %> </td>
+        <td style="text-align:center"> <%= cur_player.shutouts %> </td>
+        <td style="text-align:center"> <%= cur_player.saves %> </td>
+        <td style="text-align:center"> <%= cur_player.p_hits %> </td>
+        <td style="text-align:center"> <%= cur_player.p_runs %> </td>
+        <td style="text-align:center"> <%= cur_player.p_homeRuns %> </td>
+        <td style="text-align:center"> <%= cur_player.p_walks %> </td>
+        <td style="text-align:center"> <%= cur_player.p_strikeouts %> </td>
+        <td style="text-align:center"> <%= cur_player.p_hitByPitch %> </td>
+        <td style="text-align:center"> <%= cur_player.balks %> </td>
+        <td style="text-align:center"> <%= cur_player.wildPitches %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.earnedRunAverage, precision:2) %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.whip, precision:3) %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.h9, precision:1) %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.hr9, precision:1) %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.bb9, precision:1) %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.k9, precision:1) %> </td>
 
       </tr>
     <% end %>
@@ -210,7 +157,62 @@
 
 <br>
 
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="panel panel-default">
+<div class="panel-heading">Fielding Statistics</div>
+<div class="table-responsive">
+<table class="table table-striped table-condensed table-hover table-bordered">
+  <thead>
+    <tr>
+       <th style="text-align:left">Edit </th>
+       <th style="text-align:center"> Name </th>
+       <th style="text-align:center"> PO </th>
+       <th style="text-align:center"> OF </th>
+       <th style="text-align:center"> IF </th>
+       <th style="text-align:center"> E </th>
+       <th style="text-align:center"> PB </th>
+       <th style="text-align:center"> SB </th>
+       <th style="text-align:center"> CS </th>
+       <th style="text-align:center"> A </th>
+       <th style="text-align:center"> CH </th>
+       <th style="text-align:center"> FPCT </th>
+       <th style="text-align:center"> CS% </th>
+       <!--<th style="text-align:center"> Edit </th>
+       <th style="text-align:center"> Delete </th>_-->
 
-<%= link_to new_team_player_path, class: 'btn btn-primary btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
-<%= link_to team_path(@team), class: 'btn btn-primary btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+        </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |cur_player| %>
+      <tr>
+        <td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> </td>
+        <td style="text-align:center"> <%= cur_player.first %> <%= cur_player.last %> </td>
+        <td style="text-align:center"> <%= cur_player.putouts %> </td>
+        <td style="text-align:center"> <%= cur_player.outfieldAssists %> </td>
+        <td style="text-align:center"> <%= cur_player.infieldAssists %> </td>
+        <td style="text-align:center"> <%= cur_player.f_errors %> </td>
+        <td style="text-align:center"> <%= cur_player.passedBalls %> </td>
+        <td style="text-align:center"> <%= cur_player.f_stolenBases %> </td>
+        <td style="text-align:center"> <%= cur_player.f_caughtStealing %> </td>
+        <td style="text-align:center"> <%= cur_player.assists %> </td>
+        <td style="text-align:center"> <%= cur_player.defensiveChances %> </td>
+        <td style="text-align:center"> <%= number_with_precision(cur_player.fieldingPercentage, percision:3) %> </td>
+        <td style="text-align:center"> <%= number_to_percentage(cur_player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<hr>
+
+<%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
+<%= link_to team_path(@team), class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 

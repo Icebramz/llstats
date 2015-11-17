@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
 <%= bootstrap_form_for(@team) do |team| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
@@ -25,5 +27,5 @@
     <%= team.submit %>
   </div>
 <% end %>
-
-
+</div>
+</div>
