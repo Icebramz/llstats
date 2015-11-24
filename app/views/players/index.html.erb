@@ -1,16 +1,17 @@
 <% if flash[:alert] %>
   <div class="alert alert-success" role="alert"><%= flash.alert %></div></p>
 <% end %>
-
-<h1> 
-<%= @team.name %> Player Roster <br>
+ 
+<%= link_to team_path(@team), class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 <hr>
+<h1>
+<%= @team.name %> Player Roster <br>
 <%= image_tag @team.avatar.url(:thumb) %>
 </h1>
-<%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
-<%= link_to team_path(@team), class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+
 
 <hr>
+<%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> <br><br>
 <div class="panel panel-default">
 <div class="panel-heading">Batting and Baserunning Statistics</div>
 <div class="table-responsive">
@@ -51,7 +52,7 @@
         <td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
 		<%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> 
 		</td>
-        <td style="text-align:center"> <%= cur_player.first %> <%= cur_player.last %> </td>
+        <td style="text-align:center"> <b><%= cur_player.first %> <%= cur_player.last %> <%= link_to "View", cur_player%></b> </td>
         <td style="text-align:center"> <%= cur_player.hits %> </td>
         <td style="text-align:center"> <%= cur_player.atbats %> </td>
         <td style="text-align:center"> <%= cur_player.runs %> </td>
@@ -211,8 +212,4 @@
 </div>
 </div>
 </div>
-<hr>
-
-<%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> 
-<%= link_to team_path(@team), class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 
