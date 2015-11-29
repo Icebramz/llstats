@@ -50,7 +50,12 @@
 
           <tbody>
             <tr>
-              <td> <%= @player.hits %> </td>
+              
+              <% if @player.hits == 420 %>
+                <td class="success"><%= @player.hits %></td>
+              <% else %>
+                <td class="danger"><%= @player.hits %></td>
+              <% end %>
               <td> <%= @player.atbats %> </td>
               <td> <%= @player.runs %> </td>
               <td> <%= @player.singles %> </td>
