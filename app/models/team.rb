@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
- 
+ has_many :homegames, class_name: "Game", foreign_key: :hometeam_id, dependent: :destroy
+ has_many :awayteams, class_name: "Game", foreign_key: :awayteam_id, dependent: :destroy
+
  has_many :players, dependent: :destroy
 
  validates :name, presence: true, format: {with: /\A[a-zA-Z\s]+\z/, message: "Only Letters are allowed"}
