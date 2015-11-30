@@ -188,10 +188,11 @@
 
   <!--</div>-->
 </div>
-
+ <% @team.homegames.each do |cur_game| %>
+   <%= cur_game.hometeam.name %> <%= cur_game.awayteam.name %>
+ <% end %>
 
 </div>
-
 
 
 
