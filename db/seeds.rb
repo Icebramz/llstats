@@ -6,12 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 team = Team.create(
  [
   { name: "Ballers", division: 1},
   { name: "Not", division: 2}
  ]
 )
+
 
 player = Player.create(
  [
@@ -22,3 +24,25 @@ player = Player.create(
   { first: "Kendra", last: "Kuivenhoven", hits: 2, assists: 1, team_id: team[1].id}
  ]
 )
+
+
+User.create!(name: "Example User", 
+             email: "example@railstutorial.org", 
+             password: "foobar", 
+             password_confirmation: "foobar", 
+             admin: true, 
+             activated: true, 
+             activated_at: Time.zone.now)
+#note: above makes the first user an admin by default
+
+60.times do |n|
+  name = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  password = "password"
+  User.create!(name: name, 
+               email: email, 
+               password: password, 
+               password_confirmation: password, 
+               activated: true, 
+               activated_at: Time.zone.now)
+end

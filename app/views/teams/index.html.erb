@@ -15,16 +15,21 @@
  <tbody>
   <% @teams.each do |cur_team| %>
    <tr>
-    <td> <%= cur_team.name  %> </td>
+    <td> <%= cur_team.name  %> <span class="badge"><%= cur_team.players.size %></span></td>
     <td> <%= cur_team.division %> </td>
     <td> <%= link_to cur_team, class: 'btn btn-success btn-xs' do%> 
-      Team Details <i class="glyphicon glyphicon-search"></i> 
+      <i class="glyphicon glyphicon-search"></i> Team Details
      <%end %>  </td>
+         <% if logged_in? %>
     <td> <%= link_to edit_team_path(cur_team), class: 'btn btn-info btn-xs' do %>
-      Edit <i class="glyphicon glyphicon-pencil"></i>
+      <i class="glyphicon glyphicon-pencil"></i> Edit
+         <% end %>
      <% end %> </td>
-    <td> <%= link_to cur_team, method: :delete, data: { confirm: "Are you sure you want to delete the team #{cur_team.name}?" }, class: 'btn btn-danger btn-xs' do%>
-      Delete <i class="glyphicon glyphicon-trash"></i>
+    <td>
+        <% if logged_in? %>
+        <%= link_to cur_team,  method: :delete, data: { confirm: "Are you sure you want to delete the #{cur_team.name} Team?" }, class: 'btn btn-danger btn-xs' do%>
+      <i class="glyphicon glyphicon-trash"></i> Delete
+        <% end %>
      <% end %> </td>
    </tr>
   <% end %>
@@ -32,4 +37,6 @@
 
 </table>
 
-<%= link_to "Add a new Team", controller: "teams", action: "new" %>
+
+<% if logged_in? %> <%= link_to new_team_path, class: 'btn btn-default btn-xs' do %> <i class="glyphicon glyphicon-plus-sign"></i> Add a Team <% end %> <% end %>
+

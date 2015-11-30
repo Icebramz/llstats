@@ -1,1 +1,12 @@
-<h1>users view index</h1>
+<% provide(:title, 'All coaches') %>
+<h1>All Coaches</h1>
+
+<%= will_paginate %>
+
+<!--rails infers @users is a list of User objects -->
+<!--rails automat. iterates through them; then renders each user with the _user partial-->
+<ul class="users">
+    <%= render @users %> <!--call render directly on the @users variable-->
+</ul>
+
+<%= will_paginate %>

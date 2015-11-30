@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
  
+ belongs_to :user 
+
  has_many :players, dependent: :destroy
 
  validates :name, presence: true, format: {with: /\A[a-zA-Z]+\z/, message: "Only Letters are allowed"}

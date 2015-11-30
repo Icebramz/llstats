@@ -4,5 +4,8 @@
 
 <%= render "team_form" %>
 
-<%= link_to "Show", @team %> | 
-<%= link_to "Back", teams_path %>
+<br>
+<%= link_to @team, class: 'btn btn-default btn-xs' do%> <i class="glyphicon glyphicon-triangle-left"></i> Show <% end %>
+<%= link_to teams_path, class: 'btn btn-default btn-xs' do%> <i class="glyphicon glyphicon-triangle-left"></i> Back <% end %>
+
+

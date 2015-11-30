@@ -4,9 +4,43 @@ kendra:
   name: Kendra Example
   email: kendra@example.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.now %>
 
 #adopting the convention that all fixture users have the same password ('password')
 #this fixture can be retrieved in a test as follows: users = users(:kendra)
+
+isinjured:
+  name: Skatergirl IsInjured
+  email: gofigure@example.gov
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.now %>
+
+live:
+  name: Live Life
+  email: cool@example.gov
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.now %>
+ 
+Quebueno:
+  name: Que Bueno
+  email: theboss@example.gov
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.now %>
+  
+# below generates 30 users for testing purposes
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.now %>
+<% end %> 
 
 
 # empty

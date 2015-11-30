@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
 
+before_filter :login_required, only: [:new, :create, :edit, :destroy]
 before_action :set_player, only: [:edit, :update, :destroy]
 
 
@@ -51,6 +52,10 @@ private
 
  def player_params
    params.require(:player).permit(:first, :last, :hits, :assists, :atbats, :batavg)
+ end
+
+ def login_required
+   redirect_to login_path unless logged_in?
  end
 
 end

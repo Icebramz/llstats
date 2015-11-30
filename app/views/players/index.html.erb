@@ -27,8 +27,11 @@
         <td> <%= cur_player.assists %> </td>
         <td> <%= cur_player.atbats %> </td>
         <td> <%= cur_player.batavg %> </td>
-        <td> <%= link_to "Edit", edit_player_path(cur_player) %> </td>
-        <td> <%= link_to "Delete", cur_player, method: :delete, data: { confirm: "Are you sure?" } %> </td>
+
+        <td> <% if logged_in? %> <%= link_to edit_player_path(cur_player), class: 'btn btn-success btn-xs' do%><i class="glyphicon glyphicon-search"></i> Edit <% end %> <% end %> </td>
+
+        <td> <% if logged_in? %> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete #{cur_player.first} #{cur_player.last} from the #{@team.name} Team roster?" }, class: 'btn btn-danger btn-xs' do %> <i class="glyphicon glyphicon-trash"></i> Delete <% end %> <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -36,5 +39,10 @@
 
 <br>
 
-<%= link_to "Add Player", new_team_player_path %> |
-<%= link_to "Back to #{@team.name}'s Homepage", team_path(@team) %>
+<% if logged_in? %> <%= link_to new_team_player_path, class: 'btn btn-default btn-xs' do%> <i class="glyphicon glyphicon-pencil"></i> Add a Player <% end %> <% end %> |
+
+<% if logged_in? %> <%= link_to team_path(@team), class: 'btn btn-default btn-xs' do %> <i class="glyphicon glyphicon-home"></i> Back to Homepage <% end %> <% end %>
+<!--link_to "Back to #{@team.name}'s Homepage", team_path(@team) -->
+
+
+

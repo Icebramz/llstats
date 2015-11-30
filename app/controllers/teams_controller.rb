@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+ before_filter :login_required, only: [:new, :create, :edit, :destroy]
 
  #GET /teams
  def index
@@ -40,5 +41,11 @@ class TeamsController < ApplicationController
   @team.destroy
    redirect_to teams_url
  end
+
+ private
+
+   def login_required
+     redirect_to login_path unless logged_in?
+   end
 
 end
