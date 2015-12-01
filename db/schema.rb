@@ -11,13 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129030126) do
+ActiveRecord::Schema.define(version: 20151130202817) do
 
   create_table "games", force: :cascade do |t|
-    t.integer  "hometeam_id", limit: 4
-    t.integer  "awayteam_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "hometeam_id",      limit: 4
+    t.integer  "awayteam_id",      limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "home_inningone",   limit: 4
+    t.integer  "home_inningtwo",   limit: 4
+    t.integer  "home_inningthree", limit: 4
+    t.integer  "home_inningfour",  limit: 4
+    t.integer  "home_inningfive",  limit: 4
+    t.integer  "home_inningsix",   limit: 4
+    t.integer  "home_inningseven", limit: 4
+    t.integer  "home_inningeight", limit: 4
+    t.integer  "home_inningnine",  limit: 4
+    t.integer  "home_runs",        limit: 4
+    t.integer  "home_hits",        limit: 4
+    t.integer  "home_error",       limit: 4
+    t.integer  "home_score",       limit: 4
+    t.integer  "away_inningone",   limit: 4
+    t.integer  "away_inningtwo",   limit: 4
+    t.integer  "away_inningthree", limit: 4
+    t.integer  "away_inningfour",  limit: 4
+    t.integer  "away_inningfive",  limit: 4
+    t.integer  "away_inningsix",   limit: 4
+    t.integer  "away_inningseven", limit: 4
+    t.integer  "away_inningeight", limit: 4
+    t.integer  "away_inningnine",  limit: 4
+    t.integer  "away_runs",        limit: 4
+    t.integer  "away_hits",        limit: 4
+    t.integer  "away_error",       limit: 4
+    t.integer  "away_score",       limit: 4
   end
 
   create_table "players", force: :cascade do |t|
