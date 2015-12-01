@@ -12,13 +12,13 @@
 
 <hr>
 <%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> <br><br>
-<div class="panel panel-primary">
+<div class="panel panel-default">
 <div class="panel-heading">Batting and Baserunning Statistics</div>
 <div class="table-responsive">
 <table class="table table-striped table-hover table-bordered table-condensed">
   <thead>
     <tr>
-       <!--<th style="text-align:left">Edit </th>-->
+       <th style="text-align:left">Edit </th>
        <th style="text-align:center"> Name </th>
        <th style="text-align:center"> H </th>
        <th style="text-align:center"> AB </th>
@@ -49,10 +49,10 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <!--<td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+        <td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
 		<%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> 
-		</td>-->
-        <td style="text-align:center"> <%= link_to "#{cur_player.first} #{cur_player.last}", cur_player%> </td>
+		</td>
+        <td style="text-align:center"> <b><%= cur_player.first %> <%= cur_player.last %> <%= link_to "View", cur_player%></b> </td>
         <td style="text-align:center"> <%= cur_player.hits %> </td>
         <td style="text-align:center"> <%= cur_player.atbats %> </td>
         <td style="text-align:center"> <%= cur_player.runs %> </td>
@@ -82,7 +82,7 @@
 </div>
 
 <br>
-<div class="panel panel-primary">
+<div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Pitching Statistics</div>
 
@@ -90,7 +90,7 @@
 <table class="table table-striped table-condensed table-hover table-bordered">
   <thead>
     <tr>
-       <!--<th style="text-align:left"> Edit </th>-->
+       <th style="text-align:left"> Edit </th>
        <th style="text-align:center"> Name </th>
        <th style="text-align:center"> W </th>
        <th style="text-align:center"> L </th>
@@ -123,9 +123,9 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <!--<td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
-        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %>  </td>-->
-        <td style="text-align:center"> <%= link_to "#{cur_player.first} #{cur_player.last}", cur_player%> </td>
+        <td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %>  </td>
+        <td style="text-align:center"> <%= cur_player.first %> <%= cur_player.last %> </td>
         <td style="text-align:center"> <%= cur_player.wins%> </td>
         <td style="text-align:center"> <%= cur_player.losses %> </td>
         <td style="text-align:center"> <%= cur_player.earnedRuns %> </td>
@@ -160,13 +160,13 @@
 
 <div class="row">
 <div class="col-md-8 col-md-offset-2">
-<div class="panel panel-primary">
+<div class="panel panel-default">
 <div class="panel-heading">Fielding Statistics</div>
 <div class="table-responsive">
 <table class="table table-striped table-condensed table-hover table-bordered">
   <thead>
     <tr>
-       <!--<th style="text-align:left">Edit </th>-->
+       <th style="text-align:left">Edit </th>
        <th style="text-align:center"> Name </th>
        <th style="text-align:center"> PO </th>
        <th style="text-align:center"> OF </th>
@@ -188,10 +188,10 @@
 
   <tbody>
     <% @players.each do |cur_player| %>
-      <tr><!--
+      <tr>
         <td style="text-align:left"> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
-        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> </td>-->
-        <td style="text-align:center"> <%= link_to "#{cur_player.first} #{cur_player.last}", cur_player%> </td>
+        <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %> </td>
+        <td style="text-align:center"> <%= cur_player.first %> <%= cur_player.last %> </td>
         <td style="text-align:center"> <%= cur_player.putouts %> </td>
         <td style="text-align:center"> <%= cur_player.outfieldAssists %> </td>
         <td style="text-align:center"> <%= cur_player.infieldAssists %> </td>
