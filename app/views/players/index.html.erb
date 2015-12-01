@@ -1,11 +1,11 @@
 <% if flash[:alert] %>
   <div class="alert alert-success" role="alert"><%= flash.alert %></div></p>
 <% end %>
- 
-<%= link_to team_path(@team), class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+ <h1><%= @team.name %> Player Roster </h1>
+<%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 <hr>
 <h1>
-<%= @team.name %> Player Roster <br>
+
 <%= image_tag @team.avatar.url(:thumb) %>
 </h1>
 

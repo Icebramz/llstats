@@ -1,23 +1,18 @@
-<% if flash[:alert] %>
-	<div class="alert alert-success" role="alert"><%= flash.alert %></div></p>
-<% end %>
+<h1>View Player</h1>
 
-<%= link_to team_players_path(@player.team), class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+<%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 <%= link_to edit_player_path(@player), class: 'btn btn-default btn-md' do%> Edit <i class="glyphicon glyphicon-pencil"></i> <%end %>
 
-<br><br>
+<hr>
 <div class="center jumbotron">
   <h1><%= @player.first %> <%= @player.last %></h1>
   
   <%= image_tag @team.avatar.url(:thumb) %>
   
   <h2>Team: <%= @team.name %></h2>
-  <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span> View Stats
-  </button><br><br>
   
 
-<div class="collapse" id="collapseExample">
+<!--<div class="collapse" id="collapseExample">-->
     <div class= "panel panel-default">
      <div class="panel-heading">Batting and Baserunning Statistics</div>
       <div class="table-responsive">
@@ -187,7 +182,7 @@
     </div>
     </div>
 
-</div>
+<!--</div>-->
 
 
 </div>

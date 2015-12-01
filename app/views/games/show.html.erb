@@ -1,59 +1,540 @@
-<h1> <%= @game.hometeam.name %> vs. <%= @game.awayteam.name %> </h1>
 
-<table class = "table" >
-  <thead>
-   <tr>
-    <caption> Scoreboard </caption>
-    <th> Team </th>
-    <th> 1 </th>
-    <th> 2 </th>
-    <th> 3 </th>
-    <th> 4 </th>
-    <th> 5 </th>
-    <th> 6 </th>
-    <th> 7 </th>
-    <th> 8 </th>
-    <th> 9 </th>
-    <th> R </th>
-    <th> H </th>
-    <th> E </th>
-   </tr>
-  </thead>
-  
-  <tbody>
-   <tr>
-    <td> <%= @game.hometeam.name %> </td>
-    <td> <%= @game.home_inningone %> </td>
-    <td> <%= @game.home_inningtwo %> </td>
-    <td> <%= @game.home_inningthree %> </td>
-    <td> <%= @game.home_inningfour %> </td>
-    <td> <%= @game.home_inningfive %> </td>
-    <td> <%= @game.home_inningsix %> </td>
-    <td> <%= @game.home_inningseven %> </td>
-    <td> <%= @game.home_inningeight %> </td>
-    <td> <%= @game.home_inningnine %> </td>
-    <td> <%= @game.home_runs %> </td>
-    <td> <%= @game.home_hits %> </td>
-    <td> <%= @game.home_error %> </td>
-   </tr> 
-  
-   <tr>
-    <td> <%= @game.awayteam.name %> </td> 
-    <td> <%= @game.away_inningone %> </td> 
-    <td> <%= @game.away_inningtwo %> </td> 
-    <td> <%= @game.away_inningthree %> </td> 
-    <td> <%= @game.away_inningfour %> </td> 
-    <td> <%= @game.away_inningfive %> </td> 
-    <td> <%= @game.away_inningsix %> </td> 
-    <td> <%= @game.away_inningseven %> </td> 
-    <td> <%= @game.away_inningeight %> </td> 
-    <td> <%= @game.away_inningnine %> </td> 
-    <td> <%= @game.away_runs %> </td> 
-    <td> <%= @game.away_hits %> </td> 
-    <td> <%= @game.away_error %> </td> 
-   </tr> 
-  </tbody>
-</table>
 
-<%= link_to games_path, class: 'btn btn-primary btn-md' do%> All Games <i class="glyphicon glyphicon-baseball"></i> <% end %>
-<%= link_to edit_game_path, class: 'btn btn-primary btn-md' do%> Edit Game <i class="glyphicon glyphicon-baseball"></i> <% end %>
+<h1>View Game</h1>
+<%= link_to :back, class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+<%= link_to edit_game_path, class: 'btn btn-default btn-md' do%> Edit <i class="glyphicon glyphicon-pencil"></i> <% end %>
+<hr>
+<div style ="background-transparent" class="center jumbotron">
+<div class ="container">
+<div class="row">
+  <div class="col-md-3"><br><br><%= image_tag @game.hometeam.avatar.url(:thumb) %> <br> <h3><%= @game.hometeam.name %></h3></div>
+  <div class="col-md-6">
+      <h2><%= @game.hometeam.name%> Vs. <%= @game.awayteam.name %> on 10/12/15</h2>
+      <div class="panel panel-primary">
+      <div class="panel-heading">Scoreboard</div>
+      <div class="table-responsive">
+      <table class="table table-striped  table-hover table-bordered">
+        <thead>
+          <tr>
+             <th style="text-align:left"></th>
+             <th style="text-align:center"> 1 </th>
+             <th style="text-align:center"> 2 </th>
+             <th style="text-align:center"> 3 </th>
+             <th style="text-align:center"> 4 </th>
+             <th style="text-align:center"> 5 </th>
+             <th style="text-align:center"> 6 </th>
+             <th style="text-align:center"> 7 </th>
+             <th style="text-align:center"> 8 </th>
+             <th style="text-align:center"> 9 </th>
+             <th style="text-align:center"> R </th>
+             <th style="text-align:center"> H </th>
+             <th style="text-align:center"> E </th>
+             <!--<th style="text-align:center"> Edit </th>
+             <th style="text-align:center"> Delete </th>_-->
+
+              </th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td style="text-align:left"> <b><%= @game.hometeam.name %></b></td>
+              <td style="text-align:center"> <%= @game.home_inningone %> </td>
+              <td style="text-align:center"> <%= @game.home_inningtwo %> </td>
+              <td style="text-align:center"> <%= @game.home_inningthree %> </td>
+              <td style="text-align:center"> <%= @game.home_inningfour %> </td>
+              <td style="text-align:center"> <%= @game.home_inningfive %> </td>
+              <td style="text-align:center"> <%= @game.home_inningsix %> </td>
+              <td style="text-align:center"> <%= @game.home_inningseven %> </td>
+              <td style="text-align:center"> <%= @game.home_inningeight %></td>
+              <td style="text-align:center"> <%= @game.home_inningnine %> </td>
+              <td style="text-align:center"> <b><%= @game.home_runs %> </b></td>
+              <td style="text-align:center"> <b><%= @game.home_hits %></b> </td>
+              <td style="text-align:center"> <b><%= @game.home_error %></b> </td>
+
+            </tr>
+            <tr>
+              <td style="text-align:left"> <b><%= @game.awayteam.name %></b></td>
+              <td style="text-align:center"> <%= @game.away_inningone %> </td>
+              <td style="text-align:center"> <%= @game.away_inningtwo %> </td>
+              <td style="text-align:center"> <%= @game.away_inningthree %> </td>
+              <td style="text-align:center"> <%= @game.away_inningfour %> </td>
+              <td style="text-align:center"> <%= @game.away_inningfive %> </td>
+              <td style="text-align:center"> <%= @game.away_inningsix %> </td>
+              <td style="text-align:center"> <%= @game.away_inningseven %> </td>
+              <td style="text-align:center"> <%= @game.away_inningeight %></td>
+              <td style="text-align:center"> <%= @game.away_inningnine %> </td>
+              <td style="text-align:center"> <b><%= @game.away_runs %> </b></td>
+              <td style="text-align:center"> <b><%= @game.away_hits %></b> </td>
+              <td style="text-align:center"> <b><%= @game.away_error %></b> </td>
+
+            </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      <br><h1><%= @game.home_runs %> - <%= @game.away_runs %></h1>
+  </div>
+  <div class ="col-md-3"><br><br><%= image_tag @game.awayteam.avatar.url(:thumb) %> <br> <h3><%= @game.awayteam.name %></h3></div>
+</div>
+</div>
+</div>
+<h2>
+   <div class ="row">
+      <div class ="col-md-6">
+      <h2><%= @game.hometeam.name %> Play-by-Play</h2>
+         <div class="panel-group" id="accordion">
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse1a">Inning 1</a>
+                 </h4>
+               </div>
+               <div id="collapse1a" class="panel-collapse collapse in">
+                 <div class="panel-body">
+                  <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Johnny Turbo</b> grounds out to first baseman Lucas Duda.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 2 Out: 3</b></div></h5>
+                        </li>
+                    </ul>
+                 </div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: 0 <%= @game.awayteam.name %>: 1</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse2a">Inning 2</a>
+                 </h4>
+               </div>
+               <div id="collapse2a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                    </ul>
+                 </div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: 2 <%= @game.awayteam.name %>: 1</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3a">Inning 3</a>
+                 </h4>
+               </div>
+               <div id="collapse3a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                  <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_runs %> <%= @game.awayteam.name %>: <%= @game.away_runs %></div>
+                 </div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse4a">Inning 4</a>
+                 </h4>
+               </div>
+               <div id="collapse4a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse5a">Inning 5</a>
+                 </h4>
+               </div>
+               <div id="collapse5a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse6a">Inning 6</a>
+                 </h4>
+               </div>
+               <div id="collapse6a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse7a">Inning 7</a>
+                 </h4>
+               </div>
+               <div id="collapse7a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse8a">Inning 8</a>
+                 </h4>
+               </div>
+               <div id="collapse8a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse9a">Inning 9</a>
+                 </h4>
+               </div>
+               <div id="collapse9a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+         </div>
+      </div>
+      <div class ="col-md-6">
+      <h2><%= @game.awayteam.name %> Play-by-Play</h2>
+         <div class="panel-group" id="accordionb">
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse1b">Inning 1</a>
+                 </h4>
+               </div>
+               <div id="collapse1b" class="panel-collapse collapse in">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+                 </div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: 0 <%= @game.awayteam.name %>: 1</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse2b">Inning 2</a>
+                 </h4>
+               </div>
+               <div id="collapse2b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                  <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                    </ul>
+                 </div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: 0 <%= @game.awayteam.name %>: 1</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse3b">Inning 3</a>
+                 </h4>
+               </div>
+               <div id="collapse3b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse4b">Inning 4</a>
+                 </h4>
+               </div>
+               <div id="collapse4b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse5b">Inning 5</a>
+                 </h4>
+               </div>
+               <div id="collapse5b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse6b">Inning 6</a>
+                 </h4>
+               </div>
+               <div id="collapse6b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse7b">Inning 7</a>
+                 </h4>
+               </div>
+               <div id="collapse7b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse8b">Inning 8</a>
+                 </h4>
+               </div>
+               <div id="collapse8b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse9b">Inning 9</a>
+                 </h4>
+               </div>
+               <div id="collapse9b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <li class ="list-group-item"> 
+                           <h5><b>Joseph Shelton</b> strikes out swinging. <br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 1</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Icebramz</b> flies out to center feilder Johaan Bach.<br><br><div class = "well well-sm"><b>Ball: 0 Strike: 0 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>Kendra Turbo</b> singles on a soft fly ball to right fielder Albdule Jabar.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                        <li class ="list-group-item"> 
+                           <h5><b>LL Beans</b> throws a sandwich at pitcher Tommy Ramos and is removed from the game.<br><br><div class = "well well-sm"><b>Ball: 2 Strike: 3 Out: 2</b></div></h5>
+                        </li>
+                    </ul>
+</div>
+               </div>
+             </div>
+         </div>
+      </div>
+
+   </div>
+</h2>
+
