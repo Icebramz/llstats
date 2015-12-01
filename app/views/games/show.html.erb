@@ -1,0 +1,59 @@
+<h1> <%= @game.hometeam.name %> vs. <%= @game.awayteam.name %> </h1>
+
+<table class = "table" >
+  <thead>
+   <tr>
+    <caption> Scoreboard </caption>
+    <th> Team </th>
+    <th> 1 </th>
+    <th> 2 </th>
+    <th> 3 </th>
+    <th> 4 </th>
+    <th> 5 </th>
+    <th> 6 </th>
+    <th> 7 </th>
+    <th> 8 </th>
+    <th> 9 </th>
+    <th> R </th>
+    <th> H </th>
+    <th> E </th>
+   </tr>
+  </thead>
+  
+  <tbody>
+   <tr>
+    <td> <%= @game.hometeam.name %> </td>
+    <td> <%= @game.home_inningone %> </td>
+    <td> <%= @game.home_inningtwo %> </td>
+    <td> <%= @game.home_inningthree %> </td>
+    <td> <%= @game.home_inningfour %> </td>
+    <td> <%= @game.home_inningfive %> </td>
+    <td> <%= @game.home_inningsix %> </td>
+    <td> <%= @game.home_inningseven %> </td>
+    <td> <%= @game.home_inningeight %> </td>
+    <td> <%= @game.home_inningnine %> </td>
+    <td> <%= @game.home_runs %> </td>
+    <td> <%= @game.home_hits %> </td>
+    <td> <%= @game.home_error %> </td>
+   </tr> 
+  
+   <tr>
+    <td> <%= @game.awayteam.name %> </td> 
+    <td> <%= @game.away_inningone %> </td> 
+    <td> <%= @game.away_inningtwo %> </td> 
+    <td> <%= @game.away_inningthree %> </td> 
+    <td> <%= @game.away_inningfour %> </td> 
+    <td> <%= @game.away_inningfive %> </td> 
+    <td> <%= @game.away_inningsix %> </td> 
+    <td> <%= @game.away_inningseven %> </td> 
+    <td> <%= @game.away_inningeight %> </td> 
+    <td> <%= @game.away_inningnine %> </td> 
+    <td> <%= @game.away_runs %> </td> 
+    <td> <%= @game.away_hits %> </td> 
+    <td> <%= @game.away_error %> </td> 
+   </tr> 
+  </tbody>
+</table>
+
+<%= link_to games_path, class: 'btn btn-primary btn-md' do%> All Games <i class="glyphicon glyphicon-baseball"></i> <% end %>
+<%= link_to edit_game_path, class: 'btn btn-primary btn-md' do%> Edit Game <i class="glyphicon glyphicon-baseball"></i> <% end %>
