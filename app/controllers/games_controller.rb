@@ -41,4 +41,6 @@ def destroy
   redirect_to games_url
 end
 
+before_action :authenticate_user!
+
 end

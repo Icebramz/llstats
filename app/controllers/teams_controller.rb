@@ -42,5 +42,5 @@ class TeamsController < ApplicationController
   @team.destroy
    redirect_to teams_url
  end
-
+before_action :authenticate_user!
 end
