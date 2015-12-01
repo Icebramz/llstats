@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
  has_many :homegames, class_name: "Game", foreign_key: :hometeam_id, dependent: :destroy
- has_many :awayteams, class_name: "Game", foreign_key: :awayteam_id, dependent: :destroy
+ has_many :awaygames, class_name: "Game", foreign_key: :awayteam_id, dependent: :destroy
 
  has_many :players, dependent: :destroy
 
