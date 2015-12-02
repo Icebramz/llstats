@@ -80,3 +80,36 @@
 </div>
 </div>
 
+<!-- Start here Mr. Shelton -->
+<h2> <center> Game Plays </center> </h2>
+<table class = "table">
+ <thead>
+   <tr>
+     <th> Inning </th>
+     <th> Player Name </th>
+     <th> Home or Away </th>
+     <th> Message </th>
+     <th> Balls </th>
+     <th> Strikes </th>
+     <th> Out </th>
+   </tr>
+ </thead>
+
+ <tbody>
+  <% @game.plays.each do |cur_play| %>
+   <tr>
+    <td> <%= cur_play.inning %> </td>
+    <td> <%= cur_play.player_name %> </td>
+    <td> <%= cur_play.home_away %> </td>
+    <td> <%= cur_play.message %> </td>
+    <td> <%= cur_play.balls %> </td>
+    <td> <%= cur_play.strikes %> </td>
+    <td> <%= cur_play.out %> </td>
+   </tr>
+  <% end %>
+
+ </tbody>
+
+</table>
+
+
