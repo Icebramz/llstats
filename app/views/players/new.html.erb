@@ -1,9 +1,6 @@
-<h1> Add a new player to <%= @team.name %>'s Roster </h1>
-<br>
+<%= link_to :back, class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 <hr>
+<h1> Add a new player to <%= @team.name %>'s Roster </h1>
 
 <%= render "player_form" %>
-
-<br>
-<%= link_to team_players_path, class: 'btn btn-default btn-xs' do%> <i class="glyphicon glyphicon-triangle-left"></i> Back <% end %>
 

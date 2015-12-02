@@ -1,42 +1,51 @@
-<h1> Teams </h1>
-<br>
+<h1>Teams</h1>
+<% if logged_in? %> <%= link_to new_team_path, class: 'btn btn-default btn-md' do%> New Team <i class="glyphicon glyphicon-plus"></i> <%end %>  <% end %>
 <hr>
 
-<table class="table table-fluid">
+<div class = "row">
+<% @teams.each do |cur_team| %>
 
- <thead>
-  <tr>
-   <th> Team </th>
-   <th> Division </th>
-   <th colspan = "2"></th> 
-  </tr>
- </thead>
+<div class = "col-sm-6 col-md-3">
+      <div class = "thumbnail">
+         <%= image_tag cur_team.avatar.url(:thumb) %>
+      </div>
+      
+      <div class = "caption">
+         <h3><%= cur_team.name  %></h3>
+         <p>Division: <%= cur_team.division %></p>
+         <!--<p>Wins: <%= cur_team.division %> Losses: <%= cur_team.division %></p>-->
+         
+         <p>
+            <%= link_to cur_team, class: 'btn btn-primary' do%> 
+      View Team <i class="glyphicon glyphicon-search"></i> 
+     <%end %> 
+            
+            <% if logged_in? %> <%= link_to cur_team, method: :delete, data: { confirm: "Are you sure you want to delete the team #{cur_team.name}?" }, class: 'btn btn-default' do%>
+       <i class="glyphicon glyphicon-trash"></i>
+     <% end %> <% end %>
+     <% if logged_in? %> <%= link_to edit_team_path(cur_team), class: 'btn btn-default' do %><i class="glyphicon glyphicon-pencil"></i><% end %> <% end %>
+         </p>
+         
+      </div>
+</div>
 
- <tbody>
-  <% @teams.each do |cur_team| %>
-   <tr>
-    <td> <%= cur_team.name  %> <span class="badge"><%= cur_team.players.size %></span></td>
-    <td> <%= cur_team.division %> </td>
-    <td> <%= link_to cur_team, class: 'btn btn-success btn-xs' do%> 
-      <i class="glyphicon glyphicon-search"></i> Team Details
-     <%end %>  </td>
-         <% if logged_in? %>
-    <td> <%= link_to edit_team_path(cur_team), class: 'btn btn-info btn-xs' do %>
-      <i class="glyphicon glyphicon-pencil"></i> Edit
-         <% end %>
-     <% end %> </td>
-    <td>
-        <% if logged_in? %>
-        <%= link_to cur_team,  method: :delete, data: { confirm: "Are you sure you want to delete the #{cur_team.name} Team?" }, class: 'btn btn-danger btn-xs' do%>
-      <i class="glyphicon glyphicon-trash"></i> Delete
-        <% end %>
-     <% end %> </td>
-   </tr>
-  <% end %>
- </tbody>
-
-</table>
-
-
-<% if logged_in? %> <%= link_to new_team_path, class: 'btn btn-default btn-xs' do %> <i class="glyphicon glyphicon-plus-sign"></i> Add a Team <% end %> <% end %>
+<% end %>
+   <!--
+   <div class = "col-sm-6 col-md-3">
+      <div class = "thumbnail">
+         <img src = "http://content.sportslogos.net/logos/54/54/full/q9gvs07u72gc9xr3395u6jh68.png" alt = "Generic placeholder thumbnail">
+      </div>
+      
+      <div class = "caption">
+         <h3>New Team</h3>
+         <p>Create new team.</p>
+         
+         <p>
+            <% if logged_in? %> <%= link_to new_team_path, class: 'btn btn-primary btn-md' do%> New Team <i class="glyphicon glyphicon-plus"></i> <%end %> <% end %>
+         </p>
+         
+      </div>
+   </div>-->
+   
+</div>
 

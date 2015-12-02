@@ -5,15 +5,115 @@ one:
   last: MyString
   hits: 1
   assists: 1
-  team_id: 
   atbats: 1
   batavg: 1.5
+  team_id: 
+  runs: 1
+  singles: 1
+  doubles: 1
+  triples: 1
+  homeRuns: 1
+  rbis: 1
+  stolenBases: 1
+  caughtStealing: 1
+  walks: 1
+  strikeouts: 1
+  hitByPitch: 1
+  sacrificeHits: 1
+  sacrificeFlies: 1
+  plateAppearances: 1
+  onBasePercentage: 1.5
+  sluggingPercentage: 1.5
+  caughtStealingPercentage: 1.5
+  putouts: 1
+  outfieldAssists: 1
+  infieldAssists: 1
+  f_errors: 1
+  assists: 1
+  defensiveChances: 1
+  fieldingPercentage: 1.5
+  passedBalls: 1
+  f_stolenBases: 1
+  f_caughtStealing: 1
+  f_caughtStealingPercentage: 1.5
+  wins: 1
+  losses: 1
+  earnedRuns: 1
+  inningsPitched: 1.5
+  gamesStarted: 1
+  completeGames: 1
+  shutouts: 1
+  saves: 1
+  p_hits: 1
+  p_runs: 1
+  p_homeRuns: 1
+  p_walks: 1
+  p_strikeouts: 1
+  p_hitByPitch: 1
+  balks: 1
+  wildPitches: 1
+  earnedRunAverage: 1.5
+  whip: 1.5
+  h9: 1.5
+  hr9: 1.5
+  bb9: 1.5
+  k9: 1.5
 
 two:
   first: MyString
   last: MyString
   hits: 1
   assists: 1
-  team_id: 
   atbats: 1
   batavg: 1.5
+  team_id: 
+  runs: 1
+  singles: 1
+  doubles: 1
+  triples: 1
+  homeRuns: 1
+  rbis: 1
+  stolenBases: 1
+  caughtStealing: 1
+  walks: 1
+  strikeouts: 1
+  hitByPitch: 1
+  sacrificeHits: 1
+  sacrificeFlies: 1
+  plateAppearances: 1
+  onBasePercentage: 1.5
+  sluggingPercentage: 1.5
+  caughtStealingPercentage: 1.5
+  putouts: 1
+  outfieldAssists: 1
+  infieldAssists: 1
+  f_errors: 1
+  assists: 1
+  defensiveChances: 1
+  fieldingPercentage: 1.5
+  passedBalls: 1
+  f_stolenBases: 1
+  f_caughtStealing: 1
+  f_caughtStealingPercentage: 1.5
+  wins: 1
+  losses: 1
+  earnedRuns: 1
+  inningsPitched: 1.5
+  gamesStarted: 1
+  completeGames: 1
+  shutouts: 1
+  saves: 1
+  p_hits: 1
+  p_runs: 1
+  p_homeRuns: 1
+  p_walks: 1
+  p_strikeouts: 1
+  p_hitByPitch: 1
+  balks: 1
+  wildPitches: 1
+  earnedRunAverage: 1.5
+  whip: 1.5
+  h9: 1.5
+  hr9: 1.5
+  bb9: 1.5
+  k9: 1.5

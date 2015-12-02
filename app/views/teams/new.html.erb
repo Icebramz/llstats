@@ -1,8 +1,5 @@
 <h1> Add a new team </h1>
-<br>
+<%= link_to teams_path, class: 'btn btn-default' do %>Back<i class="glyphicon glyphicon-none"></i><% end %> 
 <hr>
 
 <%= render "team_form" %>
-
-<%= link_to teams_path, class: 'btn btn-default btn-xs' do%> <i class="glyphicon glyphicon-triangle-left"></i> Back to Teams <% end %>
-

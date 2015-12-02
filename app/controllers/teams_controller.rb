@@ -15,9 +15,10 @@ class TeamsController < ApplicationController
  end
 
  def create
-  @team = Team.new(params.require(:team).permit(:name, :division))
+  @team = Team.new(params.require(:team).permit(:name, :division, :avatar))
   if @team.save
-   redirect_to @team, notice: "Team has succesfully been added!"
+   redirect_to @team
+   flash[:alert] = "Team has succesfully been added!"
   else
    render :new
   end
@@ -29,8 +30,9 @@ class TeamsController < ApplicationController
 
  def update
   @team = Team.find(params[:id])
-  if @team.update(params.require(:team).permit(:name, :division))
-    redirect_to @team, notice: "Team has been succesfully updated!"
+  if @team.update(params.require(:team).permit(:name, :division, :avatar))
+    redirect_to @team
+    flash[:alert] = "Team has been succesfully updated!"
   else
    render :edit
   end

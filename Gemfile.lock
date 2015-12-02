@@ -52,8 +52,13 @@ GEM
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.10)
       will_paginate
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     byebug (6.0.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -84,6 +89,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.6.2)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.8.1)
     minitest-reporters (1.1.5)
@@ -95,6 +101,12 @@ GEM
     mysql2 (0.3.20)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    paperclip (4.3.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -171,6 +183,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (= 3.2.0.0)
   bootstrap-will_paginate (= 0.0.10)
+  bootstrap_form
   byebug
   coffee-rails (~> 4.1.0)
   faker (= 1.4.2)
@@ -179,6 +192,7 @@ DEPENDENCIES
   mail
   minitest-reporters
   mysql2 (~> 0.3.18)
+  paperclip
   quiet_assets
   rails (= 4.2.4)
   sdoc (~> 0.4.0)

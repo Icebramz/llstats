@@ -1,0 +1,188 @@
+<h1>View Player</h1>
+
+<%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+<%= link_to edit_player_path(@player), class: 'btn btn-default btn-md' do%> Edit <i class="glyphicon glyphicon-pencil"></i> <%end %>
+
+<hr>
+<div class="center jumbotron">
+  <h1><%= @player.first %> <%= @player.last %></h1>
+  
+  <%= image_tag @team.avatar.url(:thumb) %>
+  
+  <h2>Team: <%= @team.name %></h2>
+  
+
+<!--<div class="collapse" id="collapseExample">-->
+    <div class= "panel panel-default">
+     <div class="panel-heading">Batting and Baserunning Statistics</div>
+      <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+
+          <thead>
+            <tr>
+              <th style="text-align:center"> H </th>
+              <th style="text-align:center"> AB </th>
+              <th style="text-align:center"> R </th>
+              <th style="text-align:center"> 1B </th>
+              <th style="text-align:center"> 2B </th>
+              <th style="text-align:center"> 3B </th>
+              <th style="text-align:center"> HR </th>
+              <th style="text-align:center"> RBI </th>
+              <th style="text-align:center"> SB </th>
+              <th style="text-align:center"> CS </th>
+              <th style="text-align:center"> BB </th>
+              <th style="text-align:center"> K </th>
+              <th style="text-align:center"> HBP </th>
+              <th style="text-align:center"> SH </th>
+              <th style="text-align:center"> SF </th>
+              <th style="text-align:center"> PA </th>
+              <th style="text-align:center"> AVG </th>
+              <th style="text-align:center"> OBP </th>
+              <th style="text-align:center"> SLG </th>
+              <th style="text-align:center"> CS% </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              
+              <% if @player.hits == 420 %>
+                <td class="success"><%= @player.hits %></td>
+              <% else %>
+                <td class="danger"><%= @player.hits %></td>
+              <% end %>
+              <td> <%= @player.atbats %> </td>
+              <td> <%= @player.runs %> </td>
+              <td> <%= @player.singles %> </td>
+              <td> <%= @player.doubles %> </td>
+              <td> <%= @player.triples %> </td>
+              <td> <%= @player.homeRuns %> </td>
+              <td> <%= @player.rbis %> </td>
+              <td> <%= @player.stolenBases %> </td>
+              <td> <%= @player.caughtStealing %> </td>
+              <td> <%= @player.walks %> </td>
+              <td> <%= @player.strikeouts %> </td>
+              <td> <%= @player.hitByPitch %> </td>
+              <td> <%= @player.sacrificeHits %> </td>
+              <td> <%= @player.sacrificeFlies %> </td>
+              <td> <%= @player.plateAppearances %> </td>
+              <td> <%= number_with_precision(@player.batavg, precision:3) %> </td>
+              <td> <%= number_with_precision(@player.onBasePercentage, precision:3) %> </td>
+              <td> <%= number_with_precision(@player.sluggingPercentage, precision:3) %> </td>
+              <td> <%= number_to_percentage(@player.caughtStealingPercentage * 100, precision:0) %> </td> 
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+
+    
+    <div class= "panel panel-default">
+     <div class="panel-heading">Pitching Statistics</div>
+      <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+          <thead>
+            <tr>
+              <th style="text-align:center"> W </th>
+              <th style="text-align:center"> L </th>
+              <th style="text-align:center"> ER </th>
+              <th style="text-align:center"> IP </th>
+              <th style="text-align:center"> GS </th>
+              <th style="text-align:center"> CG </th>
+              <th style="text-align:center"> SHO </th>
+              <th style="text-align:center"> SV </th>
+              <th style="text-align:center"> H </th>
+              <th style="text-align:center"> R </th>
+              <th style="text-align:center"> HR </th>
+              <th style="text-align:center"> BB </th>
+              <th style="text-align:center"> K </th>
+              <th style="text-align:center"> HBP </th>
+              <th style="text-align:center"> BK </th>
+              <th style="text-align:center"> WP </th>
+              <th style="text-align:center"> ERA </th>
+              <th style="text-align:center"> WHIP </th>
+              <th style="text-align:center"> H9 </th>
+              <th style="text-align:center"> HR9 </th>
+              <th style="text-align:center"> BB9 </th>
+              <th style="text-align:center"> K9 </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <%= @player.wins %> </td>
+              <td> <%= @player.losses %> </td>
+              <td> <%= @player.earnedRuns %> </td>
+              <td> <%= @player.inningsPitched %> </td>
+              <td> <%= @player.gamesStarted %> </td>
+              <td> <%= @player.completeGames %> </td>
+              <td> <%= @player.shutouts %> </td>
+              <td> <%= @player.saves %> </td>
+              <td> <%= @player.p_hits %> </td>
+              <td> <%= @player.p_runs %> </td>
+              <td> <%= @player.p_homeRuns %> </td>
+              <td> <%= @player.p_walks %> </td>
+              <td> <%= @player.p_strikeouts %> </td>
+              <td> <%= @player.p_hitByPitch %> </td>
+              <td> <%= @player.balks %> </td>
+              <td> <%= @player.wildPitches %> </td>
+              <td> <%= number_with_precision(@player.earnedRunAverage, precision:2) %> </td>
+              <td> <%= number_with_precision(@player.whip, precision:3) %> </td>
+              <td> <%= number_with_precision(@player.h9, precision:1) %> </td>
+              <td> <%= number_with_precision(@player.hr9, precision:1) %> </td>
+              <td> <%= number_with_precision(@player.bb9, precision:1) %> </td>
+              <td> <%= number_with_precision(@player.k9, precision:1) %> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    <div class= "panel panel-default">
+     <div class="panel-heading">Fielding Statistics</div>
+      <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+          <thead>
+            <tr>
+              <th style="text-align:center"> PO </th>
+              <th style="text-align:center"> OF </th>
+              <th style="text-align:center"> IF </th>
+              <th style="text-align:center"> E </th>
+              <th style="text-align:center"> PB </th>
+              <th style="text-align:center"> SB </th>
+              <th style="text-align:center"> CS </th>
+              <th style="text-align:center"> A </th>
+              <th style="text-align:center"> CH </th>
+              <th style="text-align:center"> FPCT </th>
+              <th style="text-align:center"> CS% </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td> <%= @player.putouts %> </td>
+              <td> <%= @player.outfieldAssists %> </td>
+              <td> <%= @player.infieldAssists %> </td>
+              <td> <%= @player.f_errors %> </td>
+              <td> <%= @player.passedBalls %> </td>
+              <td> <%= @player.f_stolenBases %> </td>
+              <td> <%= @player.f_caughtStealing %> </td>
+              <td> <%= @player.assists %> </td>
+              <td> <%= @player.defensiveChances %> </td>
+              <td> <%= number_with_precision(@player.fieldingPercentage, precision:3) %> </td>
+              <td> <%= number_to_percentage(@player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+    </div>
+
+<!--</div>-->
+
+
+</div>

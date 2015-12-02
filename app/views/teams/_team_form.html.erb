@@ -1,4 +1,6 @@
-<%= form_for(@team) do |team| %>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<%= bootstrap_form_for(@team) do |team| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@team.errors.count, "error") %> prohibited this Team from being saved:</h2>
@@ -11,15 +13,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= team.label :name %><br>
+  <!--div class="field"-->
+  <div class="form-group">
     <%= team.text_field :name %>
   </div>
   <div class="field">
-    <%= team.label :division %><br>
     <%= team.text_field :division %>
+  </div>
+  <div class="field">
+    <%= team.file_field :avatar, label: "Team Logo" %>
   </div>
   <div class="actions">
     <%= team.submit %>
   </div>
 <% end %>
+</div>
+</div>

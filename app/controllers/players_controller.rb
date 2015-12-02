@@ -8,6 +8,12 @@ def index
  @team = Team.find(params[:team_id])
  
  @players = @team.players
+
+end
+
+def show
+  @player = Player.find(params[:id])
+  @team = @player.team
 end
 
 def new
@@ -21,7 +27,8 @@ def create
  @player = @team.players.new(player_params)
 
  if @player.save
-   redirect_to team_players_url(@team), notice: 'Player was succesfully created!'
+   redirect_to team_players_url(@team)
+   flash[:alert] = "Player was succesfully created!"
  else
    render :new
  end
@@ -32,7 +39,8 @@ end
 
 def update
   if @player.update(player_params)
-    redirect_to team_players_url(@player.team), notice: 'Player was succesfully updated!'
+    redirect_to team_players_url(@player.team)
+    flash[:alert] = "Player was succesfully updated!"
   else
     render :edit
   end
@@ -51,7 +59,7 @@ private
  end
 
  def player_params
-   params.require(:player).permit(:first, :last, :hits, :assists, :atbats, :batavg)
+   params.require(:player).permit(:first, :last, :hits, :assists, :atbats, :batavg, :runs, :singles, :doubles, :triples, :homeRuns, :rbis, :stolenBases, :caughtStealing, :walks, :strikeouts, :hitByPitch, :sacrificeHits, :sacrificeFlies, :plateAppearances, :onBasePercentage, :sluggingPercentage, :caughtStealingPercentage, :putouts, :outfieldAssists, :infieldAssists, :f_errors, :assists, :defensiveChances, :fieldingPercentage, :passedBalls, :f_stolenBases, :f_caughtStealing, :f_caughtStealingPercentage, :wins, :losses, :earnedRuns, :inningsPitched, :gamesStarted, :completeGames, :shutouts, :saves, :p_hits, :p_runs, :p_homeRuns, :p_walks, :p_strikeouts, :p_hitByPitch, :balks, :wildPitches, :earnedRunAverage, :whip, :h9, :hr9, :bb9, :k9)
  end
 
  def login_required

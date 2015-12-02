@@ -18,9 +18,11 @@ gem 'yaml_db', '~> 0.3.0'
 #gem 'sass-rails', '~> 5.0'
 
 gem 'bootstrap-sass', '3.2.0.0'
+gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 gem 'minitest-reporters'
 gem 'mail'
+gem 'paperclip'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
