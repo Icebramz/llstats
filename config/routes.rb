@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get 'static_pages/help'
 
-resources :games
+resources :games do
+  resources :plays, shallow: true
+end
 
 resources :teams do
   resources :players, shallow: true

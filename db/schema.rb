@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201215540) do
+ActiveRecord::Schema.define(version: 20151202201434) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "hometeam_id",      limit: 4
@@ -109,6 +109,21 @@ ActiveRecord::Schema.define(version: 20151201215540) do
 
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
+  create_table "plays", force: :cascade do |t|
+    t.integer  "inning",      limit: 4
+    t.string   "player_name", limit: 255
+    t.string   "home_away",   limit: 255
+    t.string   "message",     limit: 255
+    t.integer  "balls",       limit: 4
+    t.integer  "strikes",     limit: 4
+    t.integer  "out",         limit: 4
+    t.integer  "game_id",     limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "plays", ["game_id"], name: "index_plays_on_game_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name",                       limit: 255
     t.integer  "division",                   limit: 4
@@ -194,4 +209,5 @@ ActiveRecord::Schema.define(version: 20151201215540) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "players", "teams"
+  add_foreign_key "plays", "games"
 end
