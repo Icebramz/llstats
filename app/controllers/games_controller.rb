@@ -6,6 +6,8 @@ end
 
 def show
  @game = Game.find(params[:id])
+ 
+ @play = @game.plays.new
 end
 
 def new

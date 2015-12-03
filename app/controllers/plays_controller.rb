@@ -1,8 +1,8 @@
-class TeamsController < ApplicationController
+class PlaysController < ApplicationController
  before_action :set_play, only: [:edit, :update, :destroy]
 
  def new
-  @game = Game.find(params[:game_id]
+  @game = Game.find(params[:game_id])
 
   @play = @game.plays.new
  end
@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
  end
 
  def create
-  @game = Game.find(params[:game_id]
+  @game = Game.find(params[:game_id])
   @play = @game.plays.new(play_params)
 
   if @play.save
