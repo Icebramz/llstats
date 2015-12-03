@@ -1,0 +1,61 @@
+<%= form_for([@game, @play]) do |cur_play| %>
+ <% if @play.errors.any? %>
+  <div id = "error_explanation">
+  <h2><%= pluralize(@play.errors.count, "error") %> prohibited this Player from being saved:</h2>
+
+    <ul>
+      <% @play.errors.full_messages.each do |message| %>
+         <li><%= message  %></li>
+      <% end %>
+    </ul>
+   </div>
+  <% end %>
+
+ <div class="field">
+    <%= cur_play.label "Inning: " %>
+    <%= cur_play.text_field :inning %>
+ </div>
+
+ <div class="field">
+    <%= cur_play.label "Player Name: " %>
+    <%= cur_play.text_field :player_name %>
+ </div>
+
+ <div class="field">
+    <%= cur_play.label "Home or Away: " %>
+    <%= cur_play.text_field :home_away %>
+ </div>
+
+ <div class="field">
+     <%= cur_play.label "Play Message: " %>
+    <%= cur_play.text_field :message %>
+ </div>
+
+ <div class="field">
+    <%= cur_play.label "Balls: " %>
+    <%= cur_play.text_field :balls %>
+ </div>
+
+ <div class="field">
+    <%= cur_play.label "Strikes: " %>
+    <%= cur_play.text_field :strikes %>
+ </div>
+
+ <div class="field">
+    <%= cur_play.label "Out: " %>
+    <%= cur_play.text_field :out %>
+ </div>
+
+  <div class="actions">
+    <%= cur_play.submit %>
+  </div>
+
+<% end %>
+
+
+
+
+
+
+
+
