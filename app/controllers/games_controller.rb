@@ -6,6 +6,8 @@ end
 
 def show
  @game = Game.find(params[:id])
+ 
+ @play = @game.plays.new
 end
 
 def new
@@ -40,5 +42,7 @@ def destroy
  @game.destroy 
   redirect_to games_url
 end
+
+before_action :authenticate_user!
 
 end

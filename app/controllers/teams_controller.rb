@@ -44,10 +44,10 @@ class TeamsController < ApplicationController
    redirect_to teams_url
  end
 
- private
-
-   def login_required
-     redirect_to login_path unless logged_in?
-   end
+  private
+  
+    def login_required
+      redirect_to login_path unless logged_in?
+    end
 
 end

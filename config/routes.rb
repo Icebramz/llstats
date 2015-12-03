@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'password_resets/index'
   
   #get 'account_activations/edit'
+  get 'static_pages/home'
 
   get 'sessions/new'
 
@@ -13,7 +14,9 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/help'
 
-  resources :games
+  resources :games do
+    resources :plays, shallow: true
+  end
 
   resources :teams do
     resources :players, shallow: true

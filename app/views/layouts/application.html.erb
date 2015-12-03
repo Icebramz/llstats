@@ -3,6 +3,8 @@
 <head>
   <title>Llstats</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title> Llstats</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
@@ -10,7 +12,9 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <%= link_to "LL Stats", root_url, id: "logo" %>
+        <%= link_to root_url, id: "logo" do %>
+            <i class="glyphicon glyphicon-tasks"> </i> LL Stats
+        <% end %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",   root_url %></li>
@@ -36,11 +40,23 @@
                 <!-- link_to "Log in", login_path, method: "get" -->
              <% end %>
           </ul>
+
+
         </nav>
       </div>
     </header>
 
     <div class="container">
+        <% flash.each do |message_type, message| %>
+           <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
+
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
       <%= yield %>
       <!--footer-->
       <footer class="footer">

@@ -1,6 +1,7 @@
-<%= link_to :back, class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
-<hr>
 <h1> Add a new player to <%= @team.name %>'s Roster </h1>
+<%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+<hr>
+
 
 <%= render "player_form" %>
 
