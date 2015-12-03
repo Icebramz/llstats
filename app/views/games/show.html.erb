@@ -97,15 +97,19 @@
 
  <tbody>
   <% @game.plays.each do |cur_play| %>
-   <tr>
-    <td> <%= cur_play.inning %> </td>
-    <td> <%= cur_play.player_name %> </td>
-    <td> <%= cur_play.home_away %> </td>
-    <td> <%= cur_play.message %> </td>
-    <td> <%= cur_play.balls %> </td>
-    <td> <%= cur_play.strikes %> </td>
-    <td> <%= cur_play.out %> </td>
-   </tr>
+   <% if !cur_play.new_record? %>
+    <tr>
+     <td> <%= cur_play.inning %> </td>
+     <td> <%= cur_play.player_name %> </td>
+     <td> <%= cur_play.home_away %> </td>
+     <td> <%= cur_play.message %> </td>
+     <td> <%= cur_play.balls %> </td>
+     <td> <%= cur_play.strikes %> </td>
+     <td> <%= cur_play.out %> </td>
+     <td> <%= link_to "Edit", edit_play_path(cur_play) %> </td>
+     <td> <%= link_to "Delete", cur_play, method: :delete, data: { confirm: "Delete this play?" } %> </td>
+    </tr>
+   <% end %>
   <% end %>
  </tbody>
 
