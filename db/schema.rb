@@ -209,6 +209,6 @@ ActiveRecord::Schema.define(version: 20151202201434) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "players", "teams"
-  add_foreign_key "teams", "users"
   add_foreign_key "plays", "games"
+  add_foreign_key "teams", "users"
 end

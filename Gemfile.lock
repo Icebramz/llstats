@@ -41,11 +41,7 @@ GEM
     autoprefixer-rails (6.0.3)
       execjs
       json
-<<<<<<< HEAD
     bcrypt (3.1.7)
-=======
-    bcrypt (3.1.10)
->>>>>>> JLogin
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -72,14 +68,6 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
-    devise (3.5.2)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      responders
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
-    devise-bootstrap-views (0.0.7)
     erubis (2.7.0)
     execjs (2.6.0)
     faker (1.4.2)
@@ -113,7 +101,6 @@ GEM
     mysql2 (0.3.20)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    orm_adapter (0.5.0)
     paperclip (4.3.1)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -151,13 +138,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-<<<<<<< HEAD
     ref (2.0.0)
     ruby-progressbar (1.7.5)
-=======
-    responders (2.1.0)
-      railties (>= 4.2.0, < 5)
->>>>>>> JLogin
     sass (3.4.19)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
@@ -181,8 +163,6 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    warden (1.2.3)
-      rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -206,12 +186,7 @@ DEPENDENCIES
   bootstrap_form
   byebug
   coffee-rails (~> 4.1.0)
-<<<<<<< HEAD
   faker (= 1.4.2)
-=======
-  devise
-  devise-bootstrap-views
->>>>>>> JLogin
   jbuilder (~> 2.0)
   jquery-rails
   mail
@@ -228,6 +203,3 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate (= 3.0.7)
   yaml_db (~> 0.3.0)
-
-BUNDLED WITH
-   1.10.6
