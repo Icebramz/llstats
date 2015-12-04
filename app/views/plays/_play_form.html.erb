@@ -1,4 +1,4 @@
-<%= form_for([@game, @play]) do |cur_play| %>
+<%= bootstrap_form_for([@game, @play]) do |cur_play| %>
  <% if @play.errors.any? %>
   <div id = "error_explanation">
   <h2><%= pluralize(@play.errors.count, "error") %> prohibited this Player from being saved:</h2>
@@ -11,38 +11,26 @@
    </div>
   <% end %>
 
- <div class="field">
-    <%= cur_play.label "Inning: " %>
-    <%= cur_play.text_field :inning %>
- </div>
-
- <div class="field">
-    <%= cur_play.label "Player Name: " %>
+ <%= cur_play.select :home_away, [["Home", "Home"], ["Away", "Away"]], { label: "Home or Away Team" }, { class: "selectpicker" } %>
+ <%= cur_play.select :inning, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"], [6, "6"], [7, "7"], [8, "8"], [9, "9"]], { label: "Inning:" }, { class: "selectpicker" } %>
+  <div class="field">
     <%= cur_play.text_field :player_name %>
  </div>
 
  <div class="field">
-    <%= cur_play.label "Home or Away: " %>
-    <%= cur_play.text_field :home_away %>
+    <%= cur_play.text_area :message %>
  </div>
 
  <div class="field">
-     <%= cur_play.label "Play Message: " %>
-    <%= cur_play.text_field :message %>
- </div>
-
- <div class="field">
-    <%= cur_play.label "Balls: " %>
     <%= cur_play.text_field :balls %>
  </div>
 
  <div class="field">
-    <%= cur_play.label "Strikes: " %>
+
     <%= cur_play.text_field :strikes %>
  </div>
 
  <div class="field">
-    <%= cur_play.label "Out: " %>
     <%= cur_play.text_field :out %>
  </div>
 
