@@ -1,13 +1,16 @@
 class GamesController < ApplicationController
+before_filter :login_required, only: [:new, :create, :edit, :destroy]
 
 def index
  @games = Game.all
 end
 
 def show
- @game = Game.find(params[:id])
+# if !@game.nil?
+   @game = Game.find(params[:id])
  
- @play = @game.plays.new
+   @play = @game.plays.new
+# end
 end
 
 def new
@@ -43,5 +46,10 @@ def destroy
   redirect_to games_url
 end
 
+  private
+
+     def login_required
+       redirect_to login_path unless logged_in?
+     end   
 
 end
