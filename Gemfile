@@ -16,7 +16,6 @@ gem 'bootstrap-sass', '3.2.0.0'
 gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 gem 'paperclip'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -38,6 +37,7 @@ gem 'quiet_assets', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 
+gem 'rails-erd'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

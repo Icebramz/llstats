@@ -1,7 +1,7 @@
 class Player < ActiveRecord::Base
   belongs_to :team
   before_save :calcstats
-  
+  #before_create :initializePlayerStats
   def initializePlayerStats
     self.hits = 0
     self.atbats = 0
@@ -53,7 +53,7 @@ class Player < ActiveRecord::Base
     self.plateAppearances = self.atbats + self.walks + self.hitByPitch + self.sacrificeFlies + self.sacrificeHits
     
     if self.plateAppearances != 0
-      self.onBasePercentage = (self.hits + self.walks + self.hitByPitch) / self.plateAppearances.to_f
+      self.onBasePercentage = (self.hits + self.walks + self.hitByPitch) / (self.atbats + self.walks + self.hitByPitch + self.sacrificeFlies.to_f);
     else
       self.onBasePercentage = 0
     end
