@@ -2,11 +2,47 @@ class Player < ActiveRecord::Base
   belongs_to :team
   before_save :calcstats
 
-  validates :last, presence: true
-  validates :first, presence: true
-  
+  validates :last, presence: true, format: {with: /\A[a-zA-Z]+\z/, message: "Only Letters are allowed" }
+  validates :first, presence: true, format: {with: /\A[a-zA-Z]+\z/, message: "Only Letters are allowed" }
+  validates :hits, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :atbats, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :runs, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :singles, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :doubles, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :triples, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :homeRuns, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :rbis, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :stolenBases, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :caughtStealing, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :walks, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :strikeouts, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :hitByPitch, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :sacrificeHits, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :sacrificeFlies, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :putouts, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :outfieldAssists, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :infieldAssists, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :f_errors, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :passedBalls, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :f_stolenBases, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :f_caughtStealingPercentage, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :wins, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :losses, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :earnedRuns, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :inningsPitched, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :gamesStarted, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :completeGames, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :shutouts, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :saves, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :p_hits, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :p_runs, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :p_homeRuns, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :p_walks, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :p_strikeouts, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :p_hitByPitch, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :balks, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :wildPitches, presence: true, numericality: {greater_than_or_equal_to: 0}
 
-  
   def initializePlayerStats
     self.hits = 0
     self.atbats = 0
