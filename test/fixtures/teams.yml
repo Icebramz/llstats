@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Panther
   division: 1
 
 two:
-  name: MyString
+  name: Lion
   division: 1
+
+three:
+  name: King
+  division: 2
+
+two:
+  name: Falcons
+  division: 3
