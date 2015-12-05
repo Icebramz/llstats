@@ -128,7 +128,7 @@
                         <% end %>
                     </ul>
                  </div>
-                 <div class="panel-footer"><%= @game.hometeam.name %>: 0 <%= @game.awayteam.name %>: 1</div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningone %> <%= @game.awayteam.name %>: <%= @game.away_inningone %></div>
                </div>
              </div>
              <div class="panel panel-primary">
@@ -152,7 +152,7 @@
                         <% end %>
                     </ul>
                  </div>
-                 <div class="panel-footer"><%= @game.hometeam.name %>: 2 <%= @game.awayteam.name %>: 1</div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningtwo %> <%= @game.awayteam.name %>: <%= @game.away_inningtwo %></div>
                </div>
              </div>
              <div class="panel panel-primary">
@@ -175,7 +175,7 @@
                         <% end %>
                         <% end %>
                     </ul>
-                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_runs %> <%= @game.awayteam.name %>: <%= @game.away_runs %></div>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningthree %> <%= @game.awayteam.name %>: <%= @game.away_inningthree %></div>
                  </div>
                </div>
              </div>
@@ -199,6 +199,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfour %> <%= @game.awayteam.name %>: <%= @game.away_inningfour %></div>
 </div>
                </div>
              </div>
@@ -222,6 +223,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfive %> <%= @game.awayteam.name %>: <%= @game.away_inningfive %></div>
 </div>
                </div>
              </div>
@@ -245,6 +247,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningsix %> <%= @game.awayteam.name %>: <%= @game.away_inningsix %></div>
 </div>
                </div>
              </div>
@@ -268,6 +271,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningseven %> <%= @game.awayteam.name %>: <%= @game.away_inningseven %></div>
 </div>
                </div>
              </div>
@@ -291,6 +295,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningeight %> <%= @game.awayteam.name %>: <%= @game.away_inningeight %></div>
 </div>
                </div>
              </div>
@@ -314,6 +319,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningnine %> <%= @game.awayteam.name %>: <%= @game.away_inningnine %></div>
 </div>
                </div>
              </div>
@@ -342,8 +348,8 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningone %> <%= @game.awayteam.name %>: <%= @game.away_inningone %></div>
                  </div>
-                 <div class="panel-footer"><%= @game.hometeam.name %>: 0 <%= @game.awayteam.name %>: 1</div>
                </div>
              </div>
              <div class="panel panel-primary">
@@ -366,8 +372,8 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningtwo %> <%= @game.awayteam.name %>: <%= @game.away_inningtwo %></div>
                  </div>
-                 <div class="panel-footer"><%= @game.hometeam.name %>: 0 <%= @game.awayteam.name %>: 1</div>
                </div>
              </div>
              <div class="panel panel-primary">
@@ -390,6 +396,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningthree %> <%= @game.awayteam.name %>: <%= @game.away_inningthree %></div>
 </div>
                </div>
              </div>
@@ -413,6 +420,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfour %> <%= @game.awayteam.name %>: <%= @game.away_inningfour %></div>
 </div>
                </div>
              </div>
@@ -436,6 +444,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfive %> <%= @game.awayteam.name %>: <%= @game.away_inningfive %></div>
 </div>
                </div>
              </div>
@@ -459,6 +468,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningsix %> <%= @game.awayteam.name %>: <%= @game.away_inningsix %></div>
 </div>
                </div>
              </div>
@@ -482,6 +492,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningseven %> <%= @game.awayteam.name %>: <%= @game.away_inningseven %></div>
 </div>
                </div>
              </div>
@@ -505,6 +516,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningeight %> <%= @game.awayteam.name %>: <%= @game.away_inningeight %></div>
 </div>
                </div>
              </div>
@@ -532,6 +544,7 @@
                         <% end %>
                         <% end %>
                     </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningone %> <%= @game.awayteam.name %>: <%= @game.away_inningone %></div>
 </div>
                </div>
              </div>
@@ -540,36 +553,3 @@
 
    </div>
 </h2>
-
-<table class = "table">
- <thead>
-   <tr>
-     <th> Inning </th>
-     <th> Player Name </th>
-     <th> Home or Away </th>
-     <th> Message </th>
-     <th> Balls </th>
-     <th> Strikes </th>
-     <th> Out </th>
-   </tr>
- </thead>
-
- <tbody>
-  <% @game.plays.each do |cur_play| %>
-   <!--<% if !cur_play.new_record? %>-->
-    <tr>
-     <td> <%= cur_play.inning %> </td>
-     <td> <%= cur_play.player_name %> </td>
-     <td> <%= cur_play.home_away %> </td>
-     <td> <%= cur_play.message %> </td>
-     <td> <%= cur_play.balls %> </td>
-     <td> <%= cur_play.strikes %> </td>
-     <td> <%= cur_play.out %> </td>
-     <td> <%= link_to "Edit", edit_play_path(cur_play) %> </td>
-     <td> <%= link_to "Delete", cur_play, method: :delete, data: { confirm: "Delete this play?" } %> </td>
-    </tr>
-   <% end %>
-  <% end %>
- </tbody>
-
-</table>
