@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
  #GET /teams
  def index
@@ -43,5 +44,5 @@ class TeamsController < ApplicationController
    redirect_to teams_url
    flash[:notice] = "Team has been succesfully removed!"
  end
-before_action :authenticate_user!
+#before_action :authenticate_user!
 end

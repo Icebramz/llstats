@@ -20,10 +20,11 @@
       View Team <i class="glyphicon glyphicon-search"></i> 
      <%end %> 
             
+            <% if user_signed_in? %>
             <%= link_to cur_team, method: :delete, data: { confirm: "Are you sure you want to delete the team #{cur_team.name}?" }, class: 'btn btn-default' do%>
        <i class="glyphicon glyphicon-trash"></i>
      <% end %>
-     <%= link_to edit_team_path(cur_team), class: 'btn btn-default' do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+     <%= link_to edit_team_path(cur_team), class: 'btn btn-default' do %><i class="glyphicon glyphicon-pencil"></i><% end %><% end %>
          </p>
          
       </div>

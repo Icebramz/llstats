@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-
+before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 def index
  @games = Game.all
 end
@@ -43,6 +43,6 @@ def destroy
   redirect_to games_url
 end
 
-before_action :authenticate_user!
+#before_action :authenticate_user!
 
 end
