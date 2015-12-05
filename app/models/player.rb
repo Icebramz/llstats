@@ -1,6 +1,11 @@
 class Player < ActiveRecord::Base
   belongs_to :team
   before_save :calcstats
+
+  validates :last, presence: true
+  validates :first, presence: true
+  
+
   
   def initializePlayerStats
     self.hits = 0
