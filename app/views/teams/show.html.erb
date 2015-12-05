@@ -1,7 +1,4 @@
 <h1>View Team</h1>
-<% if flash[:alert] %>
-	<div class="alert alert-success" role="alert"><%= flash.alert %></div></p>
-<% end %>
 <% @team.calcteamstats %>
 <%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 <%= link_to edit_team_path, class: 'btn btn-default btn-md' do%> Edit <i class="glyphicon glyphicon-pencil"></i> <%end %>
