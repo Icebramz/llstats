@@ -1,10 +1,9 @@
 class Team < ActiveRecord::Base
  has_many :homegames, class_name: "Game", foreign_key: :hometeam_id, dependent: :destroy
  has_many :awaygames, class_name: "Game", foreign_key: :awayteam_id, dependent: :destroy
-
  has_many :players, dependent: :destroy
 
- validates :name, presence: true, format: {with: /\A[a-zA-Z\s]+\z/, message: "Only Letters are allowed"}
+ validates :name, presence: true, format: {with: /\A[a-zA-Z][a-zA-Z\-']+\z/, message: "Only Letters, Hyphens, and Apostrophes  are allowed"}
  validates :division, presence: true, numericality: {greater_than_or_equal_to: 0}
 
  has_attached_file :avatar,

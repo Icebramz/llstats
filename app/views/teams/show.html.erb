@@ -189,8 +189,20 @@
   <!--</div>-->
 </div>
 
-
 </div>
+
+<h2> Home Games </h2>
+<% @team.homegames.each do |cur_game| %>
+ <%= cur_game.hometeam.name %> vs. <%= cur_game.awayteam.name %>
+<% end %>
+
+<br>
+
+<h2> Away Games </h2>
+
+<% @team.awaygames.each do |cur_game| %>
+ <%= cur_game.hometeam.name %> vs. <%= cur_game.awayteam.name %>
+<% end %>
 
 
 
