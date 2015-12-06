@@ -1,7 +1,7 @@
 class Player < ActiveRecord::Base
   belongs_to :team
-  before_save :calcstats
-  #before_create :initializePlayerStats
+  before_update :calcstats
+  before_create :initializePlayerStats
   def initializePlayerStats
     self.hits = 0
     self.atbats = 0
@@ -19,13 +19,22 @@ class Player < ActiveRecord::Base
     self.hitByPitch = 0
     self.sacrificeFlies = 0
     self.sacrificeHits = 0
+    self.batavg = 0
+    self.plateAppearances = 0
+    self.onBasePercentage = 0
+    self.sluggingPercentage = 0
+    self.caughtStealingPercentage = 0
     self.putouts = 0
     self.outfieldAssists = 0
     self.infieldAssists = 0
     self.f_errors = 0
+    self.assists = 0
+    self.defensiveChances = 0
+    self.fieldingPercentage = 0
     self.passedBalls = 0
     self.f_stolenBases = 0
     self.f_caughtStealing = 0
+    self.f_caughtStealingPercentage = 0
     self.wins = 0
     self.losses = 0
     self.earnedRuns = 0
@@ -42,6 +51,12 @@ class Player < ActiveRecord::Base
     self.p_hitByPitch = 0
     self.balks = 0
     self.wildPitches = 0
+    self.earnedRunAverage = 0
+    self.whip = 0
+    self.h9 = 0
+    self.hr9 = 0
+    self.bb9 = 0
+    self.k9 = 0
   end
   def calcstats
     if self.atbats != 0
