@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'bootswatch-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

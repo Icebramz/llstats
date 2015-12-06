@@ -1,7 +1,20 @@
-<h1> Edit this team </h1>
-<%= link_to teams_path, class: 'btn btn-default' do %>Back<i class="glyphicon glyphicon-none"></i><% end %> 
+<h1> Edit team </h1>
+<%= link_to 'javascript:history.go(-1);', class: 'btn btn-default' do %>Back<i class="glyphicon glyphicon-none"></i><% end %> 
 <hr>
+<br>
+<div class="container">
+<div class="row">
+<div class="col-md-offset-3 col-md-6">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Edit Team</h4>
+  </div>
+  <div class="panel-body">
+   <%= render "team_form" %>
+  </div>
+</div>
 
-<%= render "team_form" %>
-
+</div>
+</div>
+</div>
 
