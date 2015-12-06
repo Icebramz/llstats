@@ -1,0 +1,24 @@
+<h1> Games </h1>
+<%= link_to new_game_path, class: 'btn btn-default btn-md' do%> New Game <i class="glyphicon glyphicon-plus"></i> <%end %> 
+<hr>
+<table class = "table" >
+ <thead>
+  <tr>
+   <th> Game ID </th>
+   <th> Home Team </th>
+   <th> Away Team </th>
+  </tr>
+ </thead>
+ <tbody>
+  <% @games.each do |cur_game| %>
+   <tr>
+    <td> <%= cur_game.id %></td>
+    <td> <%= cur_game.hometeam.name %></td>
+    <td> <%= cur_game.awayteam.name %></td>
+    <td> <%= link_to "Show", cur_game %> </td>
+    <td> <%= link_to "Edit", edit_game_path(cur_game) %> </td>
+    <td> <%= link_to "Destroy", cur_game, method: :delete, data: { confirm: "Do you really want to delete this game?" } %> </td>
+   </tr>
+  <% end %>
+ </tbody>
+</table>

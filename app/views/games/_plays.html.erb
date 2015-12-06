@@ -1,0 +1,449 @@
+<div class ="row">
+      <div class ="col-md-6">
+      <h2><%= @game.hometeam.name %> Play-by-Play</h2>
+         <div class="panel-group" id="accordion">
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse1a">Inning 1</a>
+                 </h4>
+               </div>
+               <div id="collapse1a" class="panel-collapse collapse in">
+                 <div class="panel-body">
+                  <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 1 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                 </div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningone %> <%= @game.awayteam.name %>: <%= @game.away_inningone %></div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse2a">Inning 2</a>
+                 </h4>
+               </div>
+               <div id="collapse2a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 2 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                 </div>
+                 <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningtwo %> <%= @game.awayteam.name %>: <%= @game.away_inningtwo %></div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3a">Inning 3</a>
+                 </h4>
+               </div>
+               <div id="collapse3a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                  <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 3 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningthree %> <%= @game.awayteam.name %>: <%= @game.away_inningthree %></div>
+                 </div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse4a">Inning 4</a>
+                 </h4>
+               </div>
+               <div id="collapse4a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 4 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfour %> <%= @game.awayteam.name %>: <%= @game.away_inningfour %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse5a">Inning 5</a>
+                 </h4>
+               </div>
+               <div id="collapse5a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 5 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfive %> <%= @game.awayteam.name %>: <%= @game.away_inningfive %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse6a">Inning 6</a>
+                 </h4>
+               </div>
+               <div id="collapse6a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 6 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningsix %> <%= @game.awayteam.name %>: <%= @game.away_inningsix %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse7a">Inning 7</a>
+                 </h4>
+               </div>
+               <div id="collapse7a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 7 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningseven %> <%= @game.awayteam.name %>: <%= @game.away_inningseven %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse8a">Inning 8</a>
+                 </h4>
+               </div>
+               <div id="collapse8a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 8 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningeight %> <%= @game.awayteam.name %>: <%= @game.away_inningeight %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse9a">Inning 9</a>
+                 </h4>
+               </div>
+               <div id="collapse9a" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Home" && cur_play.inning == 9 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningnine %> <%= @game.awayteam.name %>: <%= @game.away_inningnine %></div>
+</div>
+               </div>
+             </div>
+         </div>
+      </div>
+      <div class ="col-md-6">
+      <h2><%= @game.awayteam.name %> Play-by-Play</h2>
+         <div class="panel-group" id="accordionb">
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse1b">Inning 1</a>
+                 </h4>
+               </div>
+               <div id="collapse1b" class="panel-collapse collapse in">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 1 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningone %> <%= @game.awayteam.name %>: <%= @game.away_inningone %></div>
+                 </div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse2b">Inning 2</a>
+                 </h4>
+               </div>
+               <div id="collapse2b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                  <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 2 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningtwo %> <%= @game.awayteam.name %>: <%= @game.away_inningtwo %></div>
+                 </div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse3b">Inning 3</a>
+                 </h4>
+               </div>
+               <div id="collapse3b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 3 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningthree %> <%= @game.awayteam.name %>: <%= @game.away_inningthree %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse4b">Inning 4</a>
+                 </h4>
+               </div>
+               <div id="collapse4b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 4 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfour %> <%= @game.awayteam.name %>: <%= @game.away_inningfour %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse5b">Inning 5</a>
+                 </h4>
+               </div>
+               <div id="collapse5b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 5 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningfive %> <%= @game.awayteam.name %>: <%= @game.away_inningfive %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse6b">Inning 6</a>
+                 </h4>
+               </div>
+               <div id="collapse6b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 6 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningsix %> <%= @game.awayteam.name %>: <%= @game.away_inningsix %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse7b">Inning 7</a>
+                 </h4>
+               </div>
+               <div id="collapse7b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 7 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningseven %> <%= @game.awayteam.name %>: <%= @game.away_inningseven %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse8b">Inning 8</a>
+                 </h4>
+               </div>
+               <div id="collapse8b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? && cur_play.home_away == "Away" && cur_play.inning == 8 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningeight %> <%= @game.awayteam.name %>: <%= @game.away_inningeight %></div>
+</div>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordionb" href="#collapse9b">Inning 9</a>
+                 </h4>
+               </div>
+               <div id="collapse9b" class="panel-collapse collapse">
+                 <div class="panel-body">
+                    <ul style ="text-align:left" class ="list-group">
+                        <% @game.plays.each do |cur_play| %>
+                        <% if !cur_play.new_record? %>
+                        <% if cur_play.home_away == "Away" %>
+                        <% if cur_play.inning == 9 %>
+                        <li class ="list-group-item"> 
+                           <h5><b><%= cur_play.player_name %></b>
+                            <%= cur_play.message %> <br><br><div class = "well well-sm">
+                            <b>Ball: <%= cur_play.balls %> Strike: <%= cur_play.strikes %> Out: <%= cur_play.out %></b></div>
+                          </h5>
+                        </li>
+                        <% end %>
+                        <% end %>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="panel-footer"><%= @game.hometeam.name %>: <%= @game.home_inningone %> <%= @game.awayteam.name %>: <%= @game.away_inningone %></div>
+</div>
+               </div>
+             </div>
+         </div>
+      </div>
+
+   </div>

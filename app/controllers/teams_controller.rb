@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
  #GET /teams
  def index
@@ -17,7 +18,7 @@ class TeamsController < ApplicationController
   @team = Team.new(params.require(:team).permit(:name, :division, :avatar))
   if @team.save
    redirect_to @team
-   flash[:alert] = "Team has succesfully been added!"
+   flash[:notice] = "Team has succesfully been added!"
   else
    render :new
   end
@@ -31,7 +32,7 @@ class TeamsController < ApplicationController
   @team = Team.find(params[:id])
   if @team.update(params.require(:team).permit(:name, :division, :avatar))
     redirect_to @team
-    flash[:alert] = "Team has been succesfully updated!"
+    flash[:notice] = "Team has been succesfully updated!"
   else
    render :edit
   end
@@ -41,6 +42,7 @@ class TeamsController < ApplicationController
   @team = Team.find(params[:id])
   @team.destroy
    redirect_to teams_url
+   flash[:notice] = "Team has been succesfully removed!"
  end
-
+#before_action :authenticate_user!
 end

@@ -7,6 +7,12 @@ def index
  @team = Team.find(params[:team_id])
  
  @players = @team.players
+
+end
+
+def show
+  @player = Player.find(params[:id])
+  @team = @player.team
 end
 
 def new

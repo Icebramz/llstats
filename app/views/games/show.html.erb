@@ -1,0 +1,126 @@
+
+
+<h1>View Game</h1>
+<%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+
+<% if user_signed_in? %>
+<%= link_to edit_game_path, class: 'btn btn-default btn-md' do%> <i class="glyphicon glyphicon-pencil"></i> Edit <%end %>
+
+<button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#myModal2">
+<i class="glyphicon glyphicon-time"></i> Update Score
+</button>
+<button type="button" class="btn btn-default btn-md pull-right" style="margin-right:5px;" style="" data-toggle="modal" data-target="#myModal">
+<i class="glyphicon glyphicon-plus"></i> Add Play
+</button>
+<% end %>
+<hr>
+<div style ="background-transparent" class="center jumbotron">
+<div class ="container">
+<div class="row">
+  <div class="col-md-3"><br><br><%= image_tag @game.hometeam.avatar.url(:thumb) %> <br> <h3><%= @game.hometeam.name %></h3></div>
+  <div class="col-md-6">
+      <h2><%= @game.hometeam.name%> vs. <%= @game.awayteam.name %> on 10/12/15</h2>
+      <div class="panel panel-primary">
+      <div class="panel-heading">Scoreboard</div>
+      <div class="table-responsive">
+      <table class="table table-striped  table-hover table-bordered">
+        <thead>
+          <tr>
+             <th style="text-align:left"></th>
+             <th style="text-align:center"> 1 </th>
+             <th style="text-align:center"> 2 </th>
+             <th style="text-align:center"> 3 </th>
+             <th style="text-align:center"> 4 </th>
+             <th style="text-align:center"> 5 </th>
+             <th style="text-align:center"> 6 </th>
+             <th style="text-align:center"> 7 </th>
+             <th style="text-align:center"> 8 </th>
+             <th style="text-align:center"> 9 </th>
+             <th style="text-align:center"> R </th>
+             <th style="text-align:center"> H </th>
+             <th style="text-align:center"> E </th>
+             <!--<th style="text-align:center"> Edit </th>
+             <th style="text-align:center"> Delete </th>_-->
+
+              </th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td style="text-align:left"> <b><%= @game.hometeam.name %></b></td>
+              <td style="text-align:center"> <%= @game.home_inningone %> </td>
+              <td style="text-align:center"> <%= @game.home_inningtwo %> </td>
+              <td style="text-align:center"> <%= @game.home_inningthree %> </td>
+              <td style="text-align:center"> <%= @game.home_inningfour %> </td>
+              <td style="text-align:center"> <%= @game.home_inningfive %> </td>
+              <td style="text-align:center"> <%= @game.home_inningsix %> </td>
+              <td style="text-align:center"> <%= @game.home_inningseven %> </td>
+              <td style="text-align:center"> <%= @game.home_inningeight %></td>
+              <td style="text-align:center"> <%= @game.home_inningnine %> </td>
+              <td style="text-align:center"> <b><%= @game.home_runs %> </b></td>
+              <td style="text-align:center"> <b><%= @game.home_hits %></b> </td>
+              <td style="text-align:center"> <b><%= @game.home_error %></b> </td>
+
+            </tr>
+            <tr>
+              <td style="text-align:left"> <b><%= @game.awayteam.name %></b></td>
+              <td style="text-align:center"> <%= @game.away_inningone %> </td>
+              <td style="text-align:center"> <%= @game.away_inningtwo %> </td>
+              <td style="text-align:center"> <%= @game.away_inningthree %> </td>
+              <td style="text-align:center"> <%= @game.away_inningfour %> </td>
+              <td style="text-align:center"> <%= @game.away_inningfive %> </td>
+              <td style="text-align:center"> <%= @game.away_inningsix %> </td>
+              <td style="text-align:center"> <%= @game.away_inningseven %> </td>
+              <td style="text-align:center"> <%= @game.away_inningeight %></td>
+              <td style="text-align:center"> <%= @game.away_inningnine %> </td>
+              <td style="text-align:center"> <b><%= @game.away_runs %> </b></td>
+              <td style="text-align:center"> <b><%= @game.away_hits %></b> </td>
+              <td style="text-align:center"> <b><%= @game.away_error %></b> </td>
+
+            </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      <br><h1><%= @game.home_runs %> - <%= @game.away_runs %></h1>
+  </div>
+  <div class ="col-md-3"><br><br><%= image_tag @game.awayteam.avatar.url(:thumb) %> <br> <h3><%= @game.awayteam.name %></h3></div>
+</div>
+</div>
+</div>
+
+
+<!-- Plays Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="PlaysModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="ScoreModal">Create a New Play</h3>
+      </div>
+      <div class="modal-body">
+        <%= render "plays/play_form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scoreboard Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="ScoreModal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="ScoreModal">Edit Score</h3>
+      </div>
+      <div class="modal-body">
+        <%= render "score_form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>
+   <%= render "plays" %>
+</h2>

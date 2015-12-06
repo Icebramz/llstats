@@ -1,0 +1,107 @@
+
+<%= bootstrap_form_for(@game) do |game| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this Game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |message| %>
+        <li><%= message  %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<h1>Edit Game</h1>
+<%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
+
+<hr>
+<div style ="background-transparent" class="center jumbotron">
+<div class ="container">
+<div class="row">
+  <div class="col-md-5"><br><br><%= image_tag @game.hometeam.avatar.url(:thumb) %> <br> <h3><div class="field">
+  <%= game.select :hometeam_id, Team.all.collect {|p| [p.name, p.id] } %>
+ </div></h3></div>
+  
+  <div class ="col-md-5  col-md-offset-2"><br><br><%= image_tag @game.awayteam.avatar.url(:thumb) %> <br> <h3><div class="field">
+  <%= game.select :awayteam_id, Team.all.collect {|p| [p.name, p.id] } %>
+ </div></h3></div>
+</div>
+<br>
+<div class="col-md-10 col-md-offset-1">
+      
+      <div class="panel panel-primary">
+      <div class="panel-heading">Scoreboard</div>
+      <div class="table-responsive">
+      <table class="table table-striped  table-hover table-bordered">
+        <thead>
+          <tr>
+             <th style="text-align:left"></th>
+             <th style="text-align:center"> 1 </th>
+             <th style="text-align:center"> 2 </th>
+             <th style="text-align:center"> 3 </th>
+             <th style="text-align:center"> 4 </th>
+             <th style="text-align:center"> 5 </th>
+             <th style="text-align:center"> 6 </th>
+             <th style="text-align:center"> 7 </th>
+             <th style="text-align:center"> 8 </th>
+             <th style="text-align:center"> 9 </th>
+             <th style="text-align:center"> R </th>
+             <th style="text-align:center"> H </th>
+             <th style="text-align:center"> E </th>
+             <!--<th style="text-align:center"> Edit </th>
+             <th style="text-align:center"> Delete </th>_-->
+
+              </th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td style="text-align:left"> <b><%= @game.hometeam.name %></b></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningone, hide_label: true %></div></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningtwo, hide_label: true %></div> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningthree, hide_label: true %></div> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningfour, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningfive, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningsix, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningseven, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningeight, hide_label: true %></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_inningnine, hide_label: true %> </td>
+              <td style="text-align:center"> <b><%= @game.home_runs %> </b></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_hits, hide_label: true %></div> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :home_error, hide_label: true %></div> </td>
+
+            </tr>
+            <tr>
+              <td style="text-align:left"> <b><%= @game.awayteam.name %></b></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningone, hide_label: true %></div></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningtwo, hide_label: true %></div> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningthree, hide_label: true %></div> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningfour, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningfive, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningsix, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningseven, hide_label: true %> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningeight, hide_label: true %></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_inningnine, hide_label: true %> </td>
+              <td style="text-align:center"> <b><%= @game.away_runs %> </b></td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_hits, hide_label: true %></div> </td>
+              <td style="text-align:center"> <div class="field"><%= game.text_field :away_error, hide_label: true %></div> </td>
+
+            </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      <h1><div class="actions"><%= game.submit %></div></h1>
+  </div>
+
+</div>
+</div>
+<% end %>
+<h2>
+<%= render "plays_edit" %>
+</h2>
+
+
