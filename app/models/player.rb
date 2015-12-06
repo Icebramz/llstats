@@ -25,7 +25,6 @@ class Player < ActiveRecord::Base
   validates :f_errors, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :passedBalls, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :f_stolenBases, presence: true, numericality: {greater_than_or_equal_to: 0}
-  validates :f_caughtStealingPercentage, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :wins, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :losses, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :earnedRuns, presence: true, numericality: {greater_than_or_equal_to: 0}
