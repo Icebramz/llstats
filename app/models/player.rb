@@ -15,7 +15,6 @@ class Player < ActiveRecord::Base
     self.caughtStealing = 0
     self.walks = 0
     self.strikeouts = 0
-    #i dont know whats going on
     self.hitByPitch = 0
     self.sacrificeFlies = 0
     self.sacrificeHits = 0
