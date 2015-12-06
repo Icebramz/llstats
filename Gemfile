@@ -37,6 +37,7 @@ gem 'quiet_assets', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 
+#Allows the application to generate ER diagrams
 gem 'rails-erd'
 
 # Use ActiveModel has_secure_password
