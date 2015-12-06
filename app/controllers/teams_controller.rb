@@ -15,7 +15,8 @@ class TeamsController < ApplicationController
  end
 
  def create
-  @team = Team.new(params.require(:team).permit(:name, :division, :avatar))
+  #@team = Team.new(params.require(:team).permit(:name, :division, :avatar))
+  @team = current_user.teams.build(team_params)
   if @team.save
    redirect_to @team
    flash[:notice] = "Team has succesfully been added!"
@@ -49,6 +50,10 @@ class TeamsController < ApplicationController
   
     def login_required
       redirect_to login_path unless logged_in?
+    end
+   
+    def team_params
+      params.require(:team).permit(:name, :division, :avatar)
     end
 
 end
