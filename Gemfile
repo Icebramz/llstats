@@ -43,6 +43,12 @@ gem 'binding_of_caller', group: :development
 #Allows the application to generate ER diagrams
 gem 'rails-erd'
 
+#Gem for code coverage
+gem 'simplecov', :group => :test
+
+#Gem that will give a seed file based off data in the current database
+gem 'seed_dump'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

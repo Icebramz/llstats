@@ -34,6 +34,9 @@ class PlayerTest < ActiveSupport::TestCase
   test "bonds fpct" do
     assert_equal("0.984", number_with_precision(barryBonds.fieldingPercentage, precision:3))
   end
+  test "bonds caught stealing percentage" do
+    assert_equal("22%", number_to_percentage(barryBonds.caughtStealingPercentage * 100, precision:0))
+  end
 
   test "molina num plate appearances" do
     assert_equal(5576, molina.plateAppearances)
