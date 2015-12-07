@@ -52,7 +52,7 @@
 
         <tbody>
             <tr>
-              <td style="text-align:left"> <b><%= @game.hometeam.name %></b></td>
+              <td style="text-align:left"> <b><%= @game.hometeam.name unless @game.hometeam.name.blank? %></b></td>
               <td style="text-align:center"> <%= @game.home_inningone %> </td>
               <td style="text-align:center"> <%= @game.home_inningtwo %> </td>
               <td style="text-align:center"> <%= @game.home_inningthree %> </td>
