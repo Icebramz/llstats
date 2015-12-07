@@ -1,0 +1,9 @@
+<% @teams.each do |cur_team| %>
+ <%= image_tag cur_team.avatar.url(:thumb) %>
+ <%= cur_team.name  %>
+ <%= cur_team.division %>
+ <%= link_to cur_team, class: 'btn btn-primary'%>
+<% end %>
+
+
+
