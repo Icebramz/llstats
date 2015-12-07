@@ -28,7 +28,7 @@ def create
 
  if @player.save
    redirect_to team_players_url(@team)
-   flash[:alert] = "Player was succesfully created!"
+   flash[:notice] = "Player was succesfully created!"
  else
    render :new
  end
@@ -40,7 +40,7 @@ end
 def update
   if @player.update(player_params)
     redirect_to team_players_url(@player.team)
-    flash[:alert] = "Player was succesfully updated!"
+    flash[:notice] = "Player was succesfully updated!"
   else
     render :edit
   end
@@ -48,7 +48,7 @@ end
 
 def destroy
   @player.destroy
-  redirect_to team_players_url(@player.team), notice: "Player was deleted!"
+  redirect_to team_players_url(@player.team), alert: "Player was deleted!"
 end
 
 
