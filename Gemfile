@@ -41,6 +41,17 @@ gem 'quiet_assets', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 
+#Allows the application to generate ER diagrams
+gem 'rails-erd'
+
+#Gem for code coverage
+gem 'simplecov', :group => :test
+
+#Gem that will give a seed file based off data in the current database
+gem 'seed_dump'
+
+#Gem for complexity analytics
+gem 'metric_fu', '~> 4.12'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
