@@ -13,6 +13,7 @@ class PlaysController < ApplicationController
  def create
   @game = Game.find(params[:game_id])
   @play = @game.plays.new(play_params)
+  @play.user_id = current_user.id
 
   if @play.save
     redirect_to game_url(@game), notice: "Play was successfully created"

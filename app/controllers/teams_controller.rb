@@ -16,12 +16,15 @@ before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
  def create
   @team = Team.new(params.require(:team).permit(:name, :division, :avatar))
+  @team.user_id = current_user.id
   if @team.save
    redirect_to @team
    flash[:notice] = "Team has succesfully been added!"
   else
    render :new
   end
+  
+
  end
 
  def edit

@@ -24,6 +24,7 @@ end
 def create
  @team = Team.find(params[:team_id])
  @player = @team.players.new(player_params)
+ @player.user_id = current_user.id
 
  if @player.save
    redirect_to team_players_url(@team)

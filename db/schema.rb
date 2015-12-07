@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202201434) do
+ActiveRecord::Schema.define(version: 20151207005730) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "hometeam_id",      limit: 4
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151202201434) do
     t.integer  "away_hits",        limit: 4
     t.integer  "away_error",       limit: 4
     t.integer  "away_score",       limit: 4
+    t.integer  "user_id",          limit: 4
   end
 
   create_table "players", force: :cascade do |t|
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(version: 20151202201434) do
     t.float    "k9",                         limit: 24
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.integer  "user_id",                    limit: 4
   end
 
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 20151202201434) do
     t.integer  "game_id",     limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "user_id",     limit: 4
   end
 
   add_index "plays", ["game_id"], name: "index_plays_on_game_id", using: :btree
@@ -186,6 +189,7 @@ ActiveRecord::Schema.define(version: 20151202201434) do
     t.float    "hr9",                        limit: 24
     t.float    "bb9",                        limit: 24
     t.float    "k9",                         limit: 24
+    t.integer  "user_id",                    limit: 4
   end
 
   create_table "users", force: :cascade do |t|
