@@ -1,14 +1,14 @@
 {
   "MiniTest": {
     "coverage": {
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/environment.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/environments/test.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/environments/test.rb": [
         1,
         null,
         null,
@@ -52,7 +52,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/assets.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -65,7 +65,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/backtrace_silencers.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -74,12 +74,12 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/cookies_serializer.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/devise.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/devise.rb": [
         null,
         null,
         1,
@@ -343,13 +343,13 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/filter_parameter_logging.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/inflections.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -367,18 +367,18 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/mime_types.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/session_store.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/initializers/wrap_parameters.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -394,7 +394,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/config/routes.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/config/routes.rb": [
         1,
         null,
         1,
@@ -414,7 +414,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/models/user.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/models/user.rb": [
         1,
         null,
         null,
@@ -422,7 +422,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/test/controllers/teams_controller_test.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/test/controllers/teams_controller_test.rb": [
         1,
         null,
         1,
@@ -482,7 +482,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/test/models/game_test.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/test/models/game_test.rb": [
         1,
         null,
         1,
@@ -491,7 +491,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/test/models/play_test.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/test/models/play_test.rb": [
         1,
         null,
         1,
@@ -500,7 +500,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/test/models/player_test.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/test/models/player_test.rb": [
         1,
         1,
         1,
@@ -589,7 +589,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/models/player.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/models/player.rb": [
         1,
         1,
         1,
@@ -752,7 +752,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/test/models/team_test.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/test/models/team_test.rb": [
         1,
         null,
         1,
@@ -833,7 +833,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/test/models/user_test.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/test/models/user_test.rb": [
         1,
         null,
         1,
@@ -842,7 +842,7 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/models/game.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/models/game.rb": [
         1,
         1,
         1,
@@ -850,14 +850,103 @@
         1,
         1,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         1,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/models/team.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/models/team.rb": [
         1,
         1,
         1,
@@ -867,6 +956,7 @@
         1,
         null,
         1,
+        null,
         null,
         null,
         null,
@@ -1022,12 +1112,12 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/models/play.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/models/play.rb": [
         1,
         1,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/controllers/teams_controller.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/controllers/teams_controller.rb": [
         1,
         1,
         null,
@@ -1038,6 +1128,23 @@
         null,
         1,
         1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        null,
+        null,
         null,
         null,
         1,
@@ -1056,20 +1163,6 @@
         null,
         1,
         1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        1,
         1,
         1,
         1,
@@ -1077,22 +1170,22 @@
         null,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/controllers/application_controller.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/helpers/application_helper.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/johnnyturbo/Documents/johnnyAndJoeyllstats/llstats/app/helpers/static_pages_helper.rb": [
+      "/home/johnnyturbo/Documents/newLL/llstats/app/helpers/static_pages_helper.rb": [
         1,
         null
       ]
     },
-    "timestamp": 1449446062
+    "timestamp": 1449478620
   }
 }

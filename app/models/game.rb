@@ -33,6 +33,10 @@ class Game < ActiveRecord::Base
  def calcscore
   self.home_runs = 0
   self.away_runs = 0
+  self.home_hits = 0
+  self.away_hits = 0
+  self.home_error = 0
+  self.away_error = 0
 
   if self.home_inningone != nil
    self.home_runs += self.home_inningone
