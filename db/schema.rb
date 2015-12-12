@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20151210135408) do
     t.integer  "game_id",     limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "user_id",     limit: 4
   end
 
   add_index "plays", ["game_id"], name: "index_plays_on_game_id", using: :btree
@@ -221,4 +222,5 @@ ActiveRecord::Schema.define(version: 20151210135408) do
   add_foreign_key "plays", "games"
   add_foreign_key "teams", "users"
   add_foreign_key "users", "games"
+
 end

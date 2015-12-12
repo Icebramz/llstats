@@ -1,7 +1,6 @@
 class Team < ActiveRecord::Base
- 
+
  belongs_to :user 
- has_many :players, dependent: :destroy  
 
  #has_and_belongs_to_many :homegames, class_name: "Game", foreign_key: :hometeam_id, dependent: :destroy
  #has_and_belongs_to_many :awaygames, class_name: "Game", foreign_key: :awayteam_id, dependent: :destroy
@@ -9,7 +8,7 @@ class Team < ActiveRecord::Base
  has_many :awaygames, class_name: "Game", foreign_key: :awayteam_id, dependent: :destroy
  has_many :players, dependent: :destroy
 
- validates :name, presence: true, format: {with: /\A[a-zA-Z][a-zA-Z\-']+\z/, message: "Only Letters, Hyphens, and Apostrophes  are allowed"}
+ validates :name, presence: true, format: {with: /\A[a-zA-Z\-' ]+\z/, message: "Only Letters, Hyphens, and Apostrophes  are allowed"}
  validates :division, presence: true, numericality: {greater_than_or_equal_to: 0}
 
  has_attached_file :avatar,
@@ -17,7 +16,8 @@ class Team < ActiveRecord::Base
       :large =>"500x500>",
       :medium => "300x300>",
       :preview  => ['480x480#',  :jpg, :quality => 70],
-      :thumb => "200x200>" },
+      :thumb => "200x200>",
+      :icon => "100x100>" },
     :url => "/:class/:attachment/:id/:style_:basename.:extension"
   
   validates_attachment :avatar, 
@@ -166,9 +166,4 @@ class Team < ActiveRecord::Base
       self.k9 = 0
     end
   end
-
-
 end
-
-
-

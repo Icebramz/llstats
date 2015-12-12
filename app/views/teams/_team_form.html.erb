@@ -1,5 +1,4 @@
-<div class="row">
-<div class="col-md-8 col-md-offset-2">
+
 <%= bootstrap_form_for(@team) do |team| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
@@ -24,8 +23,6 @@
     <%= team.file_field :avatar, label: "Team Logo" %>
   </div>
   <div class="actions">
-    <%= team.submit %>
+  <%= team.primary %>
   </div>
 <% end %>
-</div>
-</div>

@@ -21,7 +21,6 @@ end
 def create
  @game = Game.new(game_params) 
  @game.user_id = current_user.id
- #@game = current_user.games.new(params.require(:game).permit(:hometeam_id, :awayteam_id, :home_inningone, :home_inningtwo, :home_inningthree, :home_inningfour, :home_inningfive, :home_inningsix, :home_inningseven, :home_inningeight, :home_inningnine, :home_runs, :home_hits, :home_error, :away_inningone, :away_inningtwo, :away_inningthree, :away_inningfour, :away_inningfive, :away_inningsix, :away_inningseven, :away_inningeight, :away_inningnine, :away_runs, :away_hits, :away_error))
 
  if @game.save
   redirect_to @game

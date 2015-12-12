@@ -1,6 +1,21 @@
-<h1> Edit player from <%= @player.team.name %> </h1>
+<h1> Edit <%= @player.first %> <%= @player.last %>'s Stats </h1>
 <%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
-
 <hr>
 
-<%= render "player_form" %>
+<div class="container">
+<div class="row">
+<div class="col-md-offset-3 col-md-6">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Edit Player</h4>
+  </div>
+  <div class="panel-body">
+   <%= render "player_form" %>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+

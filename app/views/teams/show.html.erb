@@ -15,7 +15,7 @@
   <button class="btn btn-primary btn-md" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span> Team Stats
   </button>
-  <%= link_to games_path, class: 'btn btn-primary btn-md' do%> Games <i class="glyphicon glyphicon-baseball"></i> <%end %>
+  <!--<%= link_to games_path, class: 'btn btn-primary btn-md' do%> Games <i class="glyphicon glyphicon-baseball"></i> <%end %>-->
   <%= link_to team_players_path(@team), class: 'btn btn-primary btn-md' do%> Player Roster <i class="glyphicon glyphicon-none"></i> <%end %>
  <br><br>
 
@@ -191,18 +191,120 @@
 
 </div>
 
+
+
+<div class="row">
+<div class="col-md-6">
 <h2> Home Games </h2>
 <% @team.homegames.each do |cur_game| %>
- <%= cur_game.hometeam.name %> vs. <%= cur_game.awayteam.name %>
+<%= link_to game_path(cur_game) do %>
+ <div  class="center jumbotron">
+<div class ="container">
+<div class="row">
+  <div class="col-md-4" align="center"><%= image_tag cur_game.hometeam.avatar.url(:icon) %> <br> <h5><%= cur_game.hometeam.name %></h5></div>
+  <div class="col-md-4" align="center">
+      <div class="panel panel-primary">
+      
+      <div class="table-responsive">
+      <table class="table table-striped  table-hover table-bordered">
+        <thead>
+          <tr>
+             <th style="text-align:center"> R </th>
+             <th style="text-align:center"> H </th>
+             <th style="text-align:center"> E </th>
+             <!--<th style="text-align:center"> Edit </th>
+             <th style="text-align:center"> Delete </th>_-->
+
+              </th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td style="text-align:center"> <b><%= cur_game.home_runs %> </b></td>
+              <td style="text-align:center"> <b><%= cur_game.home_hits %></b> </td>
+              <td style="text-align:center"> <b><%= cur_game.home_error %></b> </td>
+
+            </tr>
+            <tr>
+              <td style="text-align:center"> <b><%= cur_game.away_runs %> </b></td>
+              <td style="text-align:center"> <b><%= cur_game.away_hits %></b> </td>
+              <td style="text-align:center"> <b><%= cur_game.away_error %></b> </td>
+
+            </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      <h3><%= cur_game.home_runs %> - <%= cur_game.away_runs %></h3>
+  </div>
+  <div class ="col-md-4" align="center"><%= image_tag cur_game.awayteam.avatar.url(:icon) %> <br> <h5><%= cur_game.awayteam.name %></h5></div>
+</div>
+</div>
+</div>
+
+
 <% end %>
-
-<br>
-
+<% end %>
+</div>
+<div class="col-md-6">
 <h2> Away Games </h2>
 
 <% @team.awaygames.each do |cur_game| %>
- <%= cur_game.hometeam.name %> vs. <%= cur_game.awayteam.name %>
+<%= link_to game_path(cur_game) do %>
+
+ <div style ="background-transparent" class="center jumbotron">
+<div class ="container">
+<div class="row">
+  <div class="col-md-4" align="center"><%= image_tag cur_game.hometeam.avatar.url(:icon) %> <br> <h5><%= cur_game.hometeam.name %></h5></div>
+  <div class="col-md-4" align="center">
+      <div class="panel panel-primary">
+      
+      <div class="table-responsive">
+      <table class="table table-striped  table-hover table-bordered">
+        <thead>
+          <tr>
+             <th style="text-align:center"> R </th>
+             <th style="text-align:center"> H </th>
+             <th style="text-align:center"> E </th>
+             <!--<th style="text-align:center"> Edit </th>
+             <th style="text-align:center"> Delete </th>_-->
+
+              </th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td style="text-align:center"> <b><%= cur_game.home_runs %> </b></td>
+              <td style="text-align:center"> <b><%= cur_game.home_hits %></b> </td>
+              <td style="text-align:center"> <b><%= cur_game.home_error %></b> </td>
+
+            </tr>
+            <tr>
+              <td style="text-align:center"> <b><%= cur_game.away_runs %> </b></td>
+              <td style="text-align:center"> <b><%= cur_game.away_hits %></b> </td>
+              <td style="text-align:center"> <b><%= cur_game.away_error %></b> </td>
+
+            </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      <h3><%= cur_game.home_runs %> - <%= cur_game.away_runs %></h3>
+  </div>
+  <div class ="col-md-4" align="center"><%= image_tag cur_game.awayteam.avatar.url(:icon) %> <br> <h5><%= cur_game.awayteam.name %></h5></div>
+</div>
+</div>
+</div>
+
+
 <% end %>
+<% end %>
+</div>
+</div>
+
+
 
 
 

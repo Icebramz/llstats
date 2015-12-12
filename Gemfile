@@ -24,7 +24,6 @@ gem 'minitest-reporters'
 gem 'mail'
 gem 'paperclip'
 gem 'bootswatch-rails'
-gem 'rails-erd'
 gem 'gravtastic'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -48,6 +47,17 @@ gem 'quiet_assets', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 
+#Allows the application to generate ER diagrams
+gem 'rails-erd'
+
+#Gem for code coverage
+gem 'simplecov', :group => :test
+
+#Gem that will give a seed file based off data in the current database
+gem 'seed_dump'
+
+#Gem for complexity analytics
+gem 'metric_fu', '~> 4.12'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -1,0 +1,16 @@
+require 'test_helper'
+
+class PlayerTest < ActiveSupport::TestCase
+  barryBonds = Player.create(:first => "Barry", :last => "Bonds", :hits => 2935, :atbats => 9847, :runs => 2227, :singles => 1495, :doubles => 601, :triples => 77, :homeRuns => 762, :rbis => 1996, :stolenBases => 514, :caughtStealing => 141, :walks => 2558, :strikeouts => 1539, :hitByPitch => 106, :sacrificeFlies => 91, :sacrificeHits => 4, :putouts => 5637, :outfieldAssists => 173, :infieldAssists => 0, :f_errors => 97, :passedBalls => 0, :f_stolenBases => 0, :f_caughtStealing => 0, :wins => 0, :losses => 0, :earnedRuns => 0, :inningsPitched => 0, :gamesStarted => 0, :completeGames => 0, :shutouts => 0, :saves => 0, :p_hits => 0, :p_runs => 0, :p_homeRuns => 0, :p_walks => 0, :p_strikeouts => 0, :p_hitByPitch => 0, :balks => 0, :wildPitches => 0)
+   
+  test "num plate appearances" do
+    assert_equal(12606, barryBonds.atbats + barryBonds.walks + barryBonds.hitByPitch + barryBonds.sacrificeFlies + barryBonds.sacrificeHits)
+  end
+
+  test "num assists" do
+    assert_equal(173, barryBonds.infieldAssists + barryBonds.outfieldAssists)
+  end
+
+  test "num defensive chances" do
+    assert_equal(5907, barryBonds.putouts + barryBonds.assists + barryBonds.f_errors)
+end

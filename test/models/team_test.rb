@@ -23,16 +23,12 @@ class TeamTest < ActiveSupport::TestCase
         ##########################Association with Player ############################################################
         test 'association with players - Create players with stats' do
 	    team = teams(:one)
-            player = team.players.new
-            player.initializePlayerStats()
-            player.first = "abdull"
-            player.last = "alkalbi"
-            player.hits = 6
-            player.atbats = 2
-            player.f_caughtStealingPercentage = 0
-            player.save
+            player = team.players.create(:first => "Abdull", :last => "Alkalbi")
+            player.initializePlayerStats
+            player.update(:hits => 6, :atbats => 2)
+            player.calcstats
 	    assert_equal(team.id, player.team_id)
-	    assert_equal(player.batavg, 3)#because self.batavg = self.hits.to_f / self.atbats
+	    assert_equal(3, player.batavg)#because self.batavg = self.hits.to_f / self.atbats
 	  end
           test 'association with players - Player should delete when team destroy' do
 	    team = teams(:one)
@@ -42,11 +38,26 @@ class TeamTest < ActiveSupport::TestCase
             player.last = "alkalbi"
             player.hits = 6
             player.atbats = 2
-            player.f_caughtStealingPercentage = 0
             player.save
 	    team.destroy()
             assert_nil Player.find_by_id(player.id)
 	  end
+          test 'Testing calculation of team stats' do
+            team = teams(:one)
+            player1 = team.players.create(:first => "Abdull", :last => "Alkalbi")
+            player2 = team.players.create(:first => "Johnny", :last => "Thompson")
+            player1.initializePlayerStats
+            player2.initializePlayerStats
+            player1.update(:hits => 1, :atbats => 2, :caughtStealing => 1)
+            player2.update(:hits => 1, :atbats => 2, :stolenBases => 1)
+            player1.calcstats
+            player2.calcstats
+            team.calcteamstats
+            assert_equal(2, team.hits)
+            assert_equal(4, team.atbats)
+            assert_equal(0.5, team.batavg)
+
+          end
         ##########################Association with Player ends ############################################################
         ############################Paperclip File attachment test #############################################################
 
