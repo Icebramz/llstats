@@ -20,7 +20,7 @@
 <div style ="background-transparent" class="center jumbotron">
 <div class ="container">
 <div class="row">
-  <div class="col-md-5"><br><br><%= image_tag @game.hometeam.avatar.url(:thumb) %> <br> <h3><div class="field">
+  <div class="col-md-5"><br><br><%= image_tag @game.hometeam.avatar.url(:thumb)  %> <br> <h3><div class="field">
   <%= game.select :hometeam_id, Team.all.collect {|p| [p.name, p.id] } %>
  </div></h3></div>
   

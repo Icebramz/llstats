@@ -23,6 +23,9 @@ gem 'autoprefixer-rails'
 gem 'minitest-reporters'
 gem 'mail'
 gem 'paperclip'
+gem 'bootswatch-rails'
+gem 'rails-erd'
+gem 'gravtastic'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

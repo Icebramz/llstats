@@ -4,9 +4,17 @@ require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
 
+module SignInHelper
+  def sign_in(user)
+    session[:user_id] = user.id
+  end
+end
+
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
+  include SignInHelper
 
 
   # Returns true if a test user is logged in
@@ -27,7 +35,6 @@ class ActiveSupport::TestCase
     end
   end
 
-  
   private
 
      # Returns true inside an integration test.

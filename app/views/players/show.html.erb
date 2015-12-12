@@ -1,11 +1,11 @@
 <h1>View Player</h1>
 
 <%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
-<% if user_signed_in? %><%= link_to edit_player_path(@player), class: 'btn btn-default btn-md' do%> Edit <i class="glyphicon glyphicon-pencil"></i> <%end %> 
+<% if logged_in? %> <% if @player.user_id == current_user.id %> <%= link_to edit_player_path(@player), class: 'btn btn-default btn-md' do%> Edit <i class="glyphicon glyphicon-pencil"></i> <%end %>  
 
-<%= link_to player_path(@player), method: :delete, data: { confirm: "Are you sure you want to delete the player #{@player.first} #{@player.last}?" }, class: 'btn btn-default' do%><i class="glyphicon glyphicon-trash"></i><% end %>
+<%= link_to player_path(@player), method: :delete, data: { confirm: "Are you sure you want to delete the player #{@player.first} #{@player.last}?" }, class: 'btn btn-default' do%><i class="glyphicon glyphicon-trash"></i><% end %> 
 
-<% end %>
+<% end %> <% end %>
 
 <hr>
 <div class="center jumbotron">

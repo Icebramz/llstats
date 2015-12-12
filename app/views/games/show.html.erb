@@ -3,21 +3,21 @@
 <h1>View Game</h1>
 <%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 
-<% if logged_in? %>
-<%= link_to edit_game_path, class: 'btn btn-default btn-md' do%> <i class="glyphicon glyphicon-pencil"></i> Edit <%end %>
+<% if logged_in? %> <% if @game.user_id == current_user.id %>
+<%= link_to edit_game_path, class: 'btn btn-default btn-md' do%> <i class="glyphicon glyphicon-pencil"></i> Edit <%end %> <% end %>
 
-<button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#myModal2">
+<% if logged_in? %> <% if @game.user_id == current_user.id %> <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#myModal2">
 <i class="glyphicon glyphicon-time"></i> Update Score
-</button>
-<button type="button" class="btn btn-default btn-md pull-right" style="margin-right:5px;" style="" data-toggle="modal" data-target="#myModal">
+</button> <% end %> <% end %>
+<% if logged_in? %> <% if @game.user_id == current_user.id %> <button type="button" class="btn btn-default btn-md pull-right" style="margin-right:5px;" style="" data-toggle="modal" data-target="#myModal">
 <i class="glyphicon glyphicon-plus"></i> Add Play
 </button>
-<% end %>
+<% end %> <% end %> <% end %>
 <hr>
 <div style ="background-transparent" class="center jumbotron">
 <div class ="container">
 <div class="row">
-<% console %>
+<!--% console %>-->
   <div class="col-md-3"><br><br><%= image_tag @game.hometeam.avatar.url(:thumb) %> <br> <h3><%= @game.hometeam.name %></h3></div>
   <div class="col-md-6">
       <h2><%= @game.hometeam.name%> vs. <%= @game.awayteam.name %> on 10/12/15</h2>
@@ -92,6 +92,8 @@
 </div>
 
 
+<% if logged_in? %>
+<% if @game.user_id == current_user.id %>
 <!-- Plays Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="PlaysModal">
   <div class="modal-dialog" role="document">
@@ -106,6 +108,8 @@
     </div>
   </div>
 </div>
+<% end %> 
+<% end %>
 
 <!-- Scoreboard Modal -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="ScoreModal">

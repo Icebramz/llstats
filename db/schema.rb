@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202201434) do
+ActiveRecord::Schema.define(version: 20151210135408) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "hometeam_id",      limit: 4
@@ -44,7 +44,10 @@ ActiveRecord::Schema.define(version: 20151202201434) do
     t.integer  "away_hits",        limit: 4
     t.integer  "away_error",       limit: 4
     t.integer  "away_score",       limit: 4
+    t.integer  "user_id",          limit: 4
   end
+
+  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string   "first",                      limit: 255
@@ -105,9 +108,11 @@ ActiveRecord::Schema.define(version: 20151202201434) do
     t.float    "k9",                         limit: 24
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.integer  "user_id",                    limit: 4
   end
 
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
+  add_index "players", ["user_id"], name: "index_players_on_user_id", using: :btree
 
   create_table "plays", force: :cascade do |t|
     t.integer  "inning",      limit: 4
@@ -204,11 +209,16 @@ ActiveRecord::Schema.define(version: 20151202201434) do
     t.datetime "activated_at"
     t.string   "reset_digest",      limit: 255
     t.datetime "reset_sent_at"
+    t.integer  "game_id",           limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["game_id"], name: "index_users_on_game_id", using: :btree
 
+  add_foreign_key "games", "users"
   add_foreign_key "players", "teams"
+  add_foreign_key "players", "users"
   add_foreign_key "plays", "games"
   add_foreign_key "teams", "users"
+  add_foreign_key "users", "games"
 end

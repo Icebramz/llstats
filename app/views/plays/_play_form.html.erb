@@ -1,8 +1,8 @@
+
 <%= bootstrap_form_for([@game, @play]) do |cur_play| %>
  <% if @play.errors.any? %>
   <div id = "error_explanation">
   <h2><%= pluralize(@play.errors.count, "error") %> prohibited this Player from being saved:</h2>
->>>>>>> JLogin
 
     <ul>
       <% @play.errors.full_messages.each do |message| %>
@@ -50,5 +50,4 @@
   </div>
 
 <% end %>
-
 

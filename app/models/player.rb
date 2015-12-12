@@ -1,5 +1,7 @@
 class Player < ActiveRecord::Base
-  belongs_to :team
+  belongs_to :user
+  belongs_to :team#, class_name: 'User'
+
   before_save :calcstats
 
   validates :last, presence: true, format: {with: /\A[a-zA-Z]+\z/, message: "Only Letters are allowed" }

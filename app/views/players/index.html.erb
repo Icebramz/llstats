@@ -8,7 +8,7 @@
 
 
 <hr>
-<% if logged_in? %> <%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> <% end %> <br><br>
+<% if logged_in? %> <% if @team.user == current_user %> <%= link_to new_team_player_path, class: 'btn btn-default btn-md' do%> New Player <i class="glyphicon glyphicon-plus"></i> <%end %> <% end %> <% end %> <br><br>
 <div class="panel panel-primary">
 <div class="panel-heading">Batting and Baserunning Statistics</div>
 <div class="table-responsive">
@@ -46,8 +46,8 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <td style="text-align:left"> <% if logged_in? %> <%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %> <% end %></td>
-		<td><% if logged_in? %> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %>  <% end %>
+        <td style="text-align:left"> <% if logged_in? %> <% if @team.user == current_user %><%= link_to edit_player_path(cur_player), class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-pencil"></i><% end %> <% end %> <% end %></td>
+		<td><% if logged_in? %> <% if @team.user == current_user %> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete the player #{cur_player.first} #{cur_player.last}?" }, class: 'btn btn-danger btn-xs' do%><i class="glyphicon glyphicon-trash"></i><% end %>  <% end %> <% end %>
 		</td>
         <td style="text-align:center"> <%= link_to "#{cur_player.first} #{cur_player.last}", cur_player%> </td>
         <td style="text-align:center"> <%= cur_player.hits %> </td>
@@ -120,8 +120,8 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <td> <% if logged_in? %> <%= link_to edit_player_path(cur_player), class: 'btn btn-success btn-xs' do%><i class="glyphicon glyphicon-search"></i> Edit <% end %> <% end %> </td>
-        <td> <% if logged_in? %> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete #{cur_player.first} #{cur_player.last} from the #{@team.name} Team roster?" }, class: 'btn btn-danger btn-xs' do %> <i class="glyphicon glyphicon-trash"></i> Delete <% end %> <% end %> </td>
+        <td> <% if logged_in? %> <% if @team.user == current_user %> <%= link_to edit_player_path(cur_player), class: 'btn btn-success btn-xs' do%><i class="glyphicon glyphicon-search"></i> Edit <% end %> <% end %> <% end %> </td>
+        <td> <% if logged_in? %> <% if @team.user == current_user %> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete #{cur_player.first} #{cur_player.last} from the #{@team.name} Team roster?" }, class: 'btn btn-danger btn-xs' do %> <i class="glyphicon glyphicon-trash"></i> Delete <% end %> <% end %> <% end %></td>
         <td style="text-align:center"> <%= link_to "#{cur_player.first} #{cur_player.last}", cur_player%> </td>
         <td style="text-align:center"> <%= cur_player.wins%> </td>
         <td style="text-align:center"> <%= cur_player.losses %> </td>
@@ -186,8 +186,8 @@
   <tbody>
     <% @players.each do |cur_player| %>
       <tr>
-        <td> <% if logged_in? %> <%= link_to edit_player_path(cur_player), class: 'btn btn-success btn-xs' do%><i class="glyphicon glyphicon-search"></i> Edit <% end %> <% end %> </td>
-        <td> <% if logged_in? %> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete #{cur_player.first} #{cur_player.last} from the #{@team.name} Team roster?" }, class: 'btn btn-danger btn-xs' do %> <i class="glyphicon glyphicon-trash"></i> Delete <% end %> <% end %> </td>
+        <td> <% if logged_in? %> <% if @team.user == current_user %><%= link_to edit_player_path(cur_player), class: 'btn btn-success btn-xs' do%><i class="glyphicon glyphicon-search"></i> Edit <% end %> <% end %> <% end %></td>
+        <td> <% if logged_in? %> <% if @team.user == current_user %> <%= link_to cur_player, method: :delete, data: { confirm: "Are you sure you want to delete #{cur_player.first} #{cur_player.last} from the #{@team.name} Team roster?" }, class: 'btn btn-danger btn-xs' do %> <i class="glyphicon glyphicon-trash"></i> Delete <% end %> <% end %> <% end %></td>
         <td style="text-align:center"> <%= link_to "#{cur_player.first} #{cur_player.last}", cur_player%> </td>
         <td style="text-align:center"> <%= cur_player.putouts %> </td>
         <td style="text-align:center"> <%= cur_player.outfieldAssists %> </td>

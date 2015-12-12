@@ -3,15 +3,20 @@
 one:
   name: Panther
   division: 1
+  user: kendra
 
 two:
   name: Lion
   division: 1
+  user: isinjured
 
 three:
   name: King
   division: 2
+  user: isinjured
 
 two:
   name: Falcons
   division: 3
+  user: isinjured
+

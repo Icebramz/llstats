@@ -1,5 +1,5 @@
 <h1> Games </h1>
-<%= link_to new_game_path, class: 'btn btn-default btn-md' do%> New Game <i class="glyphicon glyphicon-plus"></i> <%end %> 
+<% if logged_in? %> <%= link_to new_game_path, class: 'btn btn-default btn-md' do%> New Game <i class="glyphicon glyphicon-plus"></i> <%end %>  <% end %>
 <hr>
 <table class = "table" >
  <thead>
@@ -13,11 +13,11 @@
   <% @games.each do |cur_game| %>
    <tr>
     <td> <%= cur_game.id %></td>
-    <td> <%= cur_game.hometeam.name %></td>
-    <td> <%= cur_game.awayteam.name %></td>
+    <td> <%= cur_game.hometeam.name if cur_game.hometeam %></td>
+    <td> <%= cur_game.awayteam.name if cur_game.awayteam %></td>
     <td> <%= link_to "Show", cur_game %> </td>
-    <td> <%= link_to "Edit", edit_game_path(cur_game) %> </td>
-    <td> <%= link_to "Destroy", cur_game, method: :delete, data: { confirm: "Do you really want to delete this game?" } %> </td>
+    <td> <% if logged_in? %> <% if cur_game.user_id == current_user.id %> <%= link_to "Edit", edit_game_path(cur_game) %> <% end %> <% end %> </td>
+    <td> <% if logged_in? %> <% if cur_game.user_id == current_user.id %> <%= link_to "Destroy", cur_game, method: :delete, data: { confirm: "Do you really want to delete this game?" } %> <% end %> <% end %> </td>
    </tr>
   <% end %>
  </tbody>

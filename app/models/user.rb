@@ -1,5 +1,22 @@
 class User < ActiveRecord::Base
-  has_many :teams, dependent: :destroy
+  #include Gravtastic
+  #gravtastic
+
+  has_many :teams
+  # not working -> has_many :user_games
+  # maybe don't need -> has_many :users_game
+  has_many :homegames, :through => :teams
+  has_many :awaygames, :through => :teams
+  # not working -> has_many :plays, :through => :teams
+  # not working -> has_many :plays, :through => :teams, :source => :team, :source_type => "Game"
+  # not working -> has_many :plays, :through => :games, :source => :game, :source_type => "Game"
+  # maybe don't need -> has_many :plays, :through => :games, :source => :team, :source_type => "Team"
+  has_many :players, :through => :teams
+
+  accepts_nested_attributes_for :teams, :allow_destroy => true
+  accepts_nested_attributes_for :homegames, :allow_destroy => true
+  accepts_nested_attributes_for :awaygames, :allow_destroy => true
+  accepts_nested_attributes_for :players, :allow_destroy => true
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
