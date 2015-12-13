@@ -21,6 +21,18 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+      <%= f.label :profile_picture %>
+      <!--<div class="gravatar_edit">-->
+      <br>
+        <a href="http://gravatar.com/emails" target="_blank">Change</a>
+        <%= gravatar_for @user %>
+      <!--</div>-->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
     <% end %>

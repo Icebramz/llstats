@@ -1,6 +1,8 @@
 class GamesController < ApplicationController
 before_filter :login_required, only: [:new, :create, :edit, :update, :destroy]
-before_action :correct_user, only: [:edit, :update, :destroy]
+before_action :correct_user, only: [:destroy]
+#before_action :correct_user, only: [:edit, :update, :destroy]
+before_action :team_coach, only: [:edit, :update]
 
 def index
  @games = Game.all
@@ -34,12 +36,12 @@ def edit
 end
 
 def update
-   @game = Game.find(params[:id])
-   if @game.update(params.require(:game).permit(:hometeam_id, :awayteam_id, :home_inningone, :home_inningtwo, :home_inningthree, :home_inningfour, :home_inningfive, :home_inningsix, :home_inningseven, :home_inningeight, :home_inningnine, :home_runs, :home_hits, :home_error, :away_inningone, :away_inningtwo, :away_inningthree, :away_inningfour, :away_inningfive, :away_inningsix, :away_inningseven, :away_inningeight, :away_inningnine, :away_runs, :away_hits, :away_error))
-    redirect_to @game
-   else
-    render :edit
-   end
+   @game = Game.find(params[:id])   
+       if @game.update(params.require(:game).permit(:hometeam_id, :awayteam_id, :home_inningone, :home_inningtwo, :home_inningthree, :home_inningfour, :home_inningfive, :home_inningsix, :home_inningseven, :home_inningeight, :home_inningnine, :home_runs, :home_hits, :home_error, :away_inningone, :away_inningtwo, :away_inningthree, :away_inningfour, :away_inningfive, :away_inningsix, :away_inningseven, :away_inningeight, :away_inningnine, :away_runs, :away_hits, :away_error))
+         redirect_to @game
+       else
+         render :edit
+       end
 end
 
 def destroy
@@ -64,5 +66,11 @@ end
       #redirect_to(games_url) unless @game.user_id == current_user.id
       redirect_to @game unless @game.user_id == current_user.id
     end
+
+    def team_coach
+       @game = Game.find(params[:id])   
+       redirect_to @game unless @game.awayteam.user_id == current_user.id || @game.hometeam.user_id == current_user.id
+   end
+      
 
 end

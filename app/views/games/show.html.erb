@@ -3,13 +3,16 @@
 <h1>View Game</h1>
 <%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 
-<% if logged_in? %> <% if @game.user_id == current_user.id %>
-<%= link_to edit_game_path, class: 'btn btn-default btn-md' do%> <i class="glyphicon glyphicon-pencil"></i> Edit <%end %> <% end %>
 
-<% if logged_in? %> <% if @game.user_id == current_user.id %> <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#myModal2">
+<% if logged_in? %> <% if @game.hometeam.user_id == current_user.id or @game.awayteam.user_id == current_user.id %>
+<%= link_to edit_game_path, class: 'btn btn-default btn-md' do%> <i class="glyphicon glyphicon-pencil"></i> Edit <%end %> <% end %> 
+
+
+
+<% if logged_in? %> <% if @game.hometeam.user_id == current_user.id or @game.awayteam.user_id == current_user.id %> <button type="button" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#myModal2">
 <i class="glyphicon glyphicon-time"></i> Update Score
 </button> <% end %> <% end %>
-<% if logged_in? %> <% if @game.user_id == current_user.id %> <button type="button" class="btn btn-default btn-md pull-right" style="margin-right:5px;" style="" data-toggle="modal" data-target="#myModal">
+<% if logged_in? %> <% if @game.hometeam.user_id == current_user.id or @game.awayteam.user_id == current_user.id %> <button type="button" class="btn btn-default btn-md pull-right" style="margin-right:5px;" style="" data-toggle="modal" data-target="#myModal">
 <i class="glyphicon glyphicon-plus"></i> Add Play
 </button>
 <% end %> <% end %> <% end %>
@@ -94,7 +97,7 @@
 
 
 <% if logged_in? %>
-<% if @game.user_id == current_user.id %>
+<% if @game.hometeam.user_id == current_user.id or @game.awayteam.user_id == current_user.id %>
 <!-- Plays Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="PlaysModal">
   <div class="modal-dialog" role="document">

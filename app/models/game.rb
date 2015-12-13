@@ -1,10 +1,6 @@
 class Game < ActiveRecord::Base
- belongs_to :user
- #belongs_to :users, through: :teams
- # maybe don't need -> has_many :user_games
- #has_and_belongs_to_many :teams
-
- #belongs_to :team
+ #belongs_to :user
+ has_many :users, :through => :teams
 
  belongs_to :hometeam, class_name: "Team"
  belongs_to :awayteam, class_name: "Team"
