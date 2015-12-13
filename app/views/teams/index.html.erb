@@ -7,7 +7,7 @@
 
 <div class = "col-sm-6 col-md-3">
       <div class = "thumbnail">
-         <%= image_tag cur_team.avatar.url(:thumb) %>
+         <%= link_to image_tag(cur_team.avatar.url(:thumb)), cur_team %>
       </div>
       
       <div class = "caption">
