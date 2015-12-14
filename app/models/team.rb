@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
 
- belongs_to :user 
+ belongs_to :user
 
  #has_and_belongs_to_many :homegames, class_name: "Game", foreign_key: :hometeam_id, dependent: :destroy
  #has_and_belongs_to_many :awaygames, class_name: "Game", foreign_key: :awayteam_id, dependent: :destroy

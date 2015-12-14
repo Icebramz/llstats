@@ -45,8 +45,8 @@ class TeamsController < ApplicationController
  def destroy
    @team = Team.find(params[:id])
    @team.destroy
-     redirect_to teams_url
-     flash[:notice] = "Team has been succesfully removed!"
+   redirect_to teams_url
+   flash[:notice] = "Team has been succesfully removed!"
  end
 
   private
@@ -64,10 +64,15 @@ class TeamsController < ApplicationController
     end
   
     def correct_user
-      user = User.find(params[:id])
-      @team = Team.find(params[:id])
-      #redirect_to(teams_url) unless @team.user_id == current_user.id
-      redirect_to @team unless @team.user_id == current_user.id
+      #user = User.find(params[:id])
+#      @team = Team.find(params[:id])
+      if !current_user.nil?
+        @team = current_user.teams.find_by(id: params[:id])
+        #redirect_to(teams_url) unless @team.user_id == current_user.id
+        redirect_to(teams_url) if @team.nil?
+      end
+
+      #redirect_to @team unless @team.user_id == current_user.id
     end
 
 end

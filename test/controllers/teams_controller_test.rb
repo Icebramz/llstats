@@ -9,9 +9,9 @@ class TeamsControllerTest < ActionController::TestCase
       @team = teams(:one)
    end
 
-   #def teardown
-   #  @team = nil
-   #end
+   def teardown
+     @team = nil
+   end
 
   def test_should_get_index 
    get :index 
@@ -40,30 +40,57 @@ class TeamsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    #log_in_as(@other_user)
+    get(:edit, {'id' => "1"}, {'user_id' => 980190962})
+    #@team.save
+    #get :edit, id: @team
+    assert_response :found
+  end
+
+  test "should redirect edit for non-logged in user" do
+    assert_not is_logged_in?
+    get(:edit, {'id' => "1"})
+    assert_redirected_to login_url
+  end
+
+  test "should redirect edit for incorrect user" do
     log_in_as(@other_user)
-    patch :update, id: @other_user.id
-    get :edit, id: @team
-    assert_response :success
+    if assert_not_equal @other_user.team_id, @team.id
+      get(:edit, {'id' => "1"})
+      assert_redirected_to teams_url
+    end
   end
 
   test "should update team" do
-    log_in_as(@other_user)
-    patch :update, id: @other_user.id
-    patch :update, id: @team
-    #patch :update, id: @team, team: { name: @team.name, division: @team.division }
-    #patch :update, id: @team.id, team: { name: @team.name, division: @team.division }
-    assert_equal flash[:notice], "Team has been succesfully updated!"
-    assert_redirected_to team_path(assigns(:team))
+    log_in_as(@user)
+    assert is_logged_in?
+    if @user.team_id == @team.id
+        patch :update, id: @team, team: {name: @team.name, division: @team.division, user: @team.user}  
+        #patch :update, user_id: 98190962, id: @team, team: {name: @team.name, division: @team.division, user: @team.user}  
+        assert_equal flash[:notice], "Team has been succesfully updated!"
+        assert_redirected_to team_path(assigns(:team))
+    end
+  end
+
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'Team.count' do
+      delete :destroy, id: @team
+    end
+    assert_redirected_to login_url
   end
 
   test "should destroy team" do
-    #assert_difference('Team.count', -1) do
     log_in_as(@other_user)
-    patch :update, id: @other_user.id
-    assert_difference 'Team.count', -1 do
+    before = Team.count
+    assert is_logged_in?
+    if @other_user.team_id == @team.id
       delete :destroy, id: @team
+      after = Team.count
+      assert_equal after, before-1
+	  assert_equal flash[:notice], "Team has been succesfully removed!"
+      assert_redirected_to teams_url
     end
-    assert_redirected_to teams_url
+
   end
   
 

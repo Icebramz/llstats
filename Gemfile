@@ -25,6 +25,7 @@ gem 'mail'
 gem 'paperclip'
 gem 'bootswatch-rails'
 gem 'gravtastic'
+gem 'rspec', '~> 3.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

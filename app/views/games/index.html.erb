@@ -16,8 +16,20 @@
     <td> <%= cur_game.hometeam.name if cur_game.hometeam %></td>
     <td> <%= cur_game.awayteam.name if cur_game.awayteam %></td>
     <td> <%= link_to "Show", cur_game %> </td>
-    <td> <% if logged_in? %> <% if cur_game.user_id == current_user.id %> <%= link_to "Edit", edit_game_path(cur_game) %> <% end %> <% end %> </td>
-    <td> <% if logged_in? %> <% if cur_game.user_id == current_user.id %> <%= link_to "Destroy", cur_game, method: :delete, data: { confirm: "Do you really want to delete this game?" } %> <% end %> <% end %> </td>
+    <td> <% if logged_in? %> 
+          <% if cur_game.hometeam and cur_game.hometeam.user_id == current_user.id %> 
+            <%= link_to "Edit", edit_game_path(cur_game) %> 
+          <%elsif cur_game.awayteam and cur_game.awayteam.user_id == current_user.id %> 
+            <%= link_to "Edit", edit_game_path(cur_game) %> 
+          <% end %> 
+         <% end %> </td>
+    <td> <% if logged_in? %> 
+          <% if cur_game.hometeam and cur_game.hometeam.user_id == current_user.id %> 
+           <%= link_to "Destroy", cur_game, method: :delete, data: { confirm: "Do you really want to delete this game?" } %> 
+          <% elsif cur_game.awayteam and cur_game.awayteam.user_id == current_user.id %> 
+           <%= link_to "Destroy", cur_game, method: :delete, data: { confirm: "Do you really want to delete this game?" } %> 
+          <% end %> 
+        <% end %> </td>
    </tr>
   <% end %>
  </tbody>

@@ -24,6 +24,8 @@ live:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.now %>
+  game_id: 1
+  team_id: 3
  
 Quebueno:
   name: Que Bueno

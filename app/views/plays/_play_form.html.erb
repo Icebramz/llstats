@@ -1,49 +1,52 @@
 
+<!--%= bootstrap_form_for([@game, @play]) do |cur_play| %>-->
 <%= bootstrap_form_for([@game, @play]) do |cur_play| %>
- <% if @play.errors.any? %>
-  <div id = "error_explanation">
-  <h2><%= pluralize(@play.errors.count, "error") %> prohibited this Player from being saved:</h2>
+   <% if @play.errors.any? %>
+      <div id = "error_explanation">
+        <h2><%= pluralize(@play.errors.count, "error") %> prohibited this Player from being saved:</h2>
 
-    <ul>
-      <% @play.errors.full_messages.each do |message| %>
-         <li><%= message  %></li>
-      <% end %>
-    </ul>
-    </div>
+          <ul>
+            <% @play.errors.full_messages.each do |message| %>
+              <li><%= message  %></li>
+            <% end %>
+         </ul>
+     </div>
    <% end %>
  
- <%= cur_play.select :home_away, [["Home", "Home"], ["Away", "Away"]], { label: "Home or Away Team" }, { class: "selectpicker" } %>
- <%= cur_play.select :inning, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"], [6, "6"], [7, "7"], [8, "8"], [9, "9"]], { label: "Inning:" }, { class: "selectpicker" } %>
+   <%= cur_play.select :home_away, [["Home", "Home"], ["Away", "Away"]], { label: "Home or Away Team" }, { class: "selectpicker" } %>
+   <%= cur_play.select :inning, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"], [6, "6"], [7, "7"], [8, "8"], [9, "9"]], { label: "Inning:" }, { class: "selectpicker" } %>
+   <hr>
+     <div class="field">
+       <%= cur_play.text_field :player_name %>
+     </div>
+
+     <div class="field">
+       <%= cur_play.text_area :message %>
+     </div>
+   <hr>
+     <div align="center">
+       <div class="row">
+          <div class="col-md-2">
+            <div class="field">
+              <%= cur_play.text_field :balls %>
+            </div>
+          </div>
+
+          <div class="col-md-offset-3 col-md-2">
+            <div class="field">
+              <%= cur_play.text_field :strikes %>
+           </div>
+          </div>
+
+          <div class="col-md-offset-3 col-md-2">
+            <div class="field">
+              <%= cur_play.text_field :out %>
+            </div>
+          </div>
+       </div>
+    </div>
+
   <hr>
-  <div class="field">
-    <%= cur_play.text_field :player_name %>
- </div>
-
- <div class="field">
-    <%= cur_play.text_area :message %>
- </div>
-<hr>
-    <div align="center">
-    <div class="row">
-        <div class="col-md-2">
-        <div class="field">
-          <%= cur_play.text_field :balls %>
-        </div>
-        </div>
-        <div class="col-md-offset-3 col-md-2">
-         <div class="field">
-            <%= cur_play.text_field :strikes %>
-         </div>
-        </div>
-        <div class="col-md-offset-3 col-md-2">
-         <div class="field">
-            <%= cur_play.text_field :out %>
-         </div>
-        </div>
-    </div>
-    </div>
-
-<hr>
 
   <div class="actions">
     <%= cur_play.submit %>

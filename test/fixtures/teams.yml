@@ -4,6 +4,7 @@ one:
   name: Panther
   division: 1
   user: kendra
+  #user_id: 980190962
 
 two:
   name: Lion

@@ -12,11 +12,25 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to login_url
   end
 
+  test "should get index when logged in" do
+    log_in_as(@user)
+    get :index
+    assert_response :success
+    assert_select "h1", "All Coaches"
+  end
+
   test "should get new" do
     get :new
     assert_response :success
+    assert_select "h4", "Sign up"
   end
 
+  test "should get show of logged in user" do
+    get :show, id: @user
+    assert_response :success
+    assert "title", @user.name
+  end
+ 
   test "should redirect edit when not logged in" do
     get :edit, id: @user
     assert_not flash.empty?

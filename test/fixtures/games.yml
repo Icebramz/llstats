@@ -5,5 +5,39 @@ one:
   awayteam_id: 1
 
 two:
-  hometeam_id: 1
-  awayteam_id: 1
+  hometeam_id: 2
+  awayteam_id: 2
+
+three:
+  hometeam_id: 3
+  awayteam_id: 3
+
+four:
+  hometeam_id: 4
+  awayteam_id: 4
+  home_inningone: 1
+  home_inningtwo: 1
+  home_inningthree: 1
+  home_inningfour: 1
+  home_inningfive: 1
+  home_inningsix: 1
+  home_inningseven: 1
+  home_inningeight: 1
+  home_inningnine: 1
+  home_runs: 1
+  home_hits: 1
+  home_error: 1
+  away_inningone: 1
+  away_inningtwo: 1
+  away_inningthree: 1
+  away_inningfour: 1
+  away_inningfive: 1
+  away_inningsix: 1
+  away_inningseven: 1
+  away_inningeight: 1
+  away_inningnine: 1
+  away_runs: 1
+  away_hits: 1
+  away_error: 1
+  user_id: 98190962
+
