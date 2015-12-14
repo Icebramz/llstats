@@ -68,22 +68,34 @@
               <td> <%= @player.sacrificeHits %> </td>
               <td> <%= @player.sacrificeFlies %> </td>
               <td> <%= @player.plateAppearances %> </td> 
-              <% if @player.batavg >= @team.batavg %>
+
+              <% if @player.atbats == 0 %>
+              	<td><%= number_with_precision(@player.batavg, precision:3) %></td>
+              <% elsif @player.batavg >= @team.batavg %>
               	<td class="success"><%= number_with_precision(@player.batavg, precision:3) %></td>
               <% else %>
               	<td class="danger"><%= number_with_precision(@player.batavg, precision:3) %></td>
               <% end %>   
-              <% if @player.onBasePercentage >= @team.onBasePercentage %>
+
+              <% if @player.plateAppearances == 0 %>
+              	<td><%= number_with_precision(@player.onBasePercentage, precision:3) %></td>
+              <% elsif @player.onBasePercentage >= @team.onBasePercentage %>
               	<td class="success"><%= number_with_precision(@player.onBasePercentage, precision:3) %></td>
               <% else %>
               	<td class="danger"><%= number_with_precision(@player.onBasePercentage, precision:3) %></td>
               <% end %>
-              <% if @player.sluggingPercentage >= @team.sluggingPercentage %>
+
+              <% if @player.atbats == 0 %>
+              	<td><%= number_with_precision(@player.sluggingPercentage, precision:3) %></td>
+              <% elsif @player.sluggingPercentage >= @team.sluggingPercentage %>
               	<td class="success"><%= number_with_precision(@player.sluggingPercentage, precision:3) %></td>
               <% else %>
               	<td class="danger"><%= number_with_precision(@player.sluggingPercentage, precision:3) %></td>
               <% end %>
-              <% if @player.caughtStealingPercentage <= @team.caughtStealingPercentage %>
+
+              <% if @player.stolenBases == 0 and @player.caughtStealing == 0 %>
+              	<td><%= number_with_precision(@player.caughtStealingPercentage, precision:3) %></td>
+              <% elsif @player.caughtStealingPercentage <= @team.caughtStealingPercentage %>
               	<td class="success"><%= number_with_precision(@player.caughtStealingPercentage, precision:3) %></td>
               <% else %>
               	<td class="danger"><%= number_with_precision(@player.caughtStealingPercentage, precision:3) %></td>
@@ -94,8 +106,6 @@
         </table>
       </div>
     </div>
-    
-
     
     <div class= "panel panel-default">
      <div class="panel-heading">Pitching Statistics</div>
@@ -145,12 +155,56 @@
               <td> <%= @player.p_hitByPitch %> </td>
               <td> <%= @player.balks %> </td>
               <td> <%= @player.wildPitches %> </td>
-              <td> <%= number_with_precision(@player.earnedRunAverage, precision:2) %> </td>
-              <td> <%= number_with_precision(@player.whip, precision:3) %> </td>
-              <td> <%= number_with_precision(@player.h9, precision:1) %> </td>
-              <td> <%= number_with_precision(@player.hr9, precision:1) %> </td>
-              <td> <%= number_with_precision(@player.bb9, precision:1) %> </td>
-              <td> <%= number_with_precision(@player.k9, precision:1) %> </td>
+
+              <% if @player.inningsPitched == 0 %>
+               <td><%= number_with_precision(@player.earnedRunAverage, precision:2) %> </td>
+              <% elsif @player.earnedRunAverage <= @team.earnedRunAverage %>
+               <td class="success"><%= number_with_precision(@player.earnedRunAverage, precision:2) %> </td>
+              <% else %>
+               <td class="danger"><%= number_with_precision(@player.earnedRunAverage, precision:2) %> </td>
+              <% end %>
+
+              <% if @player.inningsPitched == 0 %>
+               <td><%= number_with_precision(@player.whip, precision:3) %> </td>
+              <% elsif @player.whip <= @team.whip %>
+               <td class="success"><%= number_with_precision(@player.whip, precision:3) %> </td>
+              <% else %>
+               <td class="danger"><%= number_with_precision(@player.whip, precision:3) %> </td>
+              <% end %>
+
+              <% if @player.inningsPitched == 0 %>
+               <td> <%= number_with_precision(@player.h9, precision:1) %> </td>
+              <% elsif @player.h9 <= @team.h9 %>
+               <td class="success"> <%= number_with_precision(@player.h9, precision:1) %> </td>
+              <% else %>
+               <td class="danger"> <%= number_with_precision(@player.h9, precision:1) %> </td>
+              <% end %>
+
+              <% if @player.inningsPitched == 0 %>
+               <td> <%= number_with_precision(@player.hr9, precision:1) %> </td>
+              <% elsif @player.hr9 <= @team.hr9 %>
+               <td class="success"> <%= number_with_precision(@player.hr9, precision:1) %> </td>
+              <% else %>
+               <td class="danger"> <%= number_with_precision(@player.hr9, precision:1) %> </td>
+              <% end %>
+
+              <% if @player.inningsPitched == 0 %>
+               <td> <%= number_with_precision(@player.bb9, precision:1) %> </td>
+              <% elsif @player.bb9 <= @team.bb9 %>
+               <td class="success"> <%= number_with_precision(@player.bb9, precision:1) %> </td>
+              <% else %>
+               <td class="danger"> <%= number_with_precision(@player.bb9, precision:1) %> </td>
+              <% end %>
+
+
+              <% if @player.inningsPitched == 0 %>
+               <td> <%= number_with_precision(@player.k9, precision:1) %> </td>
+              <% elsif @player.k9 >= @team.k9 %>
+               <td class="success"> <%= number_with_precision(@player.k9, precision:1) %> </td>
+              <% else %>
+               <td class="danger"> <%= number_with_precision(@player.k9, precision:1) %> </td>
+              <% end %>
+
             </tr>
           </tbody>
         </table>
@@ -190,8 +244,22 @@
               <td> <%= @player.f_caughtStealing %> </td>
               <td> <%= @player.assists %> </td>
               <td> <%= @player.defensiveChances %> </td>
-              <td> <%= number_with_precision(@player.fieldingPercentage, precision:3) %> </td>
-              <td> <%= number_to_percentage(@player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+
+              <% if @player.defensiveChances == 0 %>
+               <td> <%= number_with_precision(@player.fieldingPercentage, precision:3) %> </td>
+              <% elsif @player.fieldingPercentage >= @team.fieldingPercentage %>
+               <td class="success"> <%= number_with_precision(@player.fieldingPercentage, precision:3) %> </td>
+              <% else %>
+               <td class="danger"> <%= number_with_precision(@player.fieldingPercentage, precision:3) %> </td>
+              <% end %>
+
+              <% if @player.f_stolenBases == 0 %>
+               <td> <%= number_to_percentage(@player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+              <% elsif @player.f_caughtStealingPercentage >= @team.f_caughtStealingPercentage %>
+               <td class="success"> <%= number_to_percentage(@player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+              <% else %>
+               <td class="danger"> <%= number_to_percentage(@player.f_caughtStealingPercentage * 100, precision:0) %> </td>
+              <% end %>
             </tr>
           </tbody>
         </table>
