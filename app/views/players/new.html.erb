@@ -1,3 +1,17 @@
+<%= bootstrap_form_for([@team, @player]) do |player| %>
+ <% if @player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this Player from being saved:</h2>
+
+      <ul>
+      <% @player.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
 <h1> Add a new player to <%= @team.name %>'s Roster </h1>
 <%= link_to 'javascript:history.go(-1);', class: 'btn btn-default btn-md' do%> Back <i class="glyphicon glyphicon-none"></i> <%end %>
 <hr>
@@ -10,7 +24,16 @@
     <h4>Add Player</h4>
   </div>
   <div class="panel-body">
-   <%= render "player_form" %>
+    <div class="field">
+      <%= player.text_field :last, label: "Last Name"%>
+    </div>
+    <div class="field">
+      <%= player.text_field :first, label: "First Name"%>
+    </div>
+    <div class="actions">
+      <%= player.submit %>
+    </div>
+   <% end %>
   </div>
 </div>
 
